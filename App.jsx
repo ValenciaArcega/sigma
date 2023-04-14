@@ -1,7 +1,9 @@
+import './App.css';
+import Login from "./src/components/views/Login";
 
 const App = () => {
   return (
-    <h1>Hey this is sigfea</h1>
+    <Login />
   );
 };
 
