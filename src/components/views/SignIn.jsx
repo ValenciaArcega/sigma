@@ -1,12 +1,16 @@
 import BadCredentials from "../messages/BadCredentials";
 import { useState } from "react";
 
-const Login = () => {
+const SignIn = ({ setIsRegistering }) => {
   const [isWrong, setIsWrong] = useState(true);
+
+  const goRegister = (e) => {
+    e.preventDefault();
+    setIsRegistering(true);
+  };
 
   return (
     <section className="container-login">
-
       {isWrong ? <BadCredentials /> : null}
 
       <form className="login">
@@ -17,13 +21,13 @@ const Login = () => {
         <input autoComplete="new-password" className="login-inputMail" type="text" id="inputMail" placeholder="Ingresa tu correo" />
 
         <label className="login-label" htmlFor="inputPass">Contraseña</label>
-        <input className="login-inputPass" type="password" id="inputPass" placeholder="Ingresa tu contraseña" />
+        <input className="login-inputPass" autoComplete="new-password" type="password" id="inputPass" placeholder="Ingresa tu contraseña" />
 
         <button className="login-buttonLogin" type="submit">Entrar</button>
-        <label className="login-labelBGR" htmlFor="lbgr">¿No tienes una cuenta? <button className="login-buttonGoRegister" id="lbgr">Registrate</button></label>
+        <label className="login-labelBGR" htmlFor="lbgr">¿No tienes una cuenta? <button onClick={goRegister} className="login-buttonGoRegister" id="lbgr">Registrate</button></label>
       </form>
     </section>
   );
 };
 
-export default Login;
+export default SignIn;

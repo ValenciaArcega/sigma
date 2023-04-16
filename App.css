@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --primaryColor: #4263eb;
-  --primaryColor-tint: #5573ed;
-  --primaryColor-shade: #3b59d4;
+  --mainColor: #4263eb;
+  --mainColor-tint: #5573ed;
+  --mainColor-shade: #3b59d4;
   --secondaryColor: ;
   --tertiaryColor: ;
   --ff: #fff;
   --black18: #181818;
   --bg: #f2f2f7;
+
+  --borderFieldName: #c5c5c5;
+  --borderFieldID: #c5c5c5;
+  --borderFieldPass: #c5c5c5;
+  --borderFieldPassConfirm: #c5c5c5;
 }
 
 * {
@@ -65,7 +70,7 @@ input {
   font-weight: 800;
   user-select: none;
   pointer-events: none;
-  background: linear-gradient(to right bottom, #8fa0e7, var(--primaryColor-shade));
+  background: linear-gradient(to right bottom, #8fa0e7, var(--mainColor-shade));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -92,7 +97,7 @@ input {
 
 .login-inputMail:focus,
 .login-inputPass:focus {
-  border: 2px solid var(--primaryColor-shade);
+  border: 2px solid var(--mainColor-shade);
 }
 
 .login-buttonLogin {
@@ -124,7 +129,7 @@ input {
   border: none;
   outline: none;
   background: none;
-  color: var(--primaryColor-shade);
+  color: var(--mainColor-shade);
 }
 
 .login-buttonGoRegister:hover {
@@ -140,7 +145,7 @@ input {
   gap: 6px;
   font-size: 16px;
   border-radius: 10px;
-  top: 44px;
+  top: 32px;
   left: 50%;
   transform: translateX(-50%);
   user-select: none;
@@ -148,12 +153,11 @@ input {
   position: absolute;
   font-weight: 500;
   display: flex;
-  /* grid-template-columns: 8% 1fr; */
   align-items: center;
   justify-content: center;
   color: #181818;
   background-color: #fff;
-  box-shadow: 0px 8px 12px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 12px -6px rgba(0, 0, 0, 0.4);
 }
 
 .wrongCredentials-svg-panlocked {
@@ -161,7 +165,173 @@ input {
   color: #ff3232;
 }
 
+/* ///////////////////////////////////////////////////// */
+/* SignUp.jsx */
+.container-signUp {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUpForm {
+  height: 33rem;
+  width: 20rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: #fff;
+  box-shadow: 0px 8px 14px -6px rgba(0, 0, 0, 0.3);
+}
+
+.signUpForm-title {
+  margin-top: 1rem;
+  font-size: 26px;
+  letter-spacing: -.8px;
+}
+
+.signUpForm-label {
+  width: 78%;
+  margin-top: 10px;
+  letter-spacing: -.4px;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 85% 1fr;
+}
+
+
+.btn-backLogin__svg-Back {
+  width: 22px;
+  color: var(--mainColor);
+}
+
+.signUpForm-name,
+.signUpForm-mail,
+.signUpForm-pass,
+.signUpForm-passConfirm {
+  height: 42px;
+  width: 78%;
+  margin-top: 4px;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 2px solid var(--borderFieldName);
+  background: none;
+  outline: none;
+  background-color: white;
+}
+
+.signUpForm-mail {
+  border: 2px solid var(--borderFieldID);
+}
+
+.signUpForm-pass {
+  width: 100%;
+  margin-top: 0;
+  border: 2px solid var(--borderFieldPass);
+}
+
+.signUpForm-passConfirm {
+  width: 100%;
+  margin-top: 0;
+  border: 2px solid var(--borderFieldPassConfirm);
+}
+
+.signUpForm-name-p,
+.signUpForm-mail-p,
+.signUpForm-pass-p,
+.signUpForm-passConfirm-p {
+  height: 12px;
+  width: 78%;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f63737;
+}
+
+
+.wrapper-password {
+  width: 78%;
+  margin-top: 4px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 80% 1fr;
+}
+
+.btn-showPass,
+.btn-showPassConfirm {
+  height: 42px;
+  width: 46px;
+  border: 2px solid var(--borderFieldPass);
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-showPassConfirm {
+  border: 2px solid var(--borderFieldPassConfirm);
+}
+
+.btn-showPass-svg,
+.btn-hidePass-svg,
+.btn-showPassConfirm-svg,
+.btn-hidePassConfirm-svg {
+  height: 24px;
+  color: var(--mainColor);
+}
+
+
+.wrapper-textAdvicePass {
+  width: 78%;
+  margin-top: 2px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+}
+
+.signUpForm-pass-p {
+  font-size: 14px;
+  color: var(--mainColor);
+}
+
+.signUpForm-pass-ul {
+  padding-left: 1.5rem;
+  font-size: 13px;
+}
+
+.signUpForm-btnRegister {
+  min-height: 2.5rem;
+  width: 78%;
+  margin-top: 1rem;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  color: var(--bg);
+  background-color: var(--mainColor);
+  box-shadow: 0px 10px 10px -7px rgba(0, 0, 0, 0.2);
+}
+
+.signUpForm-btnRegister:hover {
+  cursor: pointer;
+  box-shadow: 0px 10px 10px -7px rgba(0, 0, 0, 0.25);
+}
+
 
 /* ///////////////////////////////////////////////////// */
 /* ///////////////////////////////////////////////////// */
-.hidden {}
+.hidden {
+  display: none;
+}
+
+.gradient {
+  background: linear-gradient(to right bottom, #8fa0e7, var(--mainColor-shade));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
