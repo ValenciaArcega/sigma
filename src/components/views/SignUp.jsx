@@ -4,8 +4,15 @@ import reviewRegister from "../../functions/review-userRegistration";
 
 const SignUp = ({ setIsRegistering }) => {
 
-  const goSignIn = (e) => {
-    e.preventDefault();
+  const resetBorders = () => {
+    const root = document.querySelector(':root');
+    root.style.setProperty('--borderFieldName', '#c5c5c5');
+    root.style.setProperty('--borderFieldID', '#c5c5c5');
+    root.style.setProperty('--borderFieldPassConfirm', '#c5c5c5');
+  };
+
+  const goSignIn = () => {
+    resetBorders();
     setIsRegistering(false);
   };
 
@@ -35,6 +42,7 @@ const SignUp = ({ setIsRegistering }) => {
           autoComplete="new-password"
           onFocus={inputNumberFocusIn}
           onBlur={inputNumberBlur}
+          onChangeCapture={() => document.querySelector('.signUpForm-mail-p').textContent = ''}
         />
         <p className="signUpForm-mail-p"></p>
 
@@ -82,7 +90,10 @@ const SignUp = ({ setIsRegistering }) => {
         </div>
         <p className="signUpForm-passConfirm-p"></p>
 
-        <button type="submit" className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
+        <button onClick={(e) => {
+          e.preventDefault();
+          reviewRegister();
+        }} type="submit" className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
 
         <label className="signUpForm-labelGoSignIn" htmlFor="sufbsi">¿Ya tienes una cuenta? <button id="sufbsi" className="signUpForm-btnGoSignIn" onClick={goSignIn}>Inicia Sesión</button></label>
 

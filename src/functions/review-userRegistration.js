@@ -16,6 +16,7 @@ const reviewRegister = () => {
   let resultName = false;
   let resultID = false;
   let resultPass = false;
+
   /////////////////////////////////////////////////////////
   if (inputName.value === '') {
     root.style.setProperty('--borderFieldName', '#f63737');
@@ -46,7 +47,6 @@ const reviewRegister = () => {
   if (resultName && resultID && resultPass) {
     return reviewed = true;
   }
-
   return reviewed;
 };
 

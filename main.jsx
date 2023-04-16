@@ -1,5 +1,6 @@
 
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from "react-router-dom";
 // se importa el componente del archivo App.jsx
 import App from "./App";
 
@@ -7,4 +8,8 @@ import App from "./App";
 const root = createRoot(document.getElementById('app'));
 
 // se renderiza el componente importado
-root.render(<App />);
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);

@@ -1,5 +1,6 @@
 
 let root = document.querySelector(':root');
+
 ////////////////////////////////////////////////////////////
 // input name
 const inputNameFocusIn = () => root.style.setProperty('--borderFieldName', '#3b59d4');
