@@ -1,4 +1,4 @@
-import { IconText, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
+import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputNumberFocusIn, inputNumberBlur, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister } from "../../functions/review-inputRegister";
 import reviewRegister from "../../functions/review-userRegistration";
 
@@ -11,7 +11,6 @@ const SignUp = ({ setIsRegistering }) => {
 
   return (
     <section className="container-signUp">
-
       <form className="signUpForm">
 
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
@@ -28,7 +27,7 @@ const SignUp = ({ setIsRegistering }) => {
         />
         <p className="signUpForm-name-p"> </p>
 
-        <label className="signUpForm-label" htmlFor="sufc">Correo electrónico</label>
+        <label className="signUpForm-label" htmlFor="sufc">Correo electrónico <IconHashtag /></label>
         <input
           id="sufc"
           className="signUpForm-mail"
@@ -38,7 +37,6 @@ const SignUp = ({ setIsRegistering }) => {
           onBlur={inputNumberBlur}
         />
         <p className="signUpForm-mail-p"></p>
-
 
         <label className="signUpForm-label" htmlFor="inputPassword">Contraseña</label>
         <section className="wrapper-password">
@@ -84,10 +82,10 @@ const SignUp = ({ setIsRegistering }) => {
         </div>
         <p className="signUpForm-passConfirm-p"></p>
 
-        <button type="submit" onClick={goSignIn} className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
+        <button type="submit" className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
 
-        <label htmlFor="">¿Ya tienes una cuenta?
-          <button>Iniciar Sesión</button></label>
+        <label className="signUpForm-labelGoSignIn" htmlFor="sufbsi">¿Ya tienes una cuenta? <button id="sufbsi" className="signUpForm-btnGoSignIn" onClick={goSignIn}>Inicia Sesión</button></label>
+
       </form>
     </section>
   );

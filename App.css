@@ -106,16 +106,17 @@ input {
   margin-top: 1rem;
   border-radius: 10px;
   font-size: 16px;
+  font-weight: 500;
   border: none;
   outline: none;
   color: #fff;
-  background-color: #5573ed;
-  box-shadow: 0px 8px 12px -6px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(to top right, #3b59d4, #6681ed);
+  box-shadow: 0px 8px 12px -6px rgba(0, 0, 0, 0.5);
 }
 
 .login-buttonLogin:hover {
   cursor: pointer;
-  box-shadow: 0px 8px 12px -6px rgba(0, 0, 0, 0.77);
+  box-shadow: 0px 8px 12px -6px rgba(0, 0, 0, 0.57);
 }
 
 .login-labelBGR {
@@ -177,16 +178,17 @@ input {
 .signUpForm {
   height: 33rem;
   width: 20rem;
+  padding-top: 2rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   place-items: center;
   background-color: #fff;
-  box-shadow: 0px 8px 14px -6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 8px 16px -6px rgba(0, 0, 0, 0.2);
 }
 
 .signUpForm-title {
-  margin-top: 1rem;
+  margin-bottom: 6px;
   font-size: 26px;
   letter-spacing: -.8px;
 }
@@ -201,8 +203,9 @@ input {
 }
 
 
-.btn-backLogin__svg-Back {
-  width: 22px;
+.signUpForm-labelSVG {
+  width: 20px;
+  justify-self: center;
   color: var(--mainColor);
 }
 
@@ -258,6 +261,7 @@ input {
   display: grid;
   gap: 8px;
   grid-template-columns: 80% 1fr;
+  background-color: #fff;
 }
 
 .btn-showPass,
@@ -291,7 +295,8 @@ input {
   gap: 8px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start
+  align-items: flex-start;
+  background-color: #fff;
 }
 
 .signUpForm-pass-p {
@@ -307,14 +312,14 @@ input {
 .signUpForm-btnRegister {
   min-height: 2.5rem;
   width: 78%;
-  margin-top: 1rem;
+  margin-top: 12px;
   border-radius: 10px;
   font-size: 16px;
   font-weight: 400;
   border: none;
   outline: none;
   color: var(--bg);
-  background-color: var(--mainColor);
+  background: linear-gradient(to top right, #3b59d4, #6681ed);
   box-shadow: 0px 10px 10px -7px rgba(0, 0, 0, 0.2);
 }
 
@@ -323,6 +328,24 @@ input {
   box-shadow: 0px 10px 10px -7px rgba(0, 0, 0, 0.25);
 }
 
+.signUpForm-labelGoSignIn {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.signUpForm-btnGoSignIn {
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  background: none;
+  color: #3b59d4;
+}
+
+.signUpForm-btnGoSignIn:hover {
+  font-weight: 700;
+  cursor: pointer;
+}
 
 /* ///////////////////////////////////////////////////// */
 /* ///////////////////////////////////////////////////// */
