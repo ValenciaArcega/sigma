@@ -355,7 +355,109 @@ input {
   height: 100vh;
 }
 
+/* ///////////////////////////////////////////////////// */
+/* NavBarDesktop.jsx */
+.navBar-desktop {
+  height: 44px;
+  border-bottom: 2px solid var(--mainColor);
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: var(--ff);
+}
 
+.NVD-title {
+  margin-left: 1.3rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  justify-self: flex-start;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.NVD-wrapperButtons {
+  padding-right: 1.3rem;
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: none;
+}
+
+.NVD-btn-dashboard,
+.NVD-btn-feed,
+.NVD-btn-account {
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  color: var(--black18);
+}
+
+.NVD-btn-dashboard:hover,
+.NVD-btn-feed:hover,
+.NVD-btn-account:hover {
+  cursor: pointer;
+}
+
+/* ///////////////////////////////////////////////////// */
+/* NavBarMobile.jsx */
+.navBar-mobile {
+  height: 52px;
+  width: 100%;
+  border-top: 2px solid var(--mainColor);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.NVM-btn {
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--black18);
+}
+
+.NVM-btnIcon {
+  height: 26px;
+  color: var(--black18);
+}
+
+/* ///////////////////////////////////////////////////// */
+.btn-Dark,
+.btn-Light {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 64px;
+  right: 12px;
+  background: none;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.btn-darkIcon,
+.btn-lightIcon {
+  height: 26px;
+  color: #181818;
+}
+
+.btn-lightIcon {
+  height: 28px;
+  color: yellow;
+}
 
 /* ///////////////////////////////////////////////////// */
 .hidden {
@@ -366,4 +468,51 @@ input {
   background: linear-gradient(to right bottom, #8fa0e7, var(--mainColor-shade));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.highlight-container,
+.highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+
+.highlight-container:before {
+  content: " ";
+  height: 100%;
+  width: 110%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(1.07, 1.05) skewX(-15deg);
+  background: linear-gradient(to left, var(--mainColor), #8fa0e7);
+}
+
+
+.highlightBubble-container,
+.highlightBubble {
+  position: relative;
+}
+
+.highlightBubble-container {
+  display: inline-block;
+}
+
+.highlightBubble-container:before {
+  content: " ";
+  width: 100%;
+  display: block;
+  position: absolute;
+  margin-left: -3px;
+  top: -1px;
+  left: -1px;
+  height: 90%;
+  margin-right: -3px;
+  transform: rotate(2deg);
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
+  background: var(--gradient-primary);
 }

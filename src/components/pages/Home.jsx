@@ -1,6 +1,8 @@
 import NavBarDesktop from "../navegation-bar/NavBarDesktop";
 import NavBarMobile from '../navegation-bar/NavBarMobile';
+import Appearance from "../buttons/Appearance";
 import Dashboard from "../views/Dashboard";
+import Profile from "../views/Profile";
 import Feed from '../views/Feed';
 import { useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
@@ -33,7 +35,9 @@ const Home = () => {
       <Routes>
         <Route path="/sigfea//*" element={<Dashboard />}></Route>
         <Route path="/sigfea/feed" element={<Feed />}></Route>
+        <Route path="/sigfea/profile" element={<Profile />}></Route>
       </Routes>
+      <Appearance />
     </main>
   );
 };
