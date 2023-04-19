@@ -464,14 +464,13 @@ input {
 /* ///////////////////////////////////////////////////// */
 /* Dashboard.jsx */
 .container-dashboard {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  /* background-color: #6681ed; */
 }
 
 .dashboard-header h1 {
-  margin-left: 1rem;
+  margin-left: 2rem;
   font-size: 32px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -480,8 +479,10 @@ input {
 .dashboard-main {
   width: 95%;
   margin-top: 10px;
-  display: grid;
+  padding-bottom: 7rem;
   gap: 16px 8px;
+  display: grid;
+  justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   align-self: center;
 }
@@ -511,6 +512,10 @@ input {
   font-size: 32;
   font-weight: 700;
 }
+
+/* ///////////////////////////////////////////////////// */
+/* Profile.jsx */
+.container-profile {}
 
 /* ///////////////////////////////////////////////////// */
 .hidden {

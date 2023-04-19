@@ -1,8 +1,19 @@
 import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputNumberFocusIn, inputNumberBlur, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister } from "../../functions/review-inputRegister";
 import reviewRegister from "../../functions/review-userRegistration";
+import { firebaseApp } from '../../database/credentials';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignUp = ({ setIsRegistering }) => {
+  const auth = getAuth(firebaseApp);
+
+  async function submitHandler(e) {
+    e.preventDefault();
+    const mail = e.target.inputMail.value;
+    const password = e.target.inputPassword.value;
+
+    await createUserWithEmailAndPassword(auth, mail, password);
+  }
 
   const resetBorders = () => {
     const root = document.querySelector(':root');
@@ -18,7 +29,7 @@ const SignUp = ({ setIsRegistering }) => {
 
   return (
     <section className="container-signUp">
-      <form className="signUpForm">
+      <form className="signUpForm" onSubmit={submitHandler}>
 
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
@@ -34,9 +45,9 @@ const SignUp = ({ setIsRegistering }) => {
         />
         <p className="signUpForm-name-p"> </p>
 
-        <label className="signUpForm-label" htmlFor="sufc">Correo electrónico <IconHashtag /></label>
+        <label className="signUpForm-label" htmlFor="inputMail">Correo electrónico <IconHashtag /></label>
         <input
-          id="sufc"
+          id="inputMail"
           className="signUpForm-mail"
           placeholder="usuario@dominio.com"
           autoComplete="new-password"
@@ -90,10 +101,7 @@ const SignUp = ({ setIsRegistering }) => {
         </div>
         <p className="signUpForm-passConfirm-p"></p>
 
-        <button onClick={(e) => {
-          e.preventDefault();
-          reviewRegister();
-        }} type="submit" className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
+        <button type="submit" onClick={reviewRegister} className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
 
         <label className="signUpForm-labelGoSignIn" htmlFor="sufbsi">¿Ya tienes una cuenta? <button id="sufbsi" className="signUpForm-btnGoSignIn" onClick={goSignIn}>Inicia Sesión</button></label>
 

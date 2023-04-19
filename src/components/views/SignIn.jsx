@@ -1,9 +1,27 @@
 import BadCredentials from "../messages/BadCredentials";
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { firebaseApp } from '../../database/credentials';
 import { useState } from "react";
 
-const SignIn = ({ setIsRegistering }) => {
-  const [isWrong, setIsWrong] = useState(true);
+const auth = getAuth(firebaseApp);
 
+const SignIn = ({ setIsRegistering }) => {
+
+  const [isWrong, setIsWrong] = useState(false);
+
+  async function submitHandler(e) {
+    e.preventDefault();
+    try {
+      const m = e.target.inputMail.value;
+      const p = e.target.inputPassword.value;
+      await signInWithEmailAndPassword(auth, m, p);
+    } catch (e) {
+      setIsWrong(true);
+      setTimeout(() => {
+        setIsWrong(false);
+      }, 4000);
+    }
+  }
   const goRegister = (e) => {
     e.preventDefault();
     setIsRegistering(true);
@@ -13,17 +31,30 @@ const SignIn = ({ setIsRegistering }) => {
     <section className="container-login">
       {isWrong ? <BadCredentials /> : null}
 
-      <form className="login">
+      <form className="login" onSubmit={submitHandler}>
         <img className="login-img" src="./login.svg" alt="" />
         <h1 className="login-title">Inicia Sesión</h1>
 
         <label className="login-label" htmlFor="inputMail">Correo electrónico</label>
-        <input autoComplete="new-password" className="login-inputMail" type="text" id="inputMail" placeholder="Ingresa tu correo" />
+        <input
+          id="inputMail"
+          className="login-inputMail"
+          type="text"
+          autoComplete="new-password"
+          placeholder="Ingresa tu correo"
+        />
 
-        <label className="login-label" htmlFor="inputPass">Contraseña</label>
-        <input className="login-inputPass" autoComplete="new-password" type="password" id="inputPass" placeholder="Ingresa tu contraseña" />
+        <label className="login-label" htmlFor="inputPassword">Contraseña</label>
+        <input
+          id="inputPassword"
+          className="login-inputPass"
+          type="password"
+          autoComplete="new-password"
+          placeholder="Ingresa tu contraseña"
+        />
 
         <button className="login-buttonLogin" type="submit">Entrar</button>
+
         <label className="login-labelBGR" htmlFor="lbgr">¿No tienes una cuenta? <button onClick={goRegister} className="login-buttonGoRegister" id="lbgr">Registrate</button></label>
       </form>
     </section>
