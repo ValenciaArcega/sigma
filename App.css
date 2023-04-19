@@ -413,6 +413,7 @@ input {
   position: fixed;
   bottom: 0;
   left: 0;
+  background-color: var(--ff);
 }
 
 .NVM-btn {
@@ -431,6 +432,7 @@ input {
 }
 
 /* ///////////////////////////////////////////////////// */
+/* Appearance.jsx */
 .btn-Dark,
 .btn-Light {
   height: 48px;
@@ -457,6 +459,57 @@ input {
 .btn-lightIcon {
   height: 28px;
   color: yellow;
+}
+
+/* ///////////////////////////////////////////////////// */
+/* Dashboard.jsx */
+.container-dashboard {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #6681ed; */
+}
+
+.dashboard-header h1 {
+  margin-left: 1rem;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.dashboard-main {
+  width: 95%;
+  margin-top: 10px;
+  display: grid;
+  gap: 16px 8px;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  align-self: center;
+}
+
+.dashboard-card {
+  width: 20rem;
+  padding: 1rem;
+  border-radius: 12px;
+  gap: 10px;
+  border: 2px solid #c8c8c8;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ff);
+}
+
+.dashboard-card-title {
+  font-weight: 800;
+
+}
+
+.dashboard-card-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.dashboard-card-date {
+  font-size: 32;
+  font-weight: 700;
 }
 
 /* ///////////////////////////////////////////////////// */
