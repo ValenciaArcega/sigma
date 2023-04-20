@@ -1,7 +1,7 @@
 import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputNumberFocusIn, inputNumberBlur, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister } from "../../functions/review-inputRegister";
 import reviewRegister from "../../functions/review-userRegistration";
-import { firebaseApp } from '../../database/credentials';
+import { firebaseApp } from '../../credentials';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignUp = ({ setIsRegistering }) => {

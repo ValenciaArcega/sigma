@@ -1,6 +1,6 @@
 import BadCredentials from "../messages/BadCredentials";
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { firebaseApp } from '../../database/credentials';
+import { firebaseApp } from '../../credentials';
 import { useState } from "react";
 
 const auth = getAuth(firebaseApp);

@@ -2,6 +2,8 @@ import NavBarDesktop from "../navegation-bar/NavBarDesktop";
 import NavBarMobile from '../navegation-bar/NavBarMobile';
 import Appearance from "../buttons/Appearance";
 import Dashboard from "../views/Dashboard";
+import FormDates from "../views/FormDates";
+import FormPost from "../views/FormPost";
 import Profile from "../views/Profile";
 import Feed from '../views/Feed';
 import { useEffect } from "react";
@@ -36,6 +38,8 @@ const Home = () => {
         <Route path="/sigfea//*" element={<Dashboard />}></Route>
         <Route path="/sigfea/feed" element={<Feed />}></Route>
         <Route path="/sigfea/profile" element={<Profile />}></Route>
+        <Route path="/sigfea/profile/formDates" element={<FormDates />}></Route>
+        <Route path="/sigfea/profile/formPost" element={<FormPost />}></Route>
       </Routes>
       <Appearance />
     </main>

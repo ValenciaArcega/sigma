@@ -2,7 +2,7 @@ import './App.css';
 import Login from "./src/components/pages/Login";
 import Home from "./src/components/pages/Home";
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
-import { firebaseApp } from './src/database/credentials';
+import { firebaseApp } from './src/credentials';
 import { useState } from "react";
 
 const auth = getAuth(firebaseApp);
