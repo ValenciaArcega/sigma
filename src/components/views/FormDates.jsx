@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { firebaseApp, db } from '../../credentials';
+import { getAuth } from 'firebase/auth';
+import { collection, doc, setDoc } from "firebase/firestore";
+
+const auth = getAuth(firebaseApp);
 
 const FormDates = () => {
   const [dates, setDates] = useState({
@@ -12,6 +17,25 @@ const FormDates = () => {
   });
 
   const changeDate = (name, value) => setDates({ ...dates, [name]: value });
+  const addData = async (e) => {
+
+    try {
+      e.preventDefault();
+      const user = auth.currentUser;
+      const docRef = doc(collection(db, 'dates'), user.email);
+      await setDoc(docRef, {
+        verificacion: dates.verificacion,
+        tenencia: dates.tenencia,
+        mantenimiento: dates.mantenimiento,
+        seguro: dates.seguro,
+        licencia: dates.licencia,
+      });
+      alert('Datos registrados con exito ✅');
+      // console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error: ", e);
+    }
+  };
 
   return (
     <section className="container-formDates">
@@ -48,7 +72,7 @@ const FormDates = () => {
             dateFormat="dd/MM/yyyy" showWeekNumbers className="formDates-input" selected={dates.licencia} placeholderText="Selecciona una fecha" onChange={d => changeDate("licencia", d)} />
         </div>
 
-        <button className="formDates-btn">Cargar Fechas</button>
+        <button onClick={addData} className="formDates-btn" type="button">Cargar Fechas</button>
 
       </form>
     </section>

@@ -358,13 +358,19 @@ input {
 /* NavBarDesktop.jsx */
 .navBar-desktop {
   height: 44px;
+  width: 100%;
   border-bottom: 2px solid var(--mainColor);
   display: grid;
   grid-template-columns: 30% 1fr;
+  position: fixed;
+  top: 0;
+  left: 0;
   align-items: center;
   justify-content: center;
   background: none;
   color: var(--ff);
+  background-color: var(--ff);
+  z-index: 7;
 }
 
 .NVD-title {
@@ -558,6 +564,7 @@ color: #0a84ff
 /* FormDates.jsx */
 .container-formDates {
   display: flex;
+  padding-top: 2rem;
   padding-bottom: 4rem;
   justify-content: center;
 }
@@ -625,6 +632,8 @@ color: #0a84ff
   cursor: pointer;
 }
 
+/* ///////////////////////////////////////////////////// */
+/* FormPost.jsx */
 
 
 
