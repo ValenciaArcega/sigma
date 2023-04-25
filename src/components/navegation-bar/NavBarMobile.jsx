@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const NavBarMobile = () => {
   return (
     <nav className="navBar-mobile">
-      <Link className="NVM-btn" to='/sigfea/'>
+      <Link className="NVM-btn" to='/sigma/'>
         <IconHome />
         Inicio
       </Link>
 
-      <Link className="NVM-btn" to='/sigfea/feed'>
+      <Link className="NVM-btn" to='/sigma/feed'>
         <IconFeed />
         Descubrir
       </Link>
 
-      <Link className="NVM-btn" to='/sigfea/profile'>
+      <Link className="NVM-btn" to='/sigma/profile'>
         <IconPerson />
         Cuenta
       </Link>

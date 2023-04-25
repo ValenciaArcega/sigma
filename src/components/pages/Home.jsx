@@ -35,11 +35,11 @@ const Home = () => {
       <NavBarDesktop />
       <NavBarMobile />
       <Routes>
-        <Route path="/sigfea//*" element={<Dashboard />}></Route>
-        <Route path="/sigfea/feed" element={<Feed />}></Route>
-        <Route path="/sigfea/profile" element={<Profile />}></Route>
-        <Route path="/sigfea/profile/formDates" element={<FormDates />}></Route>
-        <Route path="/sigfea/profile/formPost" element={<FormPost />}></Route>
+        <Route path="/sigma//*" element={<Dashboard />}></Route>
+        <Route path="/sigma/feed" element={<Feed />}></Route>
+        <Route path="/sigma/profile" element={<Profile />}></Route>
+        <Route path="/sigma/profile/formDates" element={<FormDates />}></Route>
+        <Route path="/sigma/profile/formPost" element={<FormPost />}></Route>
       </Routes>
       <Appearance />
     </main>

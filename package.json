@@ -1,7 +1,7 @@
 {
-  "name": "sigfea",
+  "name": "sigma",
   "private": true,
-  "homepage": "https://valenciaarcega.github.io/sigfea",
+  "homepage": "https://valenciaarcega.github.io/sigma",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
