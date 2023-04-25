@@ -1,21 +1,34 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDZJLlMC9nsgNclVnmgLHuwHPxnSmkm_Mw",
-  authDomain: "sigfea.firebaseapp.com",
-  projectId: "sigfea",
-  storageBucket: "sigfea.appspot.com",
-  messagingSenderId: "13445887862",
-  appId: "1:13445887862:web:ef45b027ce735fb6486c57"
+  apiKey: "AIzaSyA1pwNuw_k-ye8jA3cYcCwGX1plKIWt-n4",
+  authDomain: "sigma-c1c73.firebaseapp.com",
+  projectId: "sigma-c1c73",
+  storageBucket: "sigma-c1c73.appspot.com",
+  messagingSenderId: "576173332217",
+  appId: "1:576173332217:web:13a393182c451e0ebdf428"
 };
 
-// Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 export { firebaseApp, db };
+
+/*
+Consideraciones de reglas ❗❗
+
+les_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 🅰
+    match /users/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    // 🅱
+    match /posts/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+*/
