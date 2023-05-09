@@ -5,9 +5,9 @@ import { firebaseApp, db } from '../../credentials';
 import { getAuth } from 'firebase/auth';
 import { collection, doc, setDoc } from "firebase/firestore";
 
-const auth = getAuth(firebaseApp);
 
-const FormDates = () => {
+export function FormDates() {
+  const auth = getAuth(firebaseApp);
   const [dates, setDates] = useState({
     verificacion: null,
     tenencia: null,
@@ -17,8 +17,7 @@ const FormDates = () => {
   });
 
   const changeDate = (name, value) => setDates({ ...dates, [name]: value });
-  const addData = async (e) => {
-
+  async function addData(e) {
     try {
       e.preventDefault();
       const user = auth.currentUser;
@@ -78,5 +77,3 @@ const FormDates = () => {
     </section>
   );
 };
-
-export default FormDates;

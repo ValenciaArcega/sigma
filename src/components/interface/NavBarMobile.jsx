@@ -1,7 +1,7 @@
 import { IconHome, IconFeed, IconPerson } from "../svg/Nvm";
 import { Link } from "react-router-dom";
 
-const NavBarMobile = () => {
+export function NavBarMobile() {
   return (
     <nav className="navBar-mobile">
       <Link className="NVM-btn" to='/sigma/'>
@@ -21,5 +21,3 @@ const NavBarMobile = () => {
     </nav>
   );
 };
-
-export default NavBarMobile;

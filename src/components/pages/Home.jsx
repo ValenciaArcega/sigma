@@ -1,23 +1,22 @@
-import NavBarDesktop from "../navegation-bar/NavBarDesktop";
-import NavBarMobile from '../navegation-bar/NavBarMobile';
-import Appearance from "../buttons/Appearance";
-import Dashboard from "../views/Dashboard";
-import FormDates from "../views/FormDates";
-import FormPost from "../views/FormPost";
-import Profile from "../views/Profile";
-import Feed from '../views/Feed';
+import { NavBarDesktop } from "../interface/NavBarDesktop";
+import { NavBarMobile } from '../interface/NavBarMobile';
+import { Appearance } from "../theme/Appearance";
+import { Dashboard } from "../views/Dashboard";
+import { FormDates } from "../views/FormDates";
+import { FormPost } from "../views/FormPost";
+import { Profile } from "../views/Profile";
+import { Feed } from '../views/Feed';
 import { useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
 
-const Home = () => {
+export function Home() {
 
   useEffect(() => {
     let viewPort = window.matchMedia("(max-width: 450px)");
-
     const desk = document.querySelector('.navBar-desktop');
     const phone = document.querySelector('.navBar-mobile');
 
-    const mediaScreen = (y) => {
+    function mediaScreen(y) {
       if (y.matches) {
         desk.classList.add('hidden');
         phone.classList.remove('hidden');
@@ -45,5 +44,3 @@ const Home = () => {
     </main>
   );
 };
-
-export default Home;

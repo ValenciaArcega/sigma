@@ -1,6 +1,6 @@
 import './App.css';
-import Login from "./src/components/pages/Login";
-import Home from "./src/components/pages/Home";
+import { Sign } from "./src/components/pages/Sign";
+import { Home } from "./src/components/pages/Home";
 import { onAuthStateChanged, getAuth } from 'firebase/auth';
 import { firebaseApp } from './src/credentials';
 import { useState } from "react";
@@ -15,5 +15,5 @@ export default function App() {
     else setGlobalUser(null);
   });
 
-  return <>{globalUser ? <Home /> : <Login />}</>;
+  return <>{globalUser ? <Home /> : <Sign />}</>;
 };

@@ -1,12 +1,12 @@
 import BadCredentials from "../messages/BadCredentials";
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { firebaseApp } from '../../credentials';
 import { useState } from "react";
+import { getAuth, signInWithEmailAndPassword, signInWithRedirect, GoogleAuthProvider } from 'firebase/auth';
 
 const auth = getAuth(firebaseApp);
+const googleProvider = new GoogleAuthProvider();
 
-const SignIn = ({ setIsRegistering }) => {
-
+export function SignIn({ setIsRegistering }) {
   const [isWrong, setIsWrong] = useState(false);
 
   async function submitHandler(e) {
@@ -55,10 +55,17 @@ const SignIn = ({ setIsRegistering }) => {
 
         <button className="login-buttonLogin" type="submit">Entrar</button>
 
+        <button
+          className="login-buttonLoginGoogle"
+          type="button"
+          onClick={() => signInWithRedirect(auth, googleProvider)}
+        >
+          <img src="google.png" height={26} />
+          Entrar con Google
+        </button>
+
         <label className="login-labelBGR" htmlFor="lbgr">¿No tienes una cuenta? <button onClick={goRegister} className="login-buttonGoRegister" id="lbgr">Registrate</button></label>
       </form>
     </section>
   );
 };
-
-export default SignIn;

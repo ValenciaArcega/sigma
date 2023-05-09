@@ -1,10 +1,10 @@
+import reviewRegister from "../../functions/review-userRegistration";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { firebaseApp } from '../../credentials';
 import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputNumberFocusIn, inputNumberBlur, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister } from "../../functions/review-inputRegister";
-import reviewRegister from "../../functions/review-userRegistration";
-import { firebaseApp } from '../../credentials';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
-const SignUp = ({ setIsRegistering }) => {
+export function SignUp({ setIsRegistering }) {
   const auth = getAuth(firebaseApp);
 
   async function submitHandler(e) {
@@ -14,15 +14,13 @@ const SignUp = ({ setIsRegistering }) => {
 
     await createUserWithEmailAndPassword(auth, mail, password);
   }
-
-  const resetBorders = () => {
+  function resetBorders() {
     const root = document.querySelector(':root');
     root.style.setProperty('--borderFieldName', '#c5c5c5');
     root.style.setProperty('--borderFieldID', '#c5c5c5');
     root.style.setProperty('--borderFieldPassConfirm', '#c5c5c5');
   };
-
-  const goSignIn = () => {
+  function goSignIn() {
     resetBorders();
     setIsRegistering(false);
   };
@@ -33,7 +31,10 @@ const SignUp = ({ setIsRegistering }) => {
 
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
-        <label className="signUpForm-label" htmlFor="sufn">Nombre<IconText /></label>
+        <label className="signUpForm-label" htmlFor="sufn">
+          Nombre
+          <IconText />
+        </label>
         <input
           id="sufn"
           className="signUpForm-name"
@@ -45,7 +46,10 @@ const SignUp = ({ setIsRegistering }) => {
         />
         <p className="signUpForm-name-p"> </p>
 
-        <label className="signUpForm-label" htmlFor="inputMail">Correo electrónico <IconHashtag /></label>
+        <label className="signUpForm-label" htmlFor="inputMail">
+          Correo electrónico
+          <IconHashtag />
+        </label>
         <input
           id="inputMail"
           className="signUpForm-mail"
@@ -103,11 +107,11 @@ const SignUp = ({ setIsRegistering }) => {
 
         <button type="submit" onClick={reviewRegister} className="signUpForm-btnRegister" name="button to Register">Registrarme Ahora</button>
 
-        <label className="signUpForm-labelGoSignIn" htmlFor="sufbsi">¿Ya tienes una cuenta? <button id="sufbsi" className="signUpForm-btnGoSignIn" onClick={goSignIn}>Inicia Sesión</button></label>
+        <label className="signUpForm-labelGoSignIn" htmlFor="sufbsi">¿Ya tienes una cuenta?
+          <button id="sufbsi" className="signUpForm-btnGoSignIn" onClick={goSignIn}> Inicia Sesión</button>
+        </label>
 
       </form>
     </section>
   );
 };
-
-export default SignUp;

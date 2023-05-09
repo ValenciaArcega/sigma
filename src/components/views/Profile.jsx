@@ -3,9 +3,9 @@ import { firebaseApp } from "../../credentials";
 import { Link } from "react-router-dom";
 import { makeLight } from '../../functions/switch-appearance';
 
-const auth = getAuth(firebaseApp);
 
-const Profile = () => {
+export function Profile() {
+  const auth = getAuth(firebaseApp);
 
   return (
     <section className="container-profile">
@@ -27,5 +27,3 @@ const Profile = () => {
     </section>
   );
 };
-
-export default Profile;

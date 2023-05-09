@@ -1,7 +1,7 @@
 import { IconMoon, IconSun } from "../svg/Appearance";
 import { makeDark, makeLight } from "../../functions/switch-appearance";
 
-const Appearance = () => {
+export function Appearance() {
   return (
     <>
       <button className="btn-Dark" onClick={makeDark}>
@@ -14,5 +14,3 @@ const Appearance = () => {
     </>
   );
 };
-
-export default Appearance;

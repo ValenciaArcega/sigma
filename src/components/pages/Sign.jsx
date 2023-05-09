@@ -1,8 +1,8 @@
-import SignIn from "../views/SignIn";
-import SignUp from "../views/SignUp";
+import { SignIn } from "../views/SignIn";
+import { SignUp } from "../views/SignUp";
 import { useState } from "react";
 
-const Login = () => {
+export function Sign() {
   const [isRegistering, setIsRegistering] = useState(false);
 
   return (
@@ -11,5 +11,3 @@ const Login = () => {
       : <SignUp setIsRegistering={setIsRegistering} />
   );
 };
-
-export default Login;

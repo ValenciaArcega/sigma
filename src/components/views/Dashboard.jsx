@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { dashboardCards } from "../../data/dashboard";
 
-const Dashboard = () => {
+export function Dashboard() {
   const [fecha, setFecha] = useState('Sin fecha reciente');
 
   return (
@@ -22,5 +22,3 @@ const Dashboard = () => {
     </section>
   );
 };
-
-export default Dashboard;

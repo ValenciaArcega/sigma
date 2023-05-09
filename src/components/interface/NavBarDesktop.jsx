@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NavBarDesktop = () => {
+export function NavBarDesktop() {
   return (
     <nav className="navBar-desktop">
       <h2 className="NVD-title"><span className="highlight-container"><span className="highlight">sigma</span></span></h2>
@@ -13,5 +13,3 @@ const NavBarDesktop = () => {
     </nav>
   );
 };
-
-export default NavBarDesktop;

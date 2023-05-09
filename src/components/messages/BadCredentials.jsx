@@ -1,4 +1,4 @@
-import IconPadlocked from "../svg/IconPadlocked";
+import { IconPadlocked } from "../svg/IconPadlocked";
 
 const BadCredentials = () => {
   return (

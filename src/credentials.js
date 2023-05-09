@@ -18,7 +18,7 @@ export { firebaseApp, db };
 /*
 Consideraciones de reglas ❗❗
 
-les_version = '2';
+rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     // 🅰

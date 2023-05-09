@@ -1,4 +1,4 @@
-const FormPost = () => {
+export function FormPost() {
   return (
     <section className="container-formPost">
       <form className="formPost">
@@ -11,5 +11,3 @@ const FormPost = () => {
     </section>
   );
 };
-
-export default FormPost;
