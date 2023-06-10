@@ -23,7 +23,6 @@ const inputNameKeyUp = () => {
     root.style.setProperty('--borderFieldName', '#2e466f');
   }
 };
-
 ////////////////////////////////////////////////////////////
 // input mail
 const inputMailFocusIn = () => root.style.setProperty('--borderFieldID', '#3b59d4');
@@ -60,13 +59,12 @@ const showPassRegister = () => {
     iconHidePass.classList.add('hidden');
   }
 };
-
 ////////////////////////////////////////////////////////////
 // input confirm password
 const inputConfirmPassFocusIn = () => root.style.setProperty('--borderFieldPassConfirm', '#3b59d4');
 const inputConfirmPassBlur = () => root.style.setProperty('--borderFieldPassConfirm', '#c5c5c5');
-const inputConfirmPassKeyUp = () => {
 
+const inputConfirmPassKeyUp = () => {
   const inputPass = document.querySelector('.signUpForm-pass');
   const inputPassConfirm = document.querySelector('.signUpForm-passConfirm');
   const textErrorPassConfirm = document.querySelector('.signUpForm-passConfirm-p');
@@ -96,5 +94,5 @@ const showConfirmRegister = () => {
 };
 
 export {
-  inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputMailFocusIn, inputMailBlur, inputIDCarFocusIn, inputModelCarFocusIn, inputModelCarBlur, inputIDCarBlur, inputNumberBlur, inputNumberFocusIn, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister
+  inputNameFocusIn, inputNameBlur, inputNameKeyUp, inputMailFocusIn, inputMailBlur, inputIDCarFocusIn, inputModelCarFocusIn, inputModelCarBlur, inputIDCarBlur, inputNumberBlur, inputNumberFocusIn, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister
 };

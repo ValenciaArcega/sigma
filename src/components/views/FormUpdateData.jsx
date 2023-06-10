@@ -1,13 +1,7 @@
 import { firebaseApp } from '../../credentials';
 import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
-import {
-  inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputNumberFocusIn, inputNumberBlur, inputIDCarFocusIn, inputIDCarBlur, inputModelCarFocusIn,
-  inputModelCarBlur, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister
-} from "../../functions/review-inputRegister";
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore";
 import Review from "./Review";
-import { useEffect } from "react";
-
 
 export function FormUpdateData({ userMail }) {
   const classReview = new Review();
@@ -48,8 +42,6 @@ export function FormUpdateData({ userMail }) {
     }
   }
 
-  useEffect(() => console.log(Review), []);
-
   return (
     <section className="container-signUp">
       <form className="signUpForm" onSubmit={addUser}>
@@ -70,7 +62,7 @@ export function FormUpdateData({ userMail }) {
           onKeyUp={() => classReview._inputNameKeyUp()}
         />
         <p className="signUpForm-name-p"> </p>
-
+        {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputMail">
           Número celular
           <IconHashtag />
@@ -80,10 +72,10 @@ export function FormUpdateData({ userMail }) {
           className="signUpForm-number"
           placeholder="5540678934"
           autoComplete="new-password"
-          onFocus={inputNumberFocusIn}
-          onBlur={inputNumberBlur}
+          onFocus={() => classReview._inputNumberFocusIn()}
+          onBlur={() => classReview._inputNumberBlur()}
         />
-
+        {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputIDCar">
           Placa vehicular
           <IconText />
@@ -93,9 +85,8 @@ export function FormUpdateData({ userMail }) {
           className="signUpForm-IDCar"
           placeholder="EDC-3456"
           autoComplete="new-password"
-          onFocus={inputIDCarFocusIn}
-          onBlur={inputIDCarBlur}
-          onChangeCapture={() => document.querySelector('.signUpForm-mail-p').textContent = ''}
+          onFocus={() => classReview._inputIDCarFocusIn()}
+          onBlur={() => classReview._inputIDCarBlur()}
         />
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputModelCar">
@@ -107,10 +98,10 @@ export function FormUpdateData({ userMail }) {
           className="signUpForm-modelCar"
           placeholder="Chevrolet Aveo 2018"
           autoComplete="new-password"
-          onFocus={inputModelCarFocusIn}
-          onBlur={inputModelCarBlur}
+          onFocus={() => classReview._inputModelCarFocusIn()}
+          onBlur={() => classReview._inputModelCarBlur()}
         />
-
+        {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputPassword">Nueva contraseña</label>
         <section className="wrapper-password">
           <input
@@ -119,15 +110,15 @@ export function FormUpdateData({ userMail }) {
             type="password"
             autoComplete="new-password"
             placeholder="Ingresa una contraseña"
-            onBlur={inputPassBlur}
-            onFocus={inputPassFocusIn}
+            onBlur={() => classReview._inputPassBlur()}
+            onFocus={() => classReview._inputPassFocusIn()}
           />
-          <button onClick={showPassRegister} className="btn-showPass" type="button" title="button show">
+          <button onClick={() => classReview._showPassRegister()} className="btn-showPass" type="button" title="button show">
             <IconShow />
             <IconHide />
           </button>
         </section>
-
+        {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="sufcp">Confirmar nueva contraseña</label>
         <div className="wrapper-password">
           <input
@@ -136,16 +127,17 @@ export function FormUpdateData({ userMail }) {
             type="password"
             autoComplete="new-password"
             placeholder="Repite la contraseña"
-            onKeyUp={inputConfirmPassKeyUp}
-            onFocus={inputConfirmPassFocusIn}
-            onBlur={inputConfirmPassBlur}
+            onKeyUp={() => classReview._inputConfirmPassKeyUp()}
+            onFocus={() => classReview._inputConfirmPassFocusIn()}
+            onBlur={() => classReview._inputConfirmPassBlur()}
           />
-          <button onClick={showConfirmRegister} className="btn-showPassConfirm" type="button" title="button show">
+          <button onClick={() => classReview._showConfirmRegister()} className="btn-showPassConfirm" type="button" title="button show">
             <IconShowConfirm />
             <IconHideConfirm />
           </button>
         </div>
-
+        <p className="signUpForm-passConfirm-p"></p>
+        {/* ///////////////////////////////////////////////////// */}
         <button type="submit"
           className="signUpForm-btnRegister"
           name="button to Register">Actualizar Datos</button>
