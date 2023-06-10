@@ -25,11 +25,21 @@ const inputNameKeyUp = () => {
 };
 
 ////////////////////////////////////////////////////////////
+// input mail
+const inputMailFocusIn = () => root.style.setProperty('--borderFieldID', '#3b59d4');
+const inputMailBlur = () => root.style.setProperty('--borderFieldID', '#c5c5c5');
+////////////////////////////////////////////////////////////
 // input number
-const inputNumberFocusIn = () => root.style.setProperty('--borderFieldID', '#3b59d4');
-const inputNumberBlur = () => root.style.setProperty('--borderFieldID', '#c5c5c5');
-
-
+const inputNumberFocusIn = () => root.style.setProperty('--borderFieldNumber', '#3b59d4');
+const inputNumberBlur = () => root.style.setProperty('--borderFieldNumber', '#c5c5c5');
+////////////////////////////////////////////////////////////
+// input IDCar
+const inputIDCarFocusIn = () => root.style.setProperty('--borderFieldIDCar', '#3b59d4');
+const inputIDCarBlur = () => root.style.setProperty('--borderFieldIDCar', '#c5c5c5');
+////////////////////////////////////////////////////////////
+// input model car
+const inputModelCarFocusIn = () => root.style.setProperty('--borderFieldModel', '#3b59d4');
+const inputModelCarBlur = () => root.style.setProperty('--borderFieldModel', '#c5c5c5');
 ////////////////////////////////////////////////////////////
 // input password
 const inputPassFocusIn = () => root.style.setProperty('--borderFieldPass', '#3b59d4');
@@ -85,4 +95,6 @@ const showConfirmRegister = () => {
   }
 };
 
-export { inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputNumberFocusIn, inputNumberBlur, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister };
+export {
+  inputNameKeyUp, inputNameFocusIn, inputNameBlur, inputMailFocusIn, inputMailBlur, inputIDCarFocusIn, inputModelCarFocusIn, inputModelCarBlur, inputIDCarBlur, inputNumberBlur, inputNumberFocusIn, inputPassFocusIn, inputPassBlur, showPassRegister, inputConfirmPassFocusIn, inputConfirmPassBlur, inputConfirmPassKeyUp, showConfirmRegister
+};

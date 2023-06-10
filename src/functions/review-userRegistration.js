@@ -1,21 +1,18 @@
-
 const reviewRegister = () => {
-
+  let root = document.querySelector(':root');
   let reviewed = false;
-
+  let resultName = false;
+  let resultID = false;
+  let resultPass = false;
+  // inputs
   const inputName = document.querySelector('.signUpForm-name');
   const inputID = document.querySelector('.signUpForm-mail');
   const inputPass = document.querySelector('.signUpForm-pass');
   const inputPassConfirm = document.querySelector('.signUpForm-passConfirm');
-
+  // error
   const textErrorName = document.querySelector('.signUpForm-name-p');
   const textErrorID = document.querySelector('.signUpForm-mail-p');
   const textErrorPassConfirm = document.querySelector('.signUpForm-passConfirm-p');
-
-  let root = document.querySelector(':root');
-  let resultName = false;
-  let resultID = false;
-  let resultPass = false;
 
   /////////////////////////////////////////////////////////
   if (inputName.value === '') {

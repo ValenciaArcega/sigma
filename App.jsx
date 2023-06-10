@@ -15,5 +15,5 @@ export default function App() {
     else setGlobalUser(null);
   });
 
-  return <>{globalUser ? <Home /> : <Sign />}</>;
+  return <>{globalUser ? <Home userMail={globalUser.email} /> : <Sign />}</>;
 };

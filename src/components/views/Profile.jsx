@@ -9,13 +9,22 @@ export function Profile() {
 
   return (
     <section className="container-profile">
-      <Link to='/sigma/profile/formDates' className="profile-btn">Registrar mis datos</Link>
-
-      <Link to='/sigma/profile/formPost' className="profile-btn">Vender mi automóvil</Link>
 
       <Link
-        className="profile-btn profile-btnRed"
+        to='/sigma/profile/formUpdateData'
+        className="profile-btn">
+        Editar mis datos
+      </Link>
+
+      <Link
+        to='/sigma/profile/formPost'
+        className="profile-btn">
+        Vender mi automóvil
+      </Link>
+
+      <Link
         to='/sigma/'
+        className="profile-btn profile-btnRed"
         onClick={() => {
           makeLight();
           signOut(auth);

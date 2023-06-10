@@ -8,8 +8,9 @@ import { Profile } from "../views/Profile";
 import { Feed } from '../views/Feed';
 import { useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
+import { FormUpdateData } from "../views/FormUpdateData";
 
-export function Home() {
+export function Home({ userMail }) {
 
   useEffect(() => {
     let viewPort = window.matchMedia("(max-width: 450px)");
@@ -34,11 +35,21 @@ export function Home() {
       <NavBarDesktop />
       <NavBarMobile />
       <Routes>
-        <Route path="/sigma//*" element={<Dashboard />}></Route>
-        <Route path="/sigma/feed" element={<Feed />}></Route>
-        <Route path="/sigma/profile" element={<Profile />}></Route>
-        <Route path="/sigma/profile/formDates" element={<FormDates />}></Route>
-        <Route path="/sigma/profile/formPost" element={<FormPost />}></Route>
+        <Route
+          path="/sigma//*"
+          element={<Dashboard userMail={userMail} />}></Route>
+        <Route
+          path="/sigma/feed"
+          element={<Feed />}></Route>
+        <Route
+          path="/sigma/profile"
+          element={<Profile />}></Route>
+        <Route
+          path="/sigma/profile/formUpdateData"
+          element={<FormUpdateData userMail={userMail} />}></Route>
+        <Route
+          path="/sigma/profile/formPost"
+          element={<FormPost />}></Route>
       </Routes>
       <Appearance />
     </main>
