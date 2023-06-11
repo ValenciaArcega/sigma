@@ -8,8 +8,10 @@ const makeDark = () => {
   root.style.setProperty('--bg', '#181818');
   root.style.setProperty('--ff', '#12171a');
   root.style.setProperty('--black18', '#fff');
+  root.style.setProperty('--bg-garage', '#2a2a2a');
   // borders
   root.style.setProperty('--border-dashboardCard', '#272727');
+  root.style.setProperty('--border-garage', 'transparent');
   // blur
   root.style.setProperty('--bg-blur-navBar', 'rgba(0, 0, 0, 0.4)');
   // shadows
@@ -26,8 +28,10 @@ const makeLight = () => {
   root.style.setProperty('--bg', '#f2f2f7');
   root.style.setProperty('--ff', '#fff');
   root.style.setProperty('--black18', '#181818');
+  root.style.setProperty('--bg-garage', '#fff');
   // borders
   root.style.setProperty('--border-dashboardCard', '#c8c8c8');
+  root.style.setProperty('--border-garage', '#c8c8c8');
   // blur
   root.style.setProperty('--bg-blur-navBar', 'rgba(255, 255, 255, 0.4)');
   // shadows

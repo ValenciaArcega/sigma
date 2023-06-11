@@ -30,16 +30,15 @@ export function Garages() {
           return (
             <div className="garage" key={i}>
               <h2>{item.name}</h2>
-              <button
-                className="garage-button"
-                onClick={() => {
-                  navigate('/sigma/garages/specific', { state: item });
-                }}>Go
+
+              <button className="garage-button" onClick={() => navigate('/sigma/garages/specific', { state: item })}>
+                Ver detalles
               </button>
+
             </div>
           );
         })}
       </main>
-    </section>
+    </section >
   );
 };
