@@ -789,8 +789,8 @@ color: #0a84ff
 /* ///////////////////////////////////////////////////// */
 /* Garage.jsx */
 .container-garageInfoCard {
-  height: 100vh;
-  padding-top: 4rem;
+  margin-top: 10rem;
+  padding-bottom: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -802,13 +802,27 @@ color: #0a84ff
   letter-spacing: -1px;
 }
 
+.garageInfoCard-p {
+  margin-top: 2rem;
+  font-size: 18px;
+}
+
+.wrapper-garageInfoCard {
+  width: 100%;
+  margin-top: 12px;
+  gap: 12px;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
 .garageInfoCard-features {
   padding: 10px 0;
   font-size: 18px;
   line-height: 1.8;
 }
-
-.garageInfoCard-feature {}
 
 .garageInfoCard-feature::first-letter {
   padding-right: 4px;
@@ -817,9 +831,10 @@ color: #0a84ff
 
 .mapy {
   height: 19rem;
-  width: 88%;
+  width: 20rem;
   border-radius: 12px;
   box-shadow: 0px 32px 12px -20px rgba(0, 0, 0, 0.2);
+  z-index: 0;
 }
 
 /* Finder.jsx */
@@ -971,4 +986,14 @@ input:not(:placeholder-shown)~.finder-btnClose {
   border-radius: 20% 25% 20% 24%;
   padding: 10px 3px 3px 10px;
   background: var(--gradient-primary);
+}
+
+@media (min-width: 652px) {
+  .garageInfoCard-features {
+    justify-self: flex-end;
+  }
+
+  .mapy {
+    justify-self: flex-start;
+  }
 }
