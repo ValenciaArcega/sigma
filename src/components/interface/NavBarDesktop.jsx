@@ -7,9 +7,9 @@ export function NavBarDesktop() {
       <img src="logo.png" alt="" height={34} style={{ marginLeft: 10 }} />
 
       <section className="NVD-wrapperButtons">
-        <Link className="NVD-btn-dashboard" to='/sigma/'>Inicio</Link>
-        <Link className="NVD-btn-garages" to='/sigma/garages'>Talleres</Link>
-        <Link className="NVD-btn-account" to='/sigma/profile'>Cuenta</Link>
+        <Link className="NVD-btn-dashboard" to='sigma/'>Inicio</Link>
+        <Link className="NVD-btn-garages" to='sigma/garages'>Talleres</Link>
+        <Link className="NVD-btn-account" to='sigma/profile'>Cuenta</Link>
       </section>
     </nav>
   );

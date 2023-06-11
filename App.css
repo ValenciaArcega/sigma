@@ -158,19 +158,20 @@ input {
 
 /* ///////////////////////////////////////////////////// */
 /* BadCredentials.jsx */
-.containerMessage-wrongCredentials {
+.containerMessage-wrongCredentials,
+.containerMessage-dataUpdated {
   height: 3rem;
   width: 18rem;
   gap: 6px;
   font-size: 16px;
   border-radius: 10px;
-  top: 32px;
+  top: 36px;
   left: 50%;
   transform: translateX(-50%);
   user-select: none;
   pointer-events: none;
   position: fixed;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,6 +183,27 @@ input {
 .wrongCredentials-svg-panlocked {
   height: 20px;
   color: #ff3232;
+}
+
+/* ///////////////////////////////////////////////////// */
+/* DataUpdated.jsx */
+.containerMessage-dataUpdated {
+  width: 20rem;
+  top: 54px;
+  gap: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 15% 1fr;
+  font-size: 16px;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background-color: #ffffff66;
+}
+
+.dataUpdated-svg {
+  height: 24px;
+  color: var(--mainColor);
 }
 
 /* ///////////////////////////////////////////////////// */

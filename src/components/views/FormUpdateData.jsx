@@ -2,8 +2,11 @@ import { firebaseApp } from '../../credentials';
 import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore";
 import Review from "../../functions/Review";
+import { DataUpdated } from "../messages/DataUpdated";
+import { useState } from "react";
 
 export function FormUpdateData({ userMail }) {
+  const [gotEdit, setGotEdit] = useState(false);
   const classReview = new Review();
   const firestore = getFirestore(firebaseApp);
 
@@ -37,6 +40,8 @@ export function FormUpdateData({ userMail }) {
 
     if (query.exists()) {
       await updateDoc(docRef, { data: [...dataUser] });
+      setGotEdit(true);
+      setTimeout(() => setGotEdit(false), 3000);
     } else {
       return;
     }
@@ -44,6 +49,9 @@ export function FormUpdateData({ userMail }) {
 
   return (
     <section className="container-signUp">
+
+      {gotEdit ? <DataUpdated /> : null}
+
       <form className="signUpForm" onSubmit={addUser}>
 
         <h1 className="signUpForm-title">Actualiza tus <span className="gradient">datos</span></h1>

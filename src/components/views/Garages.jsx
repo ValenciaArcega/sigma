@@ -34,7 +34,7 @@ export function Garages() {
                 <h2 className="garage-h2">{item.name}</h2>
               </div>
 
-              <button className="garage-button" onClick={() => navigate('/sigma/garages/specific', { state: item })}>
+              <button className="garage-button" onClick={() => navigate('sigma/garages/specific', { state: item })}>
                 Ver detalles
               </button>
 
