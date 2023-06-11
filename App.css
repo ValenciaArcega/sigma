@@ -696,10 +696,25 @@ color: #0a84ff
   background-color: var(--ff);
 }
 
-
-
+.garage-button {
+  height: 48px;
+  background-color: #0965c8;
+}
 
 /* ///////////////////////////////////////////////////// */
+/* Garage.jsx */
+.container-garageInfoCard {
+  height: 100vh;
+  padding-top: 8rem;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.garageInfoCard-h1 {
+  font-size: 32px;
+}
+
 /* Finder.jsx */
 .section-finder {
   padding-bottom: 1rem;
@@ -804,7 +819,7 @@ input:not(:placeholder-shown)~.finder-btnClose {
 .highlight-container,
 .highlight {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .highlight-container {
@@ -827,7 +842,7 @@ input:not(:placeholder-shown)~.finder-btnClose {
 
 .highlightBubble-container,
 .highlightBubble {
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
 }
 

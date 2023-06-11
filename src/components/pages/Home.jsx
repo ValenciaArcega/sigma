@@ -6,6 +6,7 @@ import { Dashboard } from "../views/Dashboard";
 import { FormPost } from "../views/FormPost";
 import { Profile } from "../views/Profile";
 import { Garages } from '../views/Garages';
+import { Garage } from "../interface/Garage";
 import { useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
 import { FormUpdateData } from "../views/FormUpdateData";
@@ -41,6 +42,9 @@ export function Home({ userMail }) {
         <Route
           path="/sigma/garages"
           element={<Garages />}></Route>
+        <Route
+          path="/sigma/garages/specific"
+          element={<Garage />}></Route>
         <Route
           path="/sigma/profile"
           element={<Profile />}></Route>

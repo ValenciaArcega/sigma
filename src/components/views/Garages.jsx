@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { dataGarages } from '../../data/dt-garages';
 import { Finder } from '../interface/Finder';
+// import { Link } from "react-router-dom";
+// import { Garage } from "../interface/Garage";
+import { useNavigate } from 'react-router-dom';
+
 
 export function Garages() {
+  const navigate = useNavigate();
   const [filteredItems, setFilteredItems] = useState(dataGarages);
   const [isSearching, setIsSearching] = useState(false);
 
@@ -25,6 +30,12 @@ export function Garages() {
           return (
             <div className="garage" key={i}>
               <h2>{item.name}</h2>
+              <button
+                className="garage-button"
+                onClick={() => {
+                  navigate('/sigma/garages/specific', { state: item });
+                }}>Go
+              </button>
             </div>
           );
         })}
