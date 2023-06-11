@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 export function NavBarDesktop() {
   return (
     <nav className="navBar-desktop">
-      <h2 className="NVD-title"><span className="highlight-container"><span className="highlight">sigma</span></span></h2>
+
+      <img src="/logo.png" alt="" height={34} style={{ marginLeft: 10 }} />
 
       <section className="NVD-wrapperButtons">
         <Link className="NVD-btn-dashboard" to='/sigma/'>Inicio</Link>

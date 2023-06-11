@@ -5,7 +5,6 @@ import { firebaseApp, db } from '../../credentials';
 import { getAuth } from 'firebase/auth';
 import { collection, doc, setDoc } from "firebase/firestore";
 
-
 export function FormDates() {
   const auth = getAuth(firebaseApp);
   const [dates, setDates] = useState({

@@ -43,6 +43,24 @@ class Review {
   _inputNumberBlur() {
     this.root.setProperty('--borderFieldNumber', '#c5c5c5');
   }
+  _inputNumberKeyUp() {
+    const inputNumber = document.querySelector('.signUpForm-number');
+    const labelErrorNumber = document.querySelector('.signUpForm-number-p');
+
+    for (let i = 0; i < inputNumber.value.length; i++) {
+      this.root.setProperty('--borderFieldNumber', '#3b59d4');
+      if (inputNumber.value[i].match(/[a-zA-Z]/)) {
+        this.root.setProperty('--borderFieldNumber', '#f63737');
+        labelErrorNumber.textContent = 'Recuerda, caracteres de tipo númerico';
+      } else {
+        labelErrorNumber.textContent = '';
+      }
+      if (inputNumber.value === '') {
+        labelErrorNumber.textContent = '';
+        this.root.setProperty('--borderFieldNumber', '#3b59d4');
+      }
+    }
+  };
   ////////////////////////////////////////////////////////////
   // input IDCar
   _inputIDCarFocusIn() {

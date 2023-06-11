@@ -3,7 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { firebaseApp } from '../../credentials';
 import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore";
-import Review from "./Review";
+import Review from "../../functions/Review";
 
 export function SignUp({ setIsRegistering }) {
   const classReview = new Review();

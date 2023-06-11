@@ -1,7 +1,7 @@
 import { firebaseApp } from '../../credentials';
-import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
+import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore";
-import Review from "./Review";
+import Review from "../../functions/Review";
 
 export function FormUpdateData({ userMail }) {
   const classReview = new Review();
@@ -55,7 +55,7 @@ export function FormUpdateData({ userMail }) {
         <input
           id="sufn"
           className="signUpForm-name"
-          placeholder="Ingresa tu nombre y apellidos"
+          placeholder="Ej. Sanchez Cabrera Ignacio"
           autoComplete="new-password"
           onFocus={() => classReview._inputNameFocusIn()}
           onBlur={() => classReview._inputNameBlur()}
@@ -65,7 +65,7 @@ export function FormUpdateData({ userMail }) {
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputMail">
           Número celular
-          <IconHashtag />
+          <IconPhone />
         </label>
         <input
           id="inputPhoneNumber"
@@ -74,11 +74,13 @@ export function FormUpdateData({ userMail }) {
           autoComplete="new-password"
           onFocus={() => classReview._inputNumberFocusIn()}
           onBlur={() => classReview._inputNumberBlur()}
+          onKeyUp={() => classReview._inputNumberKeyUp()}
         />
+        <p className="signUpForm-number-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputIDCar">
           Placa vehicular
-          <IconText />
+          <IconHashtag />
         </label>
         <input
           id="inputIDCar"
@@ -88,6 +90,7 @@ export function FormUpdateData({ userMail }) {
           onFocus={() => classReview._inputIDCarFocusIn()}
           onBlur={() => classReview._inputIDCarBlur()}
         />
+        <p className="signUpForm-mail-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputModelCar">
           Modelo del vehiculo
@@ -101,6 +104,7 @@ export function FormUpdateData({ userMail }) {
           onFocus={() => classReview._inputModelCarFocusIn()}
           onBlur={() => classReview._inputModelCarBlur()}
         />
+        <p className="signUpForm-mail-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputPassword">Nueva contraseña</label>
         <section className="wrapper-password">
@@ -117,6 +121,14 @@ export function FormUpdateData({ userMail }) {
             <IconShow />
             <IconHide />
           </button>
+        </section>
+
+        <section className="wrapper-textAdvicePass">
+          <p className="signUpForm-pass-p">Una contraseña segura</p>
+          <ul className="signUpForm-pass-ul">
+            <li>Tiene al menos 8 caracteres</li>
+            <li>Combinación de letras, números, etc.</li>
+          </ul>
         </section>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="sufcp">Confirmar nueva contraseña</label>
