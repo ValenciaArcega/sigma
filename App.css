@@ -4,8 +4,6 @@
   --mainColor: #4263eb;
   --mainColor-tint: #5573ed;
   --mainColor-shade: #3b59d4;
-  --secondaryColor: ;
-  --tertiaryColor: ;
   --ff: #fff;
   --black18: #181818;
 
@@ -21,6 +19,8 @@
   --borderFieldPassConfirm: #c5c5c5;
 
   --border-dashboardCard: #c8c8c8;
+
+  --shadow-finder: 0px 20px 18px -18px rgba(0, 0, 0, 0.12);
 }
 
 * {
@@ -422,7 +422,7 @@ input {
 }
 
 .NVD-btn-dashboard,
-.NVD-btn-feed,
+.NVD-btn-garages,
 .NVD-btn-account {
   font-weight: 500;
   text-decoration: none;
@@ -432,7 +432,7 @@ input {
 }
 
 .NVD-btn-dashboard:hover,
-.NVD-btn-feed:hover,
+.NVD-btn-garages:hover,
 .NVD-btn-account:hover {
   cursor: pointer;
 }
@@ -663,7 +663,7 @@ color: #0a84ff
 }
 
 /* ///////////////////////////////////////////////////// */
-/* Feed.jsx */
+/* Garages.jsx */
 .container-garages {
   display: flex;
   flex-direction: column;
@@ -671,18 +671,21 @@ color: #0a84ff
 }
 
 .garages-title {
-  margin-top: 3rem;
-  font-size: 36px;
+  margin-top: 4rem;
+  font-size: 32px;
   letter-spacing: -1px;
   font-weight: 800;
+  color: #181818;
 }
 
 .garages {
-  width: 90%;
+  width: 95%;
   margin-top: 2rem;
-  gap: 24px 8px;
+  gap: 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 }
 
 .garage {
@@ -696,6 +699,96 @@ color: #0a84ff
 
 
 
+/* ///////////////////////////////////////////////////// */
+/* Finder.jsx */
+.section-finder {
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-finder {
+  margin-top: 4.2rem;
+  position: relative;
+  width: 19rem;
+  height: 48px;
+  display: grid;
+  grid-template-columns: 10% 80% 1fr;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 20px;
+  padding-right: 12px;
+  border-radius: 30px;
+  transition: border-radius 0.5s ease;
+  background: var(--ff);
+  box-shadow: var(--shadow-finder);
+}
+
+/* styling of animated border */
+.container-finder:before {
+  content: "";
+  position: absolute;
+  background: var(--mainColor);
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  transition: transform 0.3s ease;
+}
+
+.container-finder:focus-within {
+  border-radius: 3px;
+}
+
+/* animated border */
+.container-finder:focus-within:before {
+  transform: scale(1);
+}
+
+.input {
+  height: 100%;
+  width: 100%;
+  padding-left: 8px;
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.finder-btnClose {
+  padding: 0;
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* closeButton shown when typing */
+input:not(:placeholder-shown)~.finder-btnClose {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* sizing svg icons */
+.finder-svg-close,
+.finder-svg-search {
+  /* margin-top: 3px; */
+  padding: 0;
+  align-self: center;
+  width: 18px;
+  height: 18px;
+  color: var(--mainColor);
+}
+
+.finder-svg-search {
+  width: 22px;
+}
 
 /* ///////////////////////////////////////////////////// */
 .hidden {
@@ -706,4 +799,54 @@ color: #0a84ff
   background: linear-gradient(to right bottom, #8fa0e7, var(--mainColor-shade));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.highlight-container,
+.highlight {
+  position: relative;
+  overflow-y: hidden;
+}
+
+.highlight-container {
+  padding-right: 20px;
+}
+
+.highlight-container:before {
+  content: "";
+  margin-left: -20px;
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  transform: scale(1.07, 1.05) skewX(-22deg);
+  background: linear-gradient(to left, #90a2ecb5, #71d0f4d1);
+}
+
+
+.highlightBubble-container,
+.highlightBubble {
+  overflow-y: hidden;
+  position: relative;
+}
+
+.highlightBubble-container {
+  display: inline-block;
+}
+
+.highlightBubble-container:before {
+  content: " ";
+  width: 100%;
+  display: block;
+  position: absolute;
+  margin-left: -3px;
+  top: -1px;
+  left: -1px;
+  height: 90%;
+  margin-right: -3px;
+  transform: rotate(2deg);
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
+  background: var(--gradient-primary);
 }

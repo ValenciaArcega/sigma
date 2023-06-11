@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { dataGarages } from '../../data/dt-garages';
+import { Finder } from '../interface/Finder';
 
-export function Feed() {
-  const [isSearching, setIsSearching] = useState(false);
+export function Garages() {
   const [filteredItems, setFilteredItems] = useState(dataGarages);
+  const [isSearching, setIsSearching] = useState(false);
 
   function lookFor(e) {
-    setFilteredItems(dataGarages.filter(function (item) {
-      item.name.toLowerCase().includes(e.target.value.toLowerCase());
-    }));
     setIsSearching(true);
+    setFilteredItems(dataGarages.filter(function (item) {
+      return item.name.toLowerCase().includes(e.target.value.toLowerCase());
+    }));
   }
 
   return (
     <section className="container-garages">
-      <h1 className="garages-title">Talleres cercanos</h1>
+
+      <Finder lookFor={lookFor} setIsSearching={setIsSearching} />
+
+      <h1 className="garages-title"><span className="highlight-container"><span className="highlight">Talleres cercanos</span></span></h1>
+
       <main className="garages">
         {(isSearching ? filteredItems : dataGarages).map(function (item, i) {
           return (

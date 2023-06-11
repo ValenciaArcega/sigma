@@ -12,6 +12,8 @@ const makeDark = () => {
   root.style.setProperty('--border-dashboardCard', '#272727');
   // blur
   root.style.setProperty('--bg-blur-navBar', 'rgba(0, 0, 0, 0.4)');
+  // shadows
+  root.style.setProperty('--shadow-finder', 'transparent');
 };
 
 const makeLight = () => {
@@ -28,8 +30,8 @@ const makeLight = () => {
   root.style.setProperty('--border-dashboardCard', '#c8c8c8');
   // blur
   root.style.setProperty('--bg-blur-navBar', 'rgba(255, 255, 255, 0.4)');
+  // shadows
+  root.style.setProperty('--shadow-finder', '0px 20px 18px -18px rgba(0, 0, 0, 0.12)');
 };
 
 export { makeDark, makeLight };
-
-

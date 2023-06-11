@@ -1,4 +1,4 @@
-import { IconHome, IconFeed, IconPerson } from "../svg/Nvm";
+import { IconHome, IconGarages, IconPerson } from "../svg/Nvm";
 import { Link } from "react-router-dom";
 
 export function NavBarMobile() {
@@ -9,8 +9,8 @@ export function NavBarMobile() {
         Inicio
       </Link>
 
-      <Link className="NVM-btn" to='/sigma/feed'>
-        <IconFeed />
+      <Link className="NVM-btn" to='/sigma/garages'>
+        <IconGarages />
         Descubrir
       </Link>
 
