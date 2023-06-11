@@ -4,7 +4,7 @@ export function NavBarDesktop() {
   return (
     <nav className="navBar-desktop">
 
-      <img src="/logo.png" alt="" height={34} style={{ marginLeft: 10 }} />
+      <img src="logo.png" alt="" height={34} style={{ marginLeft: 10 }} />
 
       <section className="NVD-wrapperButtons">
         <Link className="NVD-btn-dashboard" to='/sigma/'>Inicio</Link>

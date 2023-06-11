@@ -407,6 +407,7 @@ input {
   align-items: center;
   justify-content: center;
   color: var(--ff);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   background-color: var(--bg-blur-navBar);
   z-index: 7;
@@ -415,7 +416,7 @@ input {
 
 .NVD-wrapperButtons {
   padding-right: 1.3rem;
-  gap: 1.5rem;
+  gap: 1.9rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -441,7 +442,7 @@ input {
 /* ///////////////////////////////////////////////////// */
 /* NavBarMobile.jsx */
 .navBar-mobile {
-  height: 58px;
+  height: 54px;
   width: 100%;
   border-top: 2px solid var(--mainColor);
   display: grid;
@@ -454,7 +455,8 @@ input {
 }
 
 .NVM-btn {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 15px;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -464,7 +466,7 @@ input {
 }
 
 .NVM-btnIcon {
-  height: 26px;
+  height: 23px;
   color: var(--black18);
 }
 
@@ -554,6 +556,7 @@ input {
 /* Profile.jsx */
 .container-profile {
   height: 100vh;
+  padding-bottom: 5rem;
   gap: 24px;
   display: flex;
   flex-direction: column;
@@ -666,6 +669,7 @@ color: #0a84ff
 /* ///////////////////////////////////////////////////// */
 /* Garages.jsx */
 .container-garages {
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -681,7 +685,7 @@ color: #0a84ff
 
 .garages {
   width: 95%;
-  margin-top: 2rem;
+  margin-top: 3rem;
   gap: 32px 22px;
   display: grid;
   align-items: center;
@@ -703,6 +707,24 @@ color: #0a84ff
   background-color: var(--bg-garage);
 }
 
+.garage-header {
+  gap: 4px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 15% 1fr;
+}
+
+.garage-svg {
+  height: 24px;
+  color: var(--mainColor);
+}
+
+.garage-h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -.7px;
+}
+
 .garage-button {
   width: 90%;
   height: 42px;
@@ -721,7 +743,7 @@ color: #0a84ff
   bottom: 0;
   right: 0;
   z-index: -99999;
-  transition: all .4s;
+  transition: all .6s;
 }
 
 .garage-button:hover {
@@ -768,14 +790,36 @@ color: #0a84ff
 /* Garage.jsx */
 .container-garageInfoCard {
   height: 100vh;
-  padding-top: 8rem;
+  padding-top: 4rem;
   display: flex;
-  /* align-items: center; */
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
 .garageInfoCard-h1 {
   font-size: 32px;
+  letter-spacing: -1px;
+}
+
+.garageInfoCard-features {
+  padding: 10px 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.garageInfoCard-feature {}
+
+.garageInfoCard-feature::first-letter {
+  padding-right: 4px;
+  color: var(--mainColor);
+}
+
+.mapy {
+  height: 19rem;
+  width: 88%;
+  border-radius: 12px;
+  box-shadow: 0px 32px 12px -20px rgba(0, 0, 0, 0.2);
 }
 
 /* Finder.jsx */
@@ -899,7 +943,7 @@ input:not(:placeholder-shown)~.finder-btnClose {
   top: 0;
   left: 10px;
   transform: scale(1.07, 1.05) skewX(-22deg);
-  background: linear-gradient(to left, #90a2ecb5, #71d0f4d1);
+  background: linear-gradient(to left, #3b5eefa1, #7892ffa1);
 }
 
 

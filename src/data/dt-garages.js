@@ -1,6 +1,5 @@
 export const dataGarages = [
   {
-    id: (Math.random()).toFixed(7),
     name: 'Don Ale Tultitlan',
     features: [
       'Cambio de aceite',
@@ -14,7 +13,6 @@ export const dataGarages = [
     longitude: -99.2347213,
   },
   {
-    id: (Math.random()).toFixed(7),
     name: 'MONSA Ecatepec',
     features: [
       'Cambio de aceite',
@@ -28,7 +26,6 @@ export const dataGarages = [
     longitude: -99.0763317,
   },
   {
-    id: (Math.random()).toFixed(7),
     name: 'ROCRAM Tultitlan',
     features: [
       'Documentación',
@@ -42,7 +39,6 @@ export const dataGarages = [
     longitude: -99.1706242,
   },
   {
-    id: (Math.random()).toFixed(7),
     name: 'CasaCarro Coacalco',
     features: [
       'Papeleo',

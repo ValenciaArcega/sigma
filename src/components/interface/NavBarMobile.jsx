@@ -11,7 +11,7 @@ export function NavBarMobile() {
 
       <Link className="NVM-btn" to='/sigma/garages'>
         <IconGarages />
-        Descubrir
+        Talleres
       </Link>
 
       <Link className="NVM-btn" to='/sigma/profile'>
