@@ -37,22 +37,22 @@ export function Home({ userMail }) {
       <NavBarMobile />
       <Routes>
         <Route
-          path="sigma//*"
+          path="/sigma//*"
           element={<Dashboard userMail={userMail} />}></Route>
         <Route
-          path="sigma/garages"
+          path="/sigma/garages"
           element={<Garages />}></Route>
         <Route
-          path="sigma/garages/specific"
+          path="/sigma/garages/specific"
           element={<Garage />}></Route>
         <Route
-          path="sigma/profile"
+          path="/sigma/profile"
           element={<Profile />}></Route>
         <Route
-          path="sigma/profile/formUpdateData"
+          path="/sigma/profile/formUpdateData"
           element={<FormUpdateData userMail={userMail} />}></Route>
         <Route
-          path="sigma/profile/formPost"
+          path="/sigma/profile/formPost"
           element={<FormPost />}></Route>
       </Routes>
       <Appearance />

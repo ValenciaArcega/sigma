@@ -1,13 +1,10 @@
 
 export function DataUpdated() {
   return (
-    <>
-      <main className="containerMessage-dataUpdated">
-        <IconVerified />
-        <p>Datos actualizados correctamente</p>
-      </main>
-      <div className="overlay"></div>
-    </>
+    <main className="containerMessage-dataUpdated">
+      <IconVerified />
+      <p>Datos actualizados correctamente</p>
+    </main>
   );
 }
 

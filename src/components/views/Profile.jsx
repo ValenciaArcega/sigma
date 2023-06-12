@@ -3,27 +3,25 @@ import { firebaseApp } from "../../credentials";
 import { Link } from "react-router-dom";
 import { makeLight } from '../../functions/switch-appearance';
 
-
 export function Profile() {
   const auth = getAuth(firebaseApp);
 
   return (
     <section className="container-profile">
-
       <Link
-        to='sigma/profile/formUpdateData'
+        to='/sigma/profile/formUpdateData'
         className="profile-btn">
         Editar mis datos
       </Link>
 
       <Link
-        to='sigma/profile/formPost'
+        to='/sigma/profile/formPost'
         className="profile-btn">
         Vender mi automóvil
       </Link>
 
       <Link
-        to='sigma/'
+        to='/sigma/'
         className="profile-btn profile-btnRed"
         onClick={() => {
           makeLight();

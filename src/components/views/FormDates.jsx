@@ -29,7 +29,6 @@ export function FormDates() {
         licencia: dates.licencia,
       });
       alert('Datos registrados con exito ✅');
-      // console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error: ", e);
     }
