@@ -10,6 +10,7 @@
   --bg: #f2f2f7;
   --bg-blur-navBar: rgba(255, 255, 255, 0.4);
   --bg-garage: #fff;
+  --bg-finder: #fff;
 
   --border-garage: #c8c8c8;
   --border-dashboardCard: #c8c8c8;
@@ -305,6 +306,7 @@ input {
 .signUpForm-number-p,
 .signUpForm-mail-p,
 .signUpForm-pass-p,
+.signUpForm-password-p,
 .signUpForm-passConfirm-p {
   height: 12px;
   width: 78%;
@@ -880,7 +882,7 @@ color: #0a84ff
   padding-right: 12px;
   border-radius: 30px;
   transition: border-radius 0.5s ease;
-  background: var(--ff);
+  background: var(--bg-finder);
   box-shadow: var(--shadow-finder);
 }
 

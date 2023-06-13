@@ -1,30 +1,30 @@
-import { firebaseApp } from '../../credentials';
-import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
-import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore";
-import Review from "../../functions/Review";
-import { DataUpdated } from "../messages/DataUpdated";
-import { useState } from "react";
+import { firebaseApp } from '../../credentials'
+import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
+import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore"
+import Review from "../../functions/Review"
+import { DataUpdated } from "../messages/DataUpdated"
+import { useState } from "react"
 
 export function FormUpdateData({ userMail }) {
-  const [gotEdit, setGotEdit] = useState(false);
-  const classReview = new Review();
-  const firestore = getFirestore(firebaseApp);
+  const [gotEdit, setGotEdit] = useState(false)
+  const classReview = new Review()
+  const firestore = getFirestore(firebaseApp)
 
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
     // Pablo Mario Gonzalez Camarena 
-    const stageOne = str.trim().toLowerCase().split(' ').filter(n => n !== '');
-    return stageOne.map(n => n[0].toUpperCase() + n.slice(1)).join(' ');
+    const stageOne = str.trim().toLowerCase().split(' ').filter(n => n !== '')
+    return stageOne.map(n => n[0].toUpperCase() + n.slice(1)).join(' ')
   }
 
   async function addUser(e) {
-    e.preventDefault();
-    const name = e.target.sufn.value;
-    const nameFixed = upperCaseName(name);
-    const phone = e.target.inputPhoneNumber.value;
-    const idCar = e.target.inputIDCar.value;
-    const modelCar = e.target.inputModelCar.value;
-    const password = e.target.inputPassword.value;
+    e.preventDefault()
+    const name = e.target.sufn.value
+    const nameFixed = upperCaseName(name)
+    const phone = e.target.inputPhoneNumber.value
+    const idCar = e.target.inputIDCar.value
+    const modelCar = e.target.inputModelCar.value
+    const password = e.target.inputPassword.value
     const dataUser = [
       {
         name: nameFixed,
@@ -34,16 +34,16 @@ export function FormUpdateData({ userMail }) {
         phone: phone,
         pass: password,
       },
-    ];
-    const docRef = doc(firestore, `users/${userMail}`);
-    const query = await getDoc(docRef);
+    ]
+    const docRef = doc(firestore, `users/${userMail}`)
+    const query = await getDoc(docRef)
 
     if (query.exists()) {
-      await updateDoc(docRef, { data: [...dataUser] });
-      setGotEdit(true);
-      setTimeout(() => setGotEdit(false), 3000);
+      await updateDoc(docRef, { data: [...dataUser] })
+      setGotEdit(true)
+      setTimeout(() => setGotEdit(false), 3000)
     } else {
-      return;
+      return
     }
   }
 
@@ -52,7 +52,8 @@ export function FormUpdateData({ userMail }) {
 
       {gotEdit ? <DataUpdated /> : null}
 
-      <form className="signUpForm" onSubmit={addUser}>
+      {/* <form className="signUpForm" onSubmit={addUser}> */}
+      <form className="signUpForm">
 
         <h1 className="signUpForm-title">Actualiza tus <span className="gradient">datos</span></h1>
 
@@ -130,6 +131,7 @@ export function FormUpdateData({ userMail }) {
             <IconHide />
           </button>
         </section>
+        <p className="signUpForm-password-p"></p>
 
         <section className="wrapper-textAdvicePass">
           <p className="signUpForm-pass-p">Una contraseña segura</p>
@@ -158,10 +160,12 @@ export function FormUpdateData({ userMail }) {
         </div>
         <p className="signUpForm-passConfirm-p"></p>
         {/* ///////////////////////////////////////////////////// */}
-        <button type="submit"
+        <button
+          onClick={() => { if (classReview._print()) console.log('Yess') }}
+          type="button"
           className="signUpForm-btnRegister"
           name="button to Register">Actualizar Datos</button>
       </form>
     </section>
-  );
+  )
 }

@@ -1,63 +1,63 @@
-import reviewRegister from "../../functions/review-userRegistration";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { firebaseApp } from '../../credentials';
-import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp';
-import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore";
-import Review from "../../functions/Review";
+import reviewRegister from "../../functions/review-userRegistration"
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { firebaseApp } from '../../credentials'
+import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
+import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore"
+import Review from "../../functions/Review"
 
 export function SignUp({ setIsRegistering }) {
-  const classReview = new Review();
-  const auth = getAuth(firebaseApp);
-  const firestore = getFirestore(firebaseApp);
+  const classReview = new Review()
+  const auth = getAuth(firebaseApp)
+  const firestore = getFirestore(firebaseApp)
 
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
     // Pablo Mario Gonzalez Camarena 
-    const stageOne = str.trim().toLowerCase().split(' ').filter(n => n !== '');
-    return stageOne.map(n => n[0].toUpperCase() + n.slice(1)).join(' ');
+    const stageOne = str.trim().toLowerCase().split(' ').filter(n => n !== '')
+    return stageOne.map(n => n[0].toUpperCase() + n.slice(1)).join(' ')
   }
 
   async function addUser(e) {
-    e.preventDefault();
-    reviewRegister();
-    const name = e.target.sufn.value;
-    const nameFixed = upperCaseName(name);
-    const mail = e.target.inputMail.value;
-    const password = e.target.inputPassword.value;
+    e.preventDefault()
+    reviewRegister()
+    const name = e.target.sufn.value
+    const nameFixed = upperCaseName(name)
+    const mail = e.target.inputMail.value
+    const password = e.target.inputPassword.value
     const dataUser = [
       {
         name: nameFixed,
         mail: mail,
         pass: password,
       },
-    ];
-    const docRef = doc(firestore, `users/${mail}`);
-    const query = await getDoc(docRef);
+    ]
+    const docRef = doc(firestore, `users/${mail}`)
+    const query = await getDoc(docRef)
 
     if (!query.exists()) {
-      await setDoc(docRef, { data: [...dataUser] });
-      if (reviewRegister()) await createUserWithEmailAndPassword(auth, mail, password);
+      await setDoc(docRef, { data: [...dataUser] })
+      if (reviewRegister()) await createUserWithEmailAndPassword(auth, mail, password)
     } else {
-      return;
+      return
     }
   }
 
   function resetBorders() {
-    const root = document.querySelector(':root');
-    root.style.setProperty('--borderFieldName', '#c5c5c5');
-    root.style.setProperty('--borderFieldID', '#c5c5c5');
-    root.style.setProperty('--borderFieldPassConfirm', '#c5c5c5');
+    const root = document.querySelector(':root')
+    root.style.setProperty('--borderFieldName', '#c5c5c5')
+    root.style.setProperty('--borderFieldID', '#c5c5c5')
+    root.style.setProperty('--borderFieldPassConfirm', '#c5c5c5')
   };
 
   function goSignIn() {
-    resetBorders();
-    setIsRegistering(false);
+    resetBorders()
+    setIsRegistering(false)
   };
 
   return (
     <section className="container-signUp">
-      <form className="signUpForm" onSubmit={addUser}>
-
+      <form className="signUpForm">
+        {/* <form className="signUpForm" onSubmit={addUser}> */}
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
         <label className="signUpForm-label" htmlFor="sufn">
@@ -86,7 +86,7 @@ export function SignUp({ setIsRegistering }) {
           autoComplete="new-password"
           onFocus={() => classReview._inputMailFocusIn()}
           onBlur={() => classReview._inputMailBlur()}
-          onChangeCapture={() => document.querySelector('.signUpForm-mail-p').textContent = ''}
+        // onChangeCapture={() => document.querySelector('.signUpForm-mail-p').textContent = ''}
         />
         <p className="signUpForm-mail-p"></p>
 
@@ -134,7 +134,9 @@ export function SignUp({ setIsRegistering }) {
         </div>
         <p className="signUpForm-passConfirm-p"></p>
 
-        <button type="submit"
+        <button
+          type="button"
+          onClick={() => { if (classReview._print()) console.log('Yes') }}
           className="signUpForm-btnRegister"
           name="button to Register">Registrarme Ahora</button>
 
@@ -144,5 +146,5 @@ export function SignUp({ setIsRegistering }) {
 
       </form>
     </section>
-  );
+  )
 };
