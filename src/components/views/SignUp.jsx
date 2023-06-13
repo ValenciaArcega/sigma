@@ -1,7 +1,7 @@
 import reviewRegister from "../../functions/review-userRegistration"
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { firebaseApp } from '../../credentials'
-import { IconText, IconHashtag, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
+import { IconText, IconAt, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
 import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore"
 import Review from "../../functions/Review"
 
@@ -56,8 +56,7 @@ export function SignUp({ setIsRegistering }) {
 
   return (
     <section className="container-signUp">
-      <form className="signUpForm">
-        {/* <form className="signUpForm" onSubmit={addUser}> */}
+      <form className="signUpForm" onSubmit={(e) => { if (classReview._reviewFormSignUp(e)) addUser(e) }}>
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
         <label className="signUpForm-label" htmlFor="sufn">
@@ -77,7 +76,7 @@ export function SignUp({ setIsRegistering }) {
 
         <label className="signUpForm-label" htmlFor="inputMail">
           Correo electrónico
-          <IconHashtag />
+          <IconAt />
         </label>
         <input
           id="inputMail"
@@ -106,14 +105,7 @@ export function SignUp({ setIsRegistering }) {
             <IconHide />
           </button>
         </section>
-
-        <section className="wrapper-textAdvicePass">
-          <p className="signUpForm-pass-p">Una contraseña segura</p>
-          <ul className="signUpForm-pass-ul">
-            <li>Tiene al menos 8 caracteres</li>
-            <li>Combinación de letras, números, etc.</li>
-          </ul>
-        </section>
+        <p className="signUpForm-pass-p"></p>
 
         <label className="signUpForm-label" htmlFor="sufcp">Confirmar contraseña</label>
         <div className="wrapper-password">
@@ -135,8 +127,7 @@ export function SignUp({ setIsRegistering }) {
         <p className="signUpForm-passConfirm-p"></p>
 
         <button
-          type="button"
-          onClick={() => { if (classReview._print()) console.log('Yes') }}
+          type="submit"
           className="signUpForm-btnRegister"
           name="button to Register">Registrarme Ahora</button>
 

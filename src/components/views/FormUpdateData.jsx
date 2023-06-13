@@ -52,8 +52,7 @@ export function FormUpdateData({ userMail }) {
 
       {gotEdit ? <DataUpdated /> : null}
 
-      {/* <form className="signUpForm" onSubmit={addUser}> */}
-      <form className="signUpForm">
+      <form className="signUpForm" onSubmit={(e) => { if (classReview._reviewFormUpdateData(e)) addUser(e) }}>
 
         <h1 className="signUpForm-title">Actualiza tus <span className="gradient">datos</span></h1>
 
@@ -131,15 +130,8 @@ export function FormUpdateData({ userMail }) {
             <IconHide />
           </button>
         </section>
-        <p className="signUpForm-password-p"></p>
+        <p className="signUpForm-pass-p"></p>
 
-        <section className="wrapper-textAdvicePass">
-          <p className="signUpForm-pass-p">Una contraseña segura</p>
-          <ul className="signUpForm-pass-ul">
-            <li>Tiene al menos 8 caracteres</li>
-            <li>Combinación de letras, números, etc.</li>
-          </ul>
-        </section>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="sufcp">Confirmar nueva contraseña</label>
         <div className="wrapper-password">
@@ -161,8 +153,7 @@ export function FormUpdateData({ userMail }) {
         <p className="signUpForm-passConfirm-p"></p>
         {/* ///////////////////////////////////////////////////// */}
         <button
-          onClick={() => { if (classReview._print()) console.log('Yess') }}
-          type="button"
+          type="submit"
           className="signUpForm-btnRegister"
           name="button to Register">Actualizar Datos</button>
       </form>

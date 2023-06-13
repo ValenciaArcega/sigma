@@ -223,7 +223,7 @@ input {
   /* height: 38rem; */
   width: 20rem;
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -306,7 +306,6 @@ input {
 .signUpForm-number-p,
 .signUpForm-mail-p,
 .signUpForm-pass-p,
-.signUpForm-password-p,
 .signUpForm-passConfirm-p {
   height: 12px;
   width: 78%;
@@ -351,33 +350,10 @@ input {
   color: var(--mainColor);
 }
 
-
-.wrapper-textAdvicePass {
-  width: 78%;
-  margin-top: 2px;
-  gap: 8px;
-  overflow-y: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #fff;
-}
-
-.signUpForm-pass-p {
-  font-size: 14px;
-  color: var(--mainColor);
-}
-
-.signUpForm-pass-ul {
-  padding-left: 1.5rem;
-  font-size: 13px;
-  color: #181818;
-}
-
 .signUpForm-btnRegister {
   min-height: 48px;
   width: 78%;
-  margin-top: 12px;
+  margin-top: 18px;
   border-radius: 10px;
   font-size: 16px;
   font-weight: 400;

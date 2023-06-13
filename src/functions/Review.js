@@ -55,19 +55,18 @@ class Review {
     this.root.setProperty('--borderFieldID', '#c5c5c5')
   }
 
-  // Pending 🚀
-  // at leats one . and one @
-  // at leats 6 characters a@a.ar
-  _inputMailFormat() { }
-
   _reviewInputMail() {
-    const inputID = document.querySelector('.signUpForm-mail')
-    const textErrorID = document.querySelector('.signUpForm-mail-p')
+    const inputMail = document.querySelector('.signUpForm-mail')
+    const labelErrorMail = document.querySelector('.signUpForm-mail-p')
 
-    if (inputID.value === '') {
+    if (inputMail.value === '') {
       this.root.setProperty('--borderFieldID', '#f63737')
-      textErrorID.textContent = 'El campo es obligatorio'
+      labelErrorMail.textContent = 'El campo es obligatorio'
+    } else if (!inputMail.value.includes('@') || !inputMail.value.includes('.') || inputMail.value.length < 8) {
+      this.root.setProperty('--borderFieldID', '#f63737')
+      labelErrorMail.textContent = 'Ingresa un formato de correo valido'
     } else {
+      labelErrorMail.textContent = ''
       return true
     }
   }
@@ -142,7 +141,7 @@ class Review {
 
   _reviewInputPass() {
     const inputPass = document.querySelector('.signUpForm-pass')
-    const labelErrorPass = document.querySelector('.signUpForm-password-p')
+    const labelErrorPass = document.querySelector('.signUpForm-pass-p')
 
     if (inputPass.value === '') {
       this.root.setProperty('--borderFieldPass', '#f63737')
@@ -227,13 +226,24 @@ class Review {
     }
   };
 
-  _print() {
+  _reviewFormUpdateData(e) {
+    e.preventDefault()
     this._reviewInputName()
-    // this._reviewInputMail()
     this._reviewInputPass()
     this._reviewInputNumber()
     this._reviewInputConfirmPassword()
     if (this._reviewInputName() && this._reviewInputNumber() && this._reviewInputConfirmPassword() && this._reviewInputPass()) {
+      return true
+    }
+  }
+
+  _reviewFormSignUp(e) {
+    e.preventDefault()
+    this._reviewInputName()
+    this._reviewInputMail()
+    this._reviewInputPass()
+    this._reviewInputConfirmPassword()
+    if (this._reviewInputName() && this._reviewInputMail() && this._reviewInputConfirmPassword() && this._reviewInputPass()) {
       return true
     }
   }
