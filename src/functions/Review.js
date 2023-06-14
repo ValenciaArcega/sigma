@@ -139,6 +139,13 @@ class Review {
     this.root.setProperty('--borderFieldPass', '#c5c5c5')
   }
 
+  _emptyConfirmPass() {
+    const inputPassConfirm = document.querySelector('.signUpForm-passConfirm')
+
+    for (const item of inputPassConfirm.value)
+      inputPassConfirm.value = ''
+  }
+
   _reviewInputPass() {
     const inputPass = document.querySelector('.signUpForm-pass')
     const labelErrorPass = document.querySelector('.signUpForm-pass-p')

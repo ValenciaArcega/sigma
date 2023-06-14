@@ -1,45 +1,74 @@
-import { useState } from "react";
-import { dataGarages } from '../../data/dt-garages';
-import { Finder } from '../interface/Finder';
-import { useNavigate } from 'react-router-dom';
-import { IconTools } from '../svg/Garages';
+import { useState, useEffect } from "react"
+import { dataGarages } from '../../data/dt-garages'
+import { Finder } from '../interface/Finder'
+import { useNavigate } from 'react-router-dom'
+import { getFirestore, doc, getDoc } from "firebase/firestore"
+import { firebaseApp } from "../../credentials"
 
+export function Garages({ userMail }) {
+  const navigate = useNavigate()
+  const [filteredItems, setFilteredItems] = useState(dataGarages)
+  const [isSearching, setIsSearching] = useState(false)
+  const [name, setName] = useState(null)
+  const firestore = getFirestore(firebaseApp)
+  const day = new Date().getDate()
+  const weekDay = new Date().toLocaleDateString("es-MX", { weekday: 'long' })
+  const weekDayStr = weekDay.slice(0, 1).toUpperCase() + weekDay.slice(1).toLowerCase()
+  const welcomeText = `Hoy es ${weekDayStr} ${(day === 1) ? '1ro' : day}. Busca y reserva en tu taller ideal!`
 
-export function Garages() {
-  const navigate = useNavigate();
-  const [filteredItems, setFilteredItems] = useState(dataGarages);
-  const [isSearching, setIsSearching] = useState(false);
+  function fixName(str) {
+    return str.trim().split(' ')[0]
+  }
+
+  function displayDateMessage() {
+
+  }
 
   function lookFor(e) {
-    setIsSearching(true);
-    setFilteredItems(dataGarages.filter(item => item.name.toLowerCase().includes(e.target.value.toLowerCase())));
+    setIsSearching(true)
+    setFilteredItems(dataGarages.filter(item => item.name.toLowerCase().includes(e.target.value.toLowerCase())))
   }
+
+  useEffect(() => {
+    (async function getUserName() {
+      const docRef = doc(firestore, `users/${userMail}`)
+      const query = await getDoc(docRef)
+      if (query.exists()) {
+        const infoDoc = query.data()
+        // get data from firebase
+        const fullName = infoDoc.data[0].name
+        const finalName = fixName(fullName)
+        setName(finalName)
+      }
+    })()
+  }, [])
 
   return (
     <section className="container-garages">
 
+      <h1 className="welcomeMessage-h1"><span className="gradient">Hola {name}</span></h1>
+      <p className="welcomeMessage-p">{welcomeText}</p>
       <Finder lookFor={lookFor} setIsSearching={setIsSearching} />
 
-      <h1 className="garages-title"><span className="highlight-container"><span className="highlight">Talleres</span></span></h1>
+      <h1 className="garages-title">
+        Los <span className="gradient">talleres</span> disponibles
+      </h1>
 
       <main className="garages">
         {(isSearching ? filteredItems : dataGarages).map(function (item, i) {
           return (
             <div className="garage" key={i}>
-
-              <div className="garage-header">
-                <IconTools />
-                <h2 className="garage-h2">{item.name}</h2>
-              </div>
-
-              <button className="garage-button" onClick={() => navigate('/sigma/garages/specific', { state: item })}>
+              <h2 className="garage-h2">{item.name}</h2>
+              <button
+                className="garage-button"
+                onClick={() => navigate('/sigma/garage/', { state: item })}>
                 Ver detalles
               </button>
 
             </div>
-          );
+          )
         })}
       </main>
     </section >
-  );
+  )
 };

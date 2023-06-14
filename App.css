@@ -13,7 +13,6 @@
   --bg-finder: #fff;
 
   --border-garage: #c8c8c8;
-  --border-dashboardCard: #c8c8c8;
   --borderFieldID: #c5c5c5;
   --borderFieldName: #c5c5c5;
   --borderFieldNumber: #c5c5c5;
@@ -25,7 +24,8 @@
   --shadow-finder: 0px 20px 18px -18px rgba(0, 0, 0, 0.12);
 }
 
-* {
+*,
+*:after {
   padding: 0 0;
   margin: 0 0;
   box-sizing: border-box;
@@ -423,7 +423,6 @@ input {
   background: none;
 }
 
-.NVD-btn-dashboard,
 .NVD-btn-garages,
 .NVD-btn-account {
   font-weight: 500;
@@ -433,7 +432,6 @@ input {
   color: var(--black18);
 }
 
-.NVD-btn-dashboard:hover,
 .NVD-btn-garages:hover,
 .NVD-btn-account:hover {
   cursor: pointer;
@@ -498,58 +496,6 @@ input {
 .btn-lightIcon {
   height: 28px;
   color: yellow;
-}
-
-/* ///////////////////////////////////////////////////// */
-/* Dashboard.jsx */
-.container-dashboard {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.dashboard-header h1 {
-  margin-left: 2rem;
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -1px;
-}
-
-.dashboard-main {
-  width: 95%;
-  margin-top: 10px;
-  padding-bottom: 7rem;
-  gap: 16px 8px;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  align-self: center;
-}
-
-.dashboard-card {
-  width: 20rem;
-  padding: 1rem;
-  border-radius: 12px;
-  gap: 10px;
-  border: 2px solid var(--border-dashboardCard);
-  display: flex;
-  flex-direction: column;
-  background-color: var(--ff);
-}
-
-.dashboard-card-title {
-  font-weight: 800;
-  color: var(--mainColor);
-}
-
-.dashboard-card-description {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.dashboard-card-date {
-  font-size: 32;
-  font-weight: 700;
 }
 
 /* ///////////////////////////////////////////////////// */
@@ -675,17 +621,38 @@ color: #0a84ff
   align-items: center;
 }
 
-.garages-title {
-  margin-top: 4rem;
+.welcomeMessage-h1 {
+  width: 92%;
+  margin-top: 5rem;
   font-size: 32px;
+  font-weight: 800;
+  justify-self: flex-start;
+  letter-spacing: -1px;
+}
+
+.welcomeMessage-p {
+  width: 92%;
+  font-size: 18px;
+  font-weight: 500;
+  justify-self: flex-start;
+  letter-spacing: -.5px;
+  line-height: 1.4;
+}
+
+.garages-title {
+  width: 88%;
+  justify-self: flex-start;
+  margin-top: 2.2rem;
+  padding-bottom: 6px;
+  font-size: 26px;
   letter-spacing: -1px;
   font-weight: 800;
-  color: #181818;
+  overflow: hidden;
 }
 
 .garages {
-  width: 95%;
-  margin-top: 3rem;
+  width: 92%;
+  margin-top: 1rem;
   gap: 32px 22px;
   display: grid;
   align-items: center;
@@ -705,18 +672,6 @@ color: #0a84ff
   border: 1px solid var(--border-garage);
   border-radius: 10px;
   background-color: var(--bg-garage);
-}
-
-.garage-header {
-  gap: 4px;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 15% 1fr;
-}
-
-.garage-svg {
-  height: 24px;
-  color: var(--mainColor);
 }
 
 .garage-h2 {
@@ -846,7 +801,7 @@ color: #0a84ff
 }
 
 .container-finder {
-  margin-top: 4.2rem;
+  margin-top: 2.6rem;
   position: relative;
   width: 19rem;
   height: 48px;
