@@ -140,10 +140,7 @@ class Review {
   }
 
   _emptyConfirmPass() {
-    const inputPassConfirm = document.querySelector('.signUpForm-passConfirm')
-
-    for (const item of inputPassConfirm.value)
-      inputPassConfirm.value = ''
+    document.querySelector('.signUpForm-passConfirm').value = document.querySelector('.signUpForm-passConfirm-p').textContent = document.querySelector('.signUpForm-pass-p').textContent = ''
   }
 
   _reviewInputPass() {

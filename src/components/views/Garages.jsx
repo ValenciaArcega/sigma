@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { dataGarages } from '../../data/dt-garages'
-import { Finder } from '../interface/Finder'
+import { Finder } from '../finder/Finder'
 import { useNavigate } from 'react-router-dom'
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
@@ -18,10 +18,6 @@ export function Garages({ userMail }) {
 
   function fixName(str) {
     return str.trim().split(' ')[0]
-  }
-
-  function displayDateMessage() {
-
   }
 
   function lookFor(e) {

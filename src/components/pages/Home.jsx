@@ -1,14 +1,14 @@
-import { NavBarDesktop } from "../interface/NavBarDesktop"
-import { NavBarMobile } from '../interface/NavBarMobile'
+import { NavBarDesktop } from "../navBar/NavBarDesktop"
+import { NavBarMobile } from '../navBar/NavBarMobile'
 import { Appearance } from "../theme/Appearance"
-// import { FormDates } from "../views/FormDates";
-import { FormPost } from "../views/FormPost"
+// import { FormDates } from "../forms/FormDates";
+import { FormPost } from "../forms/FormPost"
 import { Profile } from "../views/Profile"
 import { Garages } from '../views/Garages'
-import { Garage } from "../interface/Garage"
+import { Garage } from "../views/Garage"
 import { useEffect } from "react"
 import { Route, Routes } from 'react-router-dom'
-import { FormUpdateData } from "../views/FormUpdateData"
+import { FormUpdateData } from "../forms/FormUpdateData"
 
 export function Home({ userMail }) {
 
@@ -37,20 +37,26 @@ export function Home({ userMail }) {
       <Routes>
         <Route
           path="/sigma//*"
-          element={<Garages userMail={userMail} />}></Route>
+          element={<Garages userMail={userMail} />}>
+        </Route>
         <Route
           path="/sigma/garage"
-          element={<Garage />}></Route>
+          element={<Garage />}>
+        </Route>
         <Route
           path="/sigma/profile"
-          element={<Profile />}></Route>
+          element={<Profile />}>
+        </Route>
         <Route
           path="/sigma/profile/formUpdateData"
-          element={<FormUpdateData userMail={userMail} />}></Route>
+          element={<FormUpdateData userMail={userMail} />}>
+        </Route>
         <Route
           path="/sigma/profile/formPost"
-          element={<FormPost />}></Route>
+          element={<FormPost />}>
+        </Route>
       </Routes>
+
       <Appearance />
     </main>
   )

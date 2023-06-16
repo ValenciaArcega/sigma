@@ -85,7 +85,6 @@ export function SignUp({ setIsRegistering }) {
           autoComplete="new-password"
           onFocus={() => classReview._inputMailFocusIn()}
           onBlur={() => classReview._inputMailBlur()}
-        // onChangeCapture={() => document.querySelector('.signUpForm-mail-p').textContent = ''}
         />
         <p className="signUpForm-mail-p"></p>
 
@@ -99,6 +98,7 @@ export function SignUp({ setIsRegistering }) {
             placeholder="Crea una contraseña"
             onBlur={() => classReview._inputPassBlur()}
             onFocus={() => classReview._inputPassFocusIn()}
+            onChangeCapture={() => classReview._emptyConfirmPass()}
           />
           <button onClick={() => classReview._showPassRegister()} className="btn-showPass" type="button" title="button show">
             <IconShow />

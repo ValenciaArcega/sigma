@@ -122,7 +122,7 @@ export function FormUpdateData({ userMail }) {
             type="password"
             autoComplete="new-password"
             placeholder="Ingresa una contraseña"
-            onKeyUp={() => classReview._emptyConfirmPass()}
+            onChangeCapture={() => classReview._emptyConfirmPass()}
             onBlur={() => classReview._inputPassBlur()}
             onFocus={() => classReview._inputPassFocusIn()}
           />

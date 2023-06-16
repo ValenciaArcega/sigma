@@ -1,24 +1,24 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 
 export function Garage() {
-  const location = useLocation();
-  const data = location.state;
+  const location = useLocation()
+  const data = location.state
 
   function loadMap() {
-    const coords = [data.latitude, data.longitude];
-    const map = L.map('map').setView(coords, 10);
+    const coords = [data.latitude, data.longitude]
+    const map = L.map('map').setView(coords, 10)
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(map)
 
     L.marker(coords).addTo(map)
       .bindPopup(`Taller: ${data.name}`)
-      .openPopup();
+      .openPopup()
   }
 
-  useEffect(() => loadMap(), []);
+  useEffect(() => loadMap(), [])
 
   return (
     <section className="container-garageInfoCard">
@@ -30,8 +30,10 @@ export function Garage() {
         </div>
 
         <main className="mapy" id="map"></main>
+
+        <button>Agendar Cita</button>
       </section>
 
     </section>
-  );
+  )
 }
