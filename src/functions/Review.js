@@ -1,6 +1,12 @@
 class Review {
+  ///////////////// V A R I A B L E S /////////////////
   root = document.documentElement.style;
-  ////////////////////////////////////////////
+  _expRegLetters = /[a-zA-Z]/;
+  _expRegNumbers = /[0-9]/;
+  _expRegCharacters = /[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/;
+
+  ///////////////// M E T H O D S /////////////////
+
   // input specialty
   _inputSpecialtyFocusIn() {
     this.root.setProperty('--borderInput-specialty', '#3b59d4')
@@ -16,22 +22,29 @@ class Review {
 
     for (let a = 0; a < input.value.length; a++) {
       this.root.setProperty('--borderInput-specialty', '#3b59d4')
-      // this.root.setProperty('--bg-input-specialty', '#fff')
 
-      if (input.value[a].match(/^[0-9]+$/) || input.value[a].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/)) {
+      if (input.value[a].match(this._expRegNumbers) || input.value[a].match(this._expRegCharacters)) {
         this.root.setProperty('--borderInput-specialty', '#f63737')
-        // this.root.setProperty('--bg-input-specialty', '#ffa9a9a6')
         textError.textContent = 'Recuerda, solo caracteres tipo texto'
-      } else {
-        // this.root.setProperty('--bg-input-specialty', '#fff')
-        textError.textContent = ''
-      }
+      } else textError.textContent = ''
     }
 
     if (input.value === '') {
       this.root.setProperty('--borderInput-specialty', '#3b59d4')
       textError.textContent = ''
     }
+  }
+
+  _reviewInputSpecialty() {
+    const input = document.querySelector('.data-input-specialty')
+    const textError = document.querySelector('.data-p-specialty')
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-specialty', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.match(this._expRegNumbers) || input.value.match(this._expRegCharacters)) {
+      this.root.setProperty('--borderInput-specialty', '#f63737')
+      textError.textContent = 'Solo caracteres tipo texto'
+    } else return true
   }
   ////////////////////////////////////////////
   // input date
@@ -53,15 +66,26 @@ class Review {
       if (input.value[a].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/¿?]/)) {
         this.root.setProperty('--borderInput-date', '#f63737')
         textError.textContent = 'Sin caracteres especiales'
-      } else {
-        textError.textContent = ''
-      }
+      } else textError.textContent = ''
     }
 
     if (input.value === '') {
       this.root.setProperty('--borderInput-date', '#3b59d4')
       textError.textContent = ''
     }
+  }
+
+  _reviewInputDate() {
+    const input = document.querySelector('.data-input-date')
+    const textError = document.querySelector('.data-p-date')
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-date', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/¿?]/)) {
+      this.root.setProperty('--borderInput-date', '#f63737')
+      textError.textContent = 'Sin caracteres especiales'
+    } else return true
   }
   ////////////////////////////////////////////
   // input schedule
@@ -80,7 +104,7 @@ class Review {
     for (let a = 0; a < input.value.length; a++) {
       this.root.setProperty('--borderInput-schedule', '#3b59d4')
 
-      if (input.value[a].match(/[¡°!@#$%^&*()_+\=\[\]{};'"\\|,.<>\/¿?]/)) {
+      if (input.value[a].match(/[¡°!@#$%^&*()_+\=\[\]{};'"\\|,.<>\/¿?]/) || input.value[a].match(this._expRegLetters)) {
         this.root.setProperty('--borderInput-schedule', '#f63737')
         textError.textContent = 'Sin caracteres especiales'
       } else textError.textContent = ''
@@ -90,6 +114,19 @@ class Review {
       this.root.setProperty('--borderInput-schedule', '#3b59d4')
       textError.textContent = ''
     }
+  }
+
+  _reviewInputSchedule() {
+    const input = document.querySelector('.data-input-schedule')
+    const textError = document.querySelector('.data-p-schedule')
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-schedule', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.match(/[¡°!@#$%^&*()_+\=\[\]{};'"\\|,.<>\/¿?]/) || input.value.match(this._expRegLetters)) {
+      this.root.setProperty('--borderInput-schedule', '#f63737')
+      textError.textContent = 'Sin caracteres especiales'
+    } else return true
   }
   ////////////////////////////////////////////
   // input booking contact number
@@ -102,8 +139,141 @@ class Review {
   }
 
   _inputBookingNumberKeyUp() {
+    const input = document.querySelector('.data-input-bookingNumber')
 
+    if (input.value.length > 10) input.value = input.value.slice(0, 10)
   }
+
+  _reviewInputBookingNumber() {
+    const input = document.querySelector('.data-input-bookingNumber')
+    const textError = document.querySelector('.data-p-bookingNumber')
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-bookingNumber', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.length < 10) {
+      this.root.setProperty('--borderInput-bookingNumber', '#f63737')
+      textError.textContent = 'Se esperan 10 digitos'
+    } else {
+      textError.textContent = ''
+      return true
+    }
+  }
+  ////////////////////////////////////////////
+  // input check password 💳
+  _inputCheckPasswordFocusIn() {
+    this.root.setProperty('--borderInput-checkPassword', '#3b59d4')
+  }
+
+  _inputCheckPasswordBlur() {
+    this.root.setProperty('--borderInput-checkPassword', '#c5c5c5')
+  }
+
+  _setWrongPass() {
+    const textError = document.querySelector('.data-p-checkPassword')
+    this.root.setProperty('--borderInput-checkPassword', '#f63737')
+    textError.style.color = '#f63737'
+    textError.textContent = 'La contraseña es incorrecta'
+  }
+
+  _setGoodPass() {
+    const textError = document.querySelector('.data-p-checkPassword')
+    textError.style.color = '#37b24d'
+    textError.textContent = '¡Contraseña verificada!'
+    this.root.setProperty('--borderInput-checkPassword', '#37b24d')
+  }
+
+  ////////////////////////////////////////////
+  // input card digits
+  _inputCardDigitsFocusIn() {
+    this.root.setProperty('--borderInput-cardDigits', '#3b59d4')
+  }
+
+  _inputCardDigitsBlur() {
+    this.root.setProperty('--borderInput-cardDigits', '#c5c5c5')
+  }
+
+  _inputCardDigitsKeyUp() {
+    const input = document.querySelector('.payment-input-cardDigits')
+
+    if (input.value.length > 16) input.value = input.value.slice(0, 16)
+  }
+  ////////////////////////////////////////////
+  // input expiration date
+  _inputExpirationDateFocusIn() {
+    this.root.setProperty('--borderInput-expirationDate', '#3b59d4')
+  }
+
+  _inputExpirationDateBlur() {
+    this.root.setProperty('--borderInput-expirationDate', '#c5c5c5')
+  }
+
+  _inputExpirationDateKeyUp() {
+    const input = document.querySelector('.payment-input-expirationDate')
+    const textError = document.querySelector('.payment-p-expirationDate')
+
+    for (let a = 0; a < input.value.length; a++) {
+      this.root.setProperty('--borderInput-expirationDate', '#3b59d4')
+
+      if (input.value[a].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\¿?]/) || input.value[a].match(this._expRegLetters)) {
+        this.root.setProperty('--borderInput-expirationDate', '#f63737')
+        textError.textContent = 'Sin caracteres especiales'
+      } else textError.textContent = ''
+    }
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-expirationDate', '#3b59d4')
+      textError.textContent = ''
+    }
+  }
+  ////////////////////////////////////////////
+  // input cvv
+  _inputCVVFocusIn() {
+    this.root.setProperty('--borderInput-cvv', '#3b59d4')
+  }
+
+  _inputCVVBlur() {
+    this.root.setProperty('--borderInput-cvv', '#c5c5c5')
+  }
+
+  _inputCVVKeyUp() {
+    const input = document.querySelector('.payment-input-cvv')
+
+    if (input.value.length > 3) input.value = input.value.slice(0, 3)
+  }
+
+  _reviewFormBooking() {
+    this._reviewInputSpecialty()
+    this._reviewInputDate()
+    this._reviewInputSchedule()
+    this._reviewInputBookingNumber()
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////////
   // input name
   _inputNameFocusIn() {
@@ -120,12 +290,10 @@ class Review {
     for (let i = 0; i < inputName.value.length; i++) {
       this.root.setProperty('--borderFieldName', '#3b59d4')
 
-      if (inputName.value[i].match(/^[0-9]+$/) || inputName.value[i].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/)) {
+      if (inputName.value[i].match(this._expRegNumbers) || inputName.value[i].match(this._expRegCharacters)) {
         textErrorName.textContent = 'Recuerda, solo caracteres de tipo texto'
         this.root.setProperty('--borderFieldName', '#f63737')
-      } else {
-        textErrorName.textContent = ''
-      }
+      } else textErrorName.textContent = ''
     }
 
     if (inputName.value === '') {
@@ -141,12 +309,10 @@ class Review {
     if (inputName.value === '') {
       this.root.setProperty('--borderFieldName', '#f63737')
       textErrorName.textContent = 'El campo es obligatorio'
-    } else if (inputName.value.match(/[0-9]/) || inputName.value.match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/)) {
+    } else if (inputName.value.match(/[0-9]/) || inputName.value.match(this._expRegCharacters)) {
       this.root.setProperty('--borderFieldName', '#f63737')
       textErrorName.textContent = 'Solo caracteres tipo texto'
-    } else {
-      return true
-    }
+    } else return true
   }
 
   ////////////////////////////////////////////
@@ -188,12 +354,10 @@ class Review {
 
     for (let i = 0; i < inputNumber.value.length; i++) {
       this.root.setProperty('--borderFieldNumber', '#3b59d4')
-      if (inputNumber.value[i].match(/[a-zA-Z]/) || inputNumber.value[i].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/)) {
+      if (inputNumber.value[i].match(this._expRegLetters) || inputNumber.value[i].match(this._expRegCharacters)) {
         this.root.setProperty('--borderFieldNumber', '#f63737')
         labelErrorNumber.textContent = 'Recuerda, caracteres de tipo númerico'
-      } else {
-        labelErrorNumber.textContent = ''
-      }
+      } else labelErrorNumber.textContent = ''
     }
 
     if (inputNumber.value === '') {
@@ -209,12 +373,10 @@ class Review {
     if (inputNumber.value === '') {
       this.root.setProperty('--borderFieldNumber', '#f63737')
       labelErrorNumber.textContent = 'El campo es obligatorio'
-    } else if (inputNumber.value.match(/[a-zA-Z]/) || inputNumber.value.match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/)) {
+    } else if (inputNumber.value.match(this._expRegLetters) || inputNumber.value.match(this._expRegCharacters)) {
       this.root.setProperty('--borderFieldNumber', '#f63737')
       labelErrorNumber.textContent = 'Solo caracteres de tipo númerico'
-    } else {
-      return true
-    }
+    } else return true
   }
 
   ////////////////////////////////////////////////////////////
@@ -312,9 +474,7 @@ class Review {
       this.root.setProperty('--borderFieldPassConfirm', '#f63737')
       textErrorPassConfirm.style.color = '#f63737'
       textErrorPassConfirm.textContent = 'Las contraseñas no coinciden'
-    } else {
-      return true
-    }
+    } else return true
   }
 
   _showConfirmRegister() {

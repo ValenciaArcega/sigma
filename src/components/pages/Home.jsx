@@ -46,7 +46,7 @@ export function Home({ userMail }) {
         </Route>
         <Route
           path="/sigma/garage/booking"
-          element={<FormBooking />}>
+          element={<FormBooking userMail={userMail} />}>
         </Route>
         <Route
           path="/sigma/profile"
