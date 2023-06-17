@@ -1,9 +1,11 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export function Garage() {
   const location = useLocation()
   const data = location.state
+  const navigate = useNavigate()
 
   function loadMap() {
     const coords = [data.latitude, data.longitude]
@@ -30,10 +32,14 @@ export function Garage() {
         </div>
 
         <main className="mapy" id="map"></main>
-
-        <button>Agendar Cita</button>
       </section>
 
+      <button
+        className="btn-booking"
+        onClick={() => navigate('/sigma/garage/booking', { state: data })}
+      >
+        Agendar Cita
+      </button>
     </section>
   )
 }

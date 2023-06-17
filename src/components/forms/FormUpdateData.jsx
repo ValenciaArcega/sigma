@@ -78,6 +78,9 @@ export function FormUpdateData({ userMail }) {
         <input
           id="inputPhoneNumber"
           className="signUpForm-number"
+          type="number"
+          pattern="[0-9]*"
+          inputMode="decimal"
           placeholder="5540678934"
           autoComplete="new-password"
           onFocus={() => classReview._inputNumberFocusIn()}

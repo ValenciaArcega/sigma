@@ -9,6 +9,7 @@ import { Garage } from "../views/Garage"
 import { useEffect } from "react"
 import { Route, Routes } from 'react-router-dom'
 import { FormUpdateData } from "../forms/FormUpdateData"
+import { FormBooking } from "../forms/FormBooking"
 
 export function Home({ userMail }) {
 
@@ -44,6 +45,10 @@ export function Home({ userMail }) {
           element={<Garage />}>
         </Route>
         <Route
+          path="/sigma/garage/booking"
+          element={<FormBooking />}>
+        </Route>
+        <Route
           path="/sigma/profile"
           element={<Profile />}>
         </Route>
@@ -52,7 +57,7 @@ export function Home({ userMail }) {
           element={<FormUpdateData userMail={userMail} />}>
         </Route>
         <Route
-          path="/sigma/profile/formPost"
+          path="/sigma/garage/formPost"
           element={<FormPost />}>
         </Route>
       </Routes>

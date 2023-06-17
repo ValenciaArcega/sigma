@@ -1,6 +1,109 @@
 class Review {
-  ////////////////////////////////////////////
   root = document.documentElement.style;
+  ////////////////////////////////////////////
+  // input specialty
+  _inputSpecialtyFocusIn() {
+    this.root.setProperty('--borderInput-specialty', '#3b59d4')
+  }
+
+  _inputSpecialtyBlur() {
+    this.root.setProperty('--borderInput-specialty', '#c5c5c5')
+  }
+
+  _inputSpecialtyKeyUp() {
+    const input = document.querySelector('.data-input-specialty')
+    const textError = document.querySelector('.data-p-specialty')
+
+    for (let a = 0; a < input.value.length; a++) {
+      this.root.setProperty('--borderInput-specialty', '#3b59d4')
+      // this.root.setProperty('--bg-input-specialty', '#fff')
+
+      if (input.value[a].match(/^[0-9]+$/) || input.value[a].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/)) {
+        this.root.setProperty('--borderInput-specialty', '#f63737')
+        // this.root.setProperty('--bg-input-specialty', '#ffa9a9a6')
+        textError.textContent = 'Recuerda, solo caracteres tipo texto'
+      } else {
+        // this.root.setProperty('--bg-input-specialty', '#fff')
+        textError.textContent = ''
+      }
+    }
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-specialty', '#3b59d4')
+      textError.textContent = ''
+    }
+  }
+  ////////////////////////////////////////////
+  // input date
+  _inputDateFocusIn() {
+    this.root.setProperty('--borderInput-date', '#3b59d4')
+  }
+
+  _inputDateBlur() {
+    this.root.setProperty('--borderInput-date', '#c5c5c5')
+  }
+
+  _inputDateKeyUp() {
+    const input = document.querySelector('.data-input-date')
+    const textError = document.querySelector('.data-p-date')
+
+    for (let a = 0; a < input.value.length; a++) {
+      this.root.setProperty('--borderInput-date', '#3b59d4')
+
+      if (input.value[a].match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/¿?]/)) {
+        this.root.setProperty('--borderInput-date', '#f63737')
+        textError.textContent = 'Sin caracteres especiales'
+      } else {
+        textError.textContent = ''
+      }
+    }
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-date', '#3b59d4')
+      textError.textContent = ''
+    }
+  }
+  ////////////////////////////////////////////
+  // input schedule
+  _inputScheduleFocusIn() {
+    this.root.setProperty('--borderInput-schedule', '#3b59d4')
+  }
+
+  _inputScheduleBlur() {
+    this.root.setProperty('--borderInput-schedule', '#c5c5c5')
+  }
+
+  _inputScheduleKeyUp() {
+    const input = document.querySelector('.data-input-schedule')
+    const textError = document.querySelector('.data-p-schedule')
+
+    for (let a = 0; a < input.value.length; a++) {
+      this.root.setProperty('--borderInput-schedule', '#3b59d4')
+
+      if (input.value[a].match(/[¡°!@#$%^&*()_+\=\[\]{};'"\\|,.<>\/¿?]/)) {
+        this.root.setProperty('--borderInput-schedule', '#f63737')
+        textError.textContent = 'Sin caracteres especiales'
+      } else textError.textContent = ''
+    }
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-schedule', '#3b59d4')
+      textError.textContent = ''
+    }
+  }
+  ////////////////////////////////////////////
+  // input booking contact number
+  _inputBookingNumberFocusIn() {
+    this.root.setProperty('--borderInput-bookingNumber', '#3b59d4')
+  }
+
+  _inputBookingNumberBlur() {
+    this.root.setProperty('--borderInput-bookingNumber', '#c5c5c5')
+  }
+
+  _inputBookingNumberKeyUp() {
+
+  }
   ////////////////////////////////////////////
   // input name
   _inputNameFocusIn() {
