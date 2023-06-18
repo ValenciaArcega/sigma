@@ -10,6 +10,7 @@ import { useEffect } from "react"
 import { Route, Routes } from 'react-router-dom'
 import { FormUpdateData } from "../forms/FormUpdateData"
 import { FormBooking } from "../forms/FormBooking"
+import { Ticket } from "../views/Ticket"
 
 export function Home({ userMail }) {
 
@@ -47,6 +48,10 @@ export function Home({ userMail }) {
         <Route
           path="/sigma/garage/booking"
           element={<FormBooking userMail={userMail} />}>
+        </Route>
+        <Route
+          path="/sigma/garage/booking/ticket"
+          element={<Ticket />}>
         </Route>
         <Route
           path="/sigma/profile"

@@ -966,6 +966,34 @@ color: #0a84ff
   background-color: var(--mainColor);
 }
 
+/* Ticket.jsx */
+.container-ticket {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket {
+  height: 35rem;
+  width: 20rem;
+  padding: 2rem 0;
+  border-radius: 10px;
+  border: 2px dotted #FFCA7C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: #F4FFC9;
+}
+
+.ticket-title {
+  width: 80%;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 2px dotted #FFCA7C;
+}
+
 /* Finder.jsx */
 .section-finder {
   padding-bottom: 1rem;

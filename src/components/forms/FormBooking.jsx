@@ -2,12 +2,14 @@ import Review from "../../functions/Review"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export function FormBooking({ userMail }) {
+  let dataForTicket
   const classReview = new Review()
+  const navigate = useNavigate()
   const firestore = getFirestore(firebaseApp)
   const [firebasePass, setFirebasePass] = useState(null)
-  const [data, setData] = useState([{}])
 
   async function getPass() {
     const docRef = doc(firestore, `users/${userMail}`)
@@ -20,15 +22,18 @@ export function FormBooking({ userMail }) {
 
   function generateTicket(e) {
     e.preventDefault()
-    if (inputCheckPassword.value === firebasePass) {
-      classReview._setGoodPass()
-      if (classReview._reviewFormBooking()) {
-        setData([{
-          specialty: inputSpeciality.value
-        }])
-        console.log(data)
-      }
-    } else classReview._setWrongPass()
+    if (classReview._reviewFormBooking()) {
+      if (inputCheckPassword.value === firebasePass) {
+        dataForTicket = {
+          specialty: inputSpeciality.value,
+          date: inputDate.value,
+          schedule: inputSchedule.value,
+          cardDigits: inputCardDigits.value,
+        }
+        classReview._setGoodPass()
+        navigate('/sigma/garage/booking/ticket', { state: dataForTicket })
+      } else classReview._setWrongPass()
+    }
   }
 
   useEffect(() => {
@@ -37,7 +42,7 @@ export function FormBooking({ userMail }) {
 
   return (
     <section className="container-booking">
-      <form className="form-booking">
+      <form className="form-booking" onSubmit={generateTicket}>
         {/* Booking */}
         <div className="form-booking-data">
           <h1 className="form-booking-data-h1"><span className="gradient">Agendar cita</span></h1>
@@ -56,9 +61,9 @@ export function FormBooking({ userMail }) {
           <p className="form-booking-data-p data-p-specialty"> </p>
 
 
-          <label className="form-booking-data-label" htmlFor="input-date">Fecha de la reservación</label>
+          <label className="form-booking-data-label" htmlFor="inputDate">Fecha de la reservación</label>
           <input
-            id="input-date"
+            id="inputDate"
             className="form-booking-data-input data-input-date"
             type="text"
             placeholder="Ej. 16 de abril de 2023"
@@ -69,9 +74,9 @@ export function FormBooking({ userMail }) {
           />
           <p className="form-booking-data-p data-p-date"> </p>
 
-          <label className="form-booking-data-label" htmlFor="input-schedule">Horario de la reservación</label>
+          <label className="form-booking-data-label" htmlFor="inputSchedule">Horario de la reservación</label>
           <input
-            id="input-schedule"
+            id="inputSchedule"
             className="form-booking-data-input data-input-schedule"
             type="text"
             placeholder="Ej. 8:30 ó 21:15"
@@ -116,9 +121,9 @@ export function FormBooking({ userMail }) {
         <div className="form-booking-payment">
           <h1 className="form-booking-payment-h1"><span className="gradient">Método de pago</span></h1>
           {/* cardDigits */}
-          <label className="form-booking-payment-label" htmlFor="input-cardDigits">Número de tarjeta</label>
+          <label className="form-booking-payment-label" htmlFor="inputCardDigits">Número de tarjeta</label>
           <input
-            id="input-cardDigits"
+            id="inputCardDigits"
             className="form-booking-payment-input payment-input-cardDigits"
             type="number"
             pattern="[0-9]*"
@@ -160,7 +165,7 @@ export function FormBooking({ userMail }) {
 
           <button
             className="btn-bubble form-booking-payment-btn"
-            onClick={generateTicket}
+            type="submit"
           >Pagar y Generar Ticket
           </button>
         </div>

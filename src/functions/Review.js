@@ -300,11 +300,8 @@ class Review {
     this._reviewInputExpirationDate()
     this._reviewInputCVV()
 
-    /*if (this._reviewInputSpecialty() && this._reviewInputDate() &&
+    if (this._reviewInputSpecialty() && this._reviewInputDate() &&
       this._reviewInputSchedule() && this._reviewInputBookingNumber() && this._reviewInputCardDigits() && this._reviewInputExpirationDate() && this._reviewInputCVV()) {
-      return true
-    }*/
-    if (this._reviewInputSpecialty()) {
       return true
     }
   }
