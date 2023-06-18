@@ -958,6 +958,7 @@ color: #0a84ff
 .form-booking-payment-btn {
   height: 48px;
   max-width: 72%;
+  margin-top: 16px;
   border-radius: 10px;
   border: none;
   outline: none;

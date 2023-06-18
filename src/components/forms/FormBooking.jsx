@@ -7,6 +7,7 @@ export function FormBooking({ userMail }) {
   const classReview = new Review()
   const firestore = getFirestore(firebaseApp)
   const [firebasePass, setFirebasePass] = useState(null)
+  const [data, setData] = useState([{}])
 
   async function getPass() {
     const docRef = doc(firestore, `users/${userMail}`)
@@ -19,9 +20,14 @@ export function FormBooking({ userMail }) {
 
   function generateTicket(e) {
     e.preventDefault()
-    classReview._reviewFormBooking()
     if (inputCheckPassword.value === firebasePass) {
       classReview._setGoodPass()
+      if (classReview._reviewFormBooking()) {
+        setData([{
+          specialty: inputSpeciality.value
+        }])
+        console.log(data)
+      }
     } else classReview._setWrongPass()
   }
 
@@ -36,9 +42,9 @@ export function FormBooking({ userMail }) {
         <div className="form-booking-data">
           <h1 className="form-booking-data-h1"><span className="gradient">Agendar cita</span></h1>
 
-          <label className="form-booking-data-label" htmlFor="input-especiality">Especialidad</label>
+          <label className="form-booking-data-label" htmlFor="inputSpeciality">Especialidad</label>
           <input
-            id="input-especiality"
+            id="inputSpeciality"
             className="form-booking-data-input data-input-specialty"
             type="text"
             placeholder="Servicio a contratar"

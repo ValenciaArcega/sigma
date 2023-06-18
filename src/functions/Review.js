@@ -153,14 +153,15 @@ class Review {
       textError.textContent = 'El campo es obligatorio'
     } else if (input.value.length < 10) {
       this.root.setProperty('--borderInput-bookingNumber', '#f63737')
-      textError.textContent = 'Se esperan 10 digitos'
+      textError.textContent = 'Se esperan 10 dígitos'
     } else {
       textError.textContent = ''
       return true
     }
   }
+
   ////////////////////////////////////////////
-  // input check password 💳
+  // input check password
   _inputCheckPasswordFocusIn() {
     this.root.setProperty('--borderInput-checkPassword', '#3b59d4')
   }
@@ -182,7 +183,8 @@ class Review {
     textError.textContent = '¡Contraseña verificada!'
     this.root.setProperty('--borderInput-checkPassword', '#37b24d')
   }
-
+  ////////////////////////////////////////////
+  // 💳
   ////////////////////////////////////////////
   // input card digits
   _inputCardDigitsFocusIn() {
@@ -197,6 +199,22 @@ class Review {
     const input = document.querySelector('.payment-input-cardDigits')
 
     if (input.value.length > 16) input.value = input.value.slice(0, 16)
+  }
+
+  _reviewInputCardDigits() {
+    const input = document.querySelector('.payment-input-cardDigits')
+    const textError = document.querySelector('.payment-p-cardDigits')
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-cardDigits', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.length < 16) {
+      this.root.setProperty('--borderInput-cardDigits', '#f63737')
+      textError.textContent = 'Se esperan 16 dígitos'
+    } else {
+      textError.textContent = ''
+      return true
+    }
   }
   ////////////////////////////////////////////
   // input expiration date
@@ -226,6 +244,19 @@ class Review {
       textError.textContent = ''
     }
   }
+
+  _reviewInputExpirationDate() {
+    const input = document.querySelector('.payment-input-expirationDate')
+    const textError = document.querySelector('.payment-p-expirationDate')
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-expirationDate', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.match(/[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\¿?]/) || input.value.match(this._expRegLetters)) {
+      this.root.setProperty('--borderInput-expirationDate', '#f63737')
+      textError.textContent = 'Sin caracteres especiales'
+    } else return true
+  }
   ////////////////////////////////////////////
   // input cvv
   _inputCVVFocusIn() {
@@ -242,11 +273,40 @@ class Review {
     if (input.value.length > 3) input.value = input.value.slice(0, 3)
   }
 
+  _reviewInputCVV() {
+    const input = document.querySelector('.payment-input-cvv')
+    const textError = document.querySelector('.payment-p-cvv')
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-cvv', '#f63737')
+      textError.textContent = 'El campo es obligatorio'
+    } else if (input.value.length < 3) {
+      this.root.setProperty('--borderInput-cvv', '#f63737')
+      textError.textContent = 'Se esperan al menos 3 dígitos'
+    } else {
+      textError.textContent = ''
+      return true
+    }
+  }
+
   _reviewFormBooking() {
+    // 📆
     this._reviewInputSpecialty()
     this._reviewInputDate()
     this._reviewInputSchedule()
     this._reviewInputBookingNumber()
+    // 💳
+    this._reviewInputCardDigits()
+    this._reviewInputExpirationDate()
+    this._reviewInputCVV()
+
+    /*if (this._reviewInputSpecialty() && this._reviewInputDate() &&
+      this._reviewInputSchedule() && this._reviewInputBookingNumber() && this._reviewInputCardDigits() && this._reviewInputExpirationDate() && this._reviewInputCVV()) {
+      return true
+    }*/
+    if (this._reviewInputSpecialty()) {
+      return true
+    }
   }
 
 
