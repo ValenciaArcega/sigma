@@ -10,13 +10,13 @@ export function Profile() {
   return (
     <section className="container-profile">
       <Link
-        to='/sigma/profile/formUpdateData'
+        to='/sigma/profile/formUpdateData/'
         className="profile-btn">
         Editar Mis datos
       </Link>
 
       <Link
-        to='/sigma/profile/formPost'
+        to='/sigma/profile/formPost/'
         className="profile-btn">
         Consultar Mis Datos
       </Link>

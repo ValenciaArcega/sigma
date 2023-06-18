@@ -8,7 +8,7 @@ export function NavBarDesktop() {
 
       <section className="NVD-wrapperButtons">
         <Link className="NVD-btn-garages" to='/sigma/'>Talleres</Link>
-        <Link className="NVD-btn-account" to='/sigma/profile'>Cuenta</Link>
+        <Link className="NVD-btn-account" to='/sigma/profile/'>Cuenta</Link>
       </section>
     </nav>
   )

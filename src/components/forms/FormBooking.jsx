@@ -31,7 +31,7 @@ export function FormBooking({ userMail }) {
           cardDigits: inputCardDigits.value,
         }
         classReview._setGoodPass()
-        navigate('/sigma/garage/booking/ticket', { state: dataForTicket })
+        navigate('/sigma/garage/booking/ticket/', { state: dataForTicket })
       } else classReview._setWrongPass()
     }
   }
