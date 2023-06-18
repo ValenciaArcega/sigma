@@ -35,7 +35,7 @@ export function Garage() {
 
       <button
         className="btn-booking"
-        onClick={() => navigate('/sigma/garage/booking/', { state: data })}
+        onClick={() => navigate('/sigma/garage/booking', { state: data })}
       >
         Agendar Cita
       </button>

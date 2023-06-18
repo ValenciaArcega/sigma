@@ -2,10 +2,12 @@ import Review from "../../functions/Review"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 export function FormBooking({ userMail }) {
   let dataForTicket
+  const location = useLocation()
+  const garageData = location.state
   const classReview = new Review()
   const navigate = useNavigate()
   const firestore = getFirestore(firebaseApp)
@@ -30,8 +32,9 @@ export function FormBooking({ userMail }) {
           schedule: inputSchedule.value,
           cardDigits: inputCardDigits.value,
         }
+        const finalData = [garageData, dataForTicket]
         classReview._setGoodPass()
-        navigate('/sigma/garage/booking/ticket/', { state: dataForTicket })
+        navigate('/sigma/garage/booking/ticket/', { state: finalData })
       } else classReview._setWrongPass()
     }
   }

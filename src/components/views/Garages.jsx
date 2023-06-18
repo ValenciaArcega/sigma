@@ -10,6 +10,7 @@ export function Garages({ userMail }) {
   const [filteredItems, setFilteredItems] = useState(dataGarages)
   const [isSearching, setIsSearching] = useState(false)
   const [name, setName] = useState(null)
+  const [dataLoaded, setDataLoaded] = useState(false)
   const firestore = getFirestore(firebaseApp)
   const day = new Date().getDate()
   const weekDay = new Date().toLocaleDateString("es-MX", { weekday: 'long' })
@@ -35,36 +36,40 @@ export function Garages({ userMail }) {
         const fullName = infoDoc.data[0].name
         const finalName = fixName(fullName)
         setName(finalName)
+        setDataLoaded(true)
       }
     })()
   }, [])
 
   return (
-    <section className="container-garages">
+    dataLoaded
+      ?
+      <section className="container-garages">
 
-      <h1 className="welcomeMessage-h1"><span className="gradient">Hola {name}</span></h1>
-      <p className="welcomeMessage-p">{welcomeText}</p>
-      <Finder lookFor={lookFor} setIsSearching={setIsSearching} />
+        <h1 className="welcomeMessage-h1"><span className="gradient">Hola {name}</span></h1>
+        <p className="welcomeMessage-p">{welcomeText}</p>
+        <Finder lookFor={lookFor} setIsSearching={setIsSearching} />
 
-      <h1 className="garages-title">
-        Los <span className="gradient">talleres</span> disponibles
-      </h1>
+        <h1 className="garages-title">
+          Los <span className="gradient">talleres</span> disponibles
+        </h1>
 
-      <main className="garages">
-        {(isSearching ? filteredItems : dataGarages).map(function (item, i) {
-          return (
-            <div className="garage" key={i}>
-              <h2 className="garage-h2">{item.name}</h2>
-              <button
-                className="garage-button"
-                onClick={() => navigate('/sigma/garage/', { state: item })}>
-                Ver detalles
-              </button>
+        <main className="garages">
+          {(isSearching ? filteredItems : dataGarages).map(function (item, i) {
+            return (
+              <div className="garage" key={i}>
+                <h2 className="garage-h2">{item.name}</h2>
+                <button
+                  className="garage-button"
+                  onClick={() => navigate('/sigma/garage/', { state: item })}>
+                  Ver detalles
+                </button>
 
-            </div>
-          )
-        })}
-      </main>
-    </section >
+              </div>
+            )
+          })}
+        </main>
+      </section >
+      : null
   )
 };

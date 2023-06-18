@@ -16,7 +16,7 @@ export function Profile() {
       </Link>
 
       <Link
-        to='/sigma/profile/formPost/'
+        to='/sigma/profile/userData/'
         className="profile-btn">
         Consultar Mis Datos
       </Link>

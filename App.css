@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
+  /* primary colors */
   --mainColor: #4263eb;
   --mainColor-tint: #5573ed;
   --mainColor-shade: #3b59d4;
+
+  /* secondary colors */
   --ff: #fff;
   --black18: #181818;
 
+  /* tertiary colors */
+  --border-input-green: #5fc81f;
+  --border-input-red: #ff3737;
+
+  --bg-input-green: #acffa5;
+  --bg-input-red: #ffc5c5;
+
+  /* backgrounds */
   --bg: #f2f2f7;
   --bg-blur-navBar: rgba(255, 255, 255, 0.4);
   --bg-garage: #fff;
@@ -22,6 +33,9 @@
   --bg-input-expirationDate: #fff;
   --bg-input-cvv: #fff;
 
+  --bg-input-checkPassword-userData: transparent;
+
+  /* borders */
   --border-garage: #c8c8c8;
   --borderFieldID: #c5c5c5;
   --borderFieldName: #c5c5c5;
@@ -42,6 +56,9 @@
   --borderInput-expirationDate: #c5c5c5;
   --borderInput-cvv: #c5c5c5;
 
+  --borderInput-checkPassword-userData: #c5c5c5;
+
+  /* shadows */
   --shadow-finder: 0px 20px 18px -18px rgba(0, 0, 0, 0.12);
 }
 
@@ -553,14 +570,83 @@ input {
   cursor: pointer;
 }
 
-/* dark MODE
-bg: #0d1e3e
-color: #0a84ff
-*/
-
 .profile-btnRed {
   color: #de3333;
   background-color: #fff;
+}
+
+/* ///////////////////////////////////////////////////// */
+/* UserData.jsx */
+.container-userData {
+  height: 100vh;
+  padding: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-userData {
+  width: 20rem;
+  border-radius: 10px;
+  border: 2px dashed #848484;
+  padding: 2rem;
+  background-color: var(--ff);
+}
+
+.form-userData p {
+  margin-top: 4px;
+}
+
+.form-userData-h1 {
+  margin-bottom: 1rem;
+  padding-bottom: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.6px;
+  text-align: center;
+  border-bottom: 2px solid #0965c8;
+}
+
+.form-userData-h4 {
+  margin-top: 12px;
+}
+
+.form-userData-h3 {
+  margin-top: 3rem;
+  margin-bottom: 10px;
+  color: var(--mainColor);
+}
+
+.form-userData-label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.form-userData-input {
+  height: 48px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  color: var(--black18);
+  border: 2px solid var(--borderInput-checkPassword-userData);
+  background-color: var(--bg-input-checkPassword-userData);
+}
+
+.form-userData-error {
+  height: 16px;
+  margin-top: 2px !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f63737;
+}
+
+.btn-printDoc {
+  height: 50px !important;
+  width: 100% !important;
+  margin-top: 1rem;
 }
 
 /* ///////////////////////////////////////////////////// */
@@ -655,6 +741,7 @@ color: #0a84ff
 
 .welcomeMessage-p {
   width: 92%;
+  margin-top: 4px;
   font-size: 18px;
   font-weight: 500;
   justify-self: flex-start;
@@ -991,7 +1078,20 @@ color: #0a84ff
   width: 80%;
   text-align: center;
   padding-bottom: 8px;
+  margin-bottom: 1rem;
   border-bottom: 2px dotted #FFCA7C;
+}
+
+.ticket-h3 {
+  width: 80%;
+  margin-top: 1.4rem;
+}
+
+.ticket-p {
+  width: 80%;
+  margin-top: 4px;
+  font-weight: 500;
+  font-size: 17px;
 }
 
 /* Finder.jsx */
@@ -1207,6 +1307,7 @@ input:not(:placeholder-shown)~.finder-btnClose {
 }
 
 
+/* Loader.jsx */
 .container-loader {
   height: 100vh;
   display: flex;

@@ -1,6 +1,7 @@
 export const dataGarages = [
   {
     name: 'Don Ale Tultitlan',
+    phone: 5540280976,
     features: [
       'Cambio de aceite',
       'Tramites de verificación',
@@ -14,6 +15,7 @@ export const dataGarages = [
   },
   {
     name: 'MONSA Ecatepec',
+    phone: 5540280976,
     features: [
       'Cambio de aceite',
       'Tramites de verificación',
@@ -27,6 +29,7 @@ export const dataGarages = [
   },
   {
     name: 'ROCRAM Tultitlan',
+    phone: 5540280976,
     features: [
       'Documentación',
       'Cambio de aceite',
@@ -40,6 +43,7 @@ export const dataGarages = [
   },
   {
     name: 'CasaCarro Coacalco',
+    phone: 5540280976,
     features: [
       'Papeleo',
       'Ajuste de frenos',
@@ -51,4 +55,4 @@ export const dataGarages = [
     latitude: 19.6351237,
     longitude: -99.0848751,
   },
-];
+]

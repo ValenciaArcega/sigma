@@ -2,7 +2,7 @@ import { NavBarDesktop } from "../navBar/NavBarDesktop"
 import { NavBarMobile } from '../navBar/NavBarMobile'
 import { Appearance } from "../theme/Appearance"
 // import { FormDates } from "../forms/FormDates";
-import { FormPost } from "../forms/FormPost"
+import { UserData } from "../views/UserData"
 import { Profile } from "../views/Profile"
 import { Garages } from '../views/Garages'
 import { Garage } from "../views/Garage"
@@ -36,6 +36,7 @@ export function Home({ userMail }) {
     <main className="page-home">
       <NavBarDesktop />
       <NavBarMobile />
+
       <Routes>
         <Route
           path="/sigma//*"
@@ -62,8 +63,8 @@ export function Home({ userMail }) {
           element={<FormUpdateData userMail={userMail} />}>
         </Route>
         <Route
-          path="/sigma/garage/formPost/"
-          element={<FormPost />}>
+          path="/sigma/profile/userData/"
+          element={<UserData userMail={userMail} />}>
         </Route>
       </Routes>
 
