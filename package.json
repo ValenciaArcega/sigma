@@ -1,7 +1,7 @@
 {
   "name": "sigma",
   "private": true,
-  "homepage": "https://valenciaarcega.github.io/sigma",
+  "homepage": "https://valenciaarcega.github.io/sigma/index.html",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
