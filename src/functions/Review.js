@@ -1,4 +1,4 @@
-class Review {
+export class Review {
   ///////////////// V A R I A B L E S /////////////////
   root = document.documentElement.style;
   _expRegLetters = /[a-zA-Z]/;
@@ -611,7 +611,44 @@ class Review {
 
 }
 
-export default Review;
+export class ReviewFormAddGarage {
+  ///////////////// V A R I A B L E S /////////////////
+  root = document.documentElement.style;
+  _expRegLetters = /[a-zA-Z]/;
+  _expRegNumbers = /[0-9]/;
+  _expRegCharacters = /[¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/¿?]/;
+
+  ///////////////// M E T H O D S /////////////////
+
+  _inputNameFocusIn() {
+    this.root.setProperty('--borderInput-garageName', '#3b59d4')
+  }
+
+  _inputNameBlur() {
+    this.root.setProperty('--borderInput-garageName', '#c5c5c5')
+  }
+
+  _inputNameKeyUp() {
+    const input = document.querySelector('.inputGarage-name')
+    const textError = document.querySelector('.addGarage-p-name')
+
+    for (let a = 0; a < input.value.length; a++) {
+      this.root.setProperty('--borderInput-garageName', '#3b59d4')
+
+      if (input.value[a].match(this._expRegNumbers) || input.value[a].match(this._expRegCharacters)) {
+        this.root.setProperty('--borderInput-garageName', 'red')
+        textError.textContent = 'Recuerda, caracteres tipo texto'
+      } else {
+        textError.textContent = ''
+      }
+    }
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-garageName', '#3b59d4')
+      textError.textContent = ''
+    }
+  }
+}
 
 /* 👉 Version on functional code
 let root = document.querySelector(':root');

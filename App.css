@@ -58,6 +58,8 @@
 
   --borderInput-checkPassword-userData: #c5c5c5;
 
+  --borderInput-garageName: #c5c5c5;
+
   /* shadows */
   --shadow-finder: 0px 20px 18px -18px rgba(0, 0, 0, 0.12);
 }
@@ -850,6 +852,73 @@ input {
   transform: translate(0, 5%);
 }
 
+
+.btn-add-garage {
+  height: 48px;
+  width: 18rem;
+  margin-top: 4rem;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: linear-gradient(to right top, #4263eb, #8698e3);
+}
+
+/* ///////////////////////////////////////////////////// */
+/* AddGarage.jsx */
+.container-form-addGarage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-addGarage {
+  height: 32rem;
+  width: 20rem;
+  padding: 22px 2.3rem;
+  border-radius: 12px;
+  border: 2px dashed #c5c5c5;
+  background-color: var(--ff);
+}
+
+.form-addGarage-h1 {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.form-addGarage-label {
+  display: inline-block;
+  margin-top: 18px !important;
+  font-weight: 500;
+}
+
+.form-addGarage-input {
+  height: 48px;
+  width: 100%;
+  margin: 4px 0;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  border: 2px solid var(--borderInput-garageName);
+  color: var(--black18);
+  background: transparent;
+}
+
+.form-addGarage-p {
+  height: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ff3232;
+}
 
 /* ///////////////////////////////////////////////////// */
 /* Garage.jsx */

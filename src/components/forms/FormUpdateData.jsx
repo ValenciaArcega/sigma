@@ -1,7 +1,7 @@
 import { firebaseApp } from '../../credentials'
 import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore"
-import Review from "../../functions/Review"
+import { Review } from "../../functions/Review"
 import { DataUpdated } from "../messages/DataUpdated"
 import { useState } from "react"
 

@@ -1,4 +1,4 @@
-import Review from "../../functions/Review"
+import { Review } from "../../functions/Review"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
 import { useEffect, useState } from "react"

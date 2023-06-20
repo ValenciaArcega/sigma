@@ -1,16 +1,16 @@
 import { NavBarDesktop } from "../navBar/NavBarDesktop"
 import { NavBarMobile } from '../navBar/NavBarMobile'
 import { Appearance } from "../theme/Appearance"
-// import { FormDates } from "../forms/FormDates";
 import { UserData } from "../views/UserData"
 import { Profile } from "../views/Profile"
 import { Garages } from '../views/Garages'
+import { Ticket } from "../views/Ticket"
 import { Garage } from "../views/Garage"
 import { useEffect } from "react"
 import { Route, Routes } from 'react-router-dom'
 import { FormUpdateData } from "../forms/FormUpdateData"
 import { FormBooking } from "../forms/FormBooking"
-import { Ticket } from "../views/Ticket"
+import { AddGarage } from "../forms/AddGarage"
 
 export function Home({ userMail }) {
 
@@ -41,6 +41,10 @@ export function Home({ userMail }) {
         <Route
           path="/sigma//*"
           element={<Garages userMail={userMail} />}>
+        </Route>
+        <Route
+          path="/sigma/addGarage"
+          element={<AddGarage />}>
         </Route>
         <Route
           path="/sigma/garage/"

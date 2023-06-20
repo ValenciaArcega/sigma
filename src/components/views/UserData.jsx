@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
-import Review from "../../functions/Review"
+import { Review } from "../../functions/Review"
 import { Loader } from '../loader/Loader'
 
 export function UserData({ userMail }) {

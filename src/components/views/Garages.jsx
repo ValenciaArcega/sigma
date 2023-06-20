@@ -4,6 +4,7 @@ import { Finder } from '../finder/Finder'
 import { useNavigate } from 'react-router-dom'
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
+import { Link } from "react-router-dom"
 
 export function Garages({ userMail }) {
   const navigate = useNavigate()
@@ -69,6 +70,13 @@ export function Garages({ userMail }) {
             )
           })}
         </main>
+
+        <Link
+          to='/sigma/addGarage'
+          className="btn-add-garage"
+        >
+          Registrar mi Taller
+        </Link>
       </section >
       : null
   )
