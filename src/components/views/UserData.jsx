@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
-import { Review } from "../../functions/Review"
+import { ReviewUserData } from "../../functions/review/cl-userData"
 import { Loader } from '../loader/Loader'
 
 export function UserData({ userMail }) {
-  const classReview = new Review()
-  const firestore = getFirestore(firebaseApp)
   const [userData, setUserData] = useState({})
   const [dataLoaded, setDataLoaded] = useState(false)
+  const firestore = getFirestore(firebaseApp)
+  const cl = new ReviewUserData()
 
   async function getUserName() {
     const docRef = doc(firestore, `users/${userMail}`)
@@ -24,11 +24,11 @@ export function UserData({ userMail }) {
   function downloadDoc(e) {
     e.preventDefault()
 
-    if (classReview._reviewInputCheckPasswordUserData()) {
-      classReview._setInputCheckPasswordUserDataWrong()
+    if (cl._reviewInputCheckPasswordUserData()) {
+      cl._setInputCheckPasswordUserDataWrong()
       if (inputPassword.value === userData.pass) {
-        classReview._setInputCheckPasswordUserDataGood()
-      } else classReview._setInputCheckPasswordUserDataWrong()
+        cl._setInputCheckPasswordUserDataGood()
+      } else cl._setInputCheckPasswordUserDataWrong()
     }
   }
 
@@ -66,8 +66,8 @@ export function UserData({ userMail }) {
             className="form-userData-input"
             type="password"
             placeholder="La que usaste para registrarte"
-            onFocus={() => classReview._inputCheckPasswordUserDataFocusIn()}
-            onBlur={() => classReview._inputCheckPasswordUserDataBlur()}
+            onFocus={() => cl._inputCheckPasswordUserDataFocusIn()}
+            onBlur={() => cl._inputCheckPasswordUserDataBlur()}
           />
           <p className="form-userData-error"> </p>
 

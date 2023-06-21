@@ -1,17 +1,17 @@
-import { Review } from "../../functions/Review"
+import { ReviewBooking } from "../../functions/review/cl-booking"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
 import { useEffect, useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 
-export function FormBooking({ userMail }) {
+export function Booking({ userMail }) {
   let dataForTicket
+  const [firebasePass, setFirebasePass] = useState(null)
+  const firestore = getFirestore(firebaseApp)
+  const classReview = new ReviewBooking()
+  const navigate = useNavigate()
   const location = useLocation()
   const garageData = location.state
-  const classReview = new Review()
-  const navigate = useNavigate()
-  const firestore = getFirestore(firebaseApp)
-  const [firebasePass, setFirebasePass] = useState(null)
 
   async function getPass() {
     const docRef = doc(firestore, `users/${userMail}`)

@@ -3,12 +3,12 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { firebaseApp } from '../../credentials'
 import { IconText, IconAt, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
 import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore"
-import { Review } from "../../functions/Review"
+import { ReviewSignUp } from "../../functions/review/cl-signUp"
 
 export function SignUp({ setIsRegistering }) {
-  const classReview = new Review()
   const auth = getAuth(firebaseApp)
   const firestore = getFirestore(firebaseApp)
+  const cl = new ReviewSignUp()
 
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
@@ -56,7 +56,7 @@ export function SignUp({ setIsRegistering }) {
 
   return (
     <section className="container-signUp">
-      <form className="signUpForm" onSubmit={(e) => { if (classReview._reviewFormSignUp(e)) addUser(e) }}>
+      <form className="signUpForm" onSubmit={(e) => { if (cl._reviewFormSignUp(e)) addUser(e) }}>
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
         <label className="signUpForm-label" htmlFor="sufn">
@@ -68,9 +68,9 @@ export function SignUp({ setIsRegistering }) {
           className="signUpForm-name"
           placeholder="Ingresa tu nombre y apellidos"
           autoComplete="new-password"
-          onFocus={() => classReview._inputNameFocusIn()}
-          onBlur={() => classReview._inputNameBlur()}
-          onKeyUp={() => classReview._inputNameKeyUp()}
+          onFocus={() => cl._inputNameFocusIn()}
+          onBlur={() => cl._inputNameBlur()}
+          onKeyUp={() => cl._inputNameKeyUp()}
         />
         <p className="signUpForm-name-p"> </p>
 
@@ -83,8 +83,8 @@ export function SignUp({ setIsRegistering }) {
           className="signUpForm-mail"
           placeholder="usuario@dominio.com"
           autoComplete="new-password"
-          onFocus={() => classReview._inputMailFocusIn()}
-          onBlur={() => classReview._inputMailBlur()}
+          onFocus={() => cl._inputMailFocusIn()}
+          onBlur={() => cl._inputMailBlur()}
         />
         <p className="signUpForm-mail-p"></p>
 
@@ -96,11 +96,11 @@ export function SignUp({ setIsRegistering }) {
             type="password"
             autoComplete="new-password"
             placeholder="Crea una contraseña"
-            onBlur={() => classReview._inputPassBlur()}
-            onFocus={() => classReview._inputPassFocusIn()}
-            onChangeCapture={() => classReview._emptyConfirmPass()}
+            onBlur={() => cl._inputPassBlur()}
+            onFocus={() => cl._inputPassFocusIn()}
+            onChangeCapture={() => cl._emptyConfirmPass()}
           />
-          <button onClick={() => classReview._showPassRegister()} className="btn-showPass" type="button" title="button show">
+          <button onClick={() => cl._showPassRegister()} className="btn-showPass" type="button" title="button show">
             <IconShow />
             <IconHide />
           </button>
@@ -115,11 +115,11 @@ export function SignUp({ setIsRegistering }) {
             type="password"
             autoComplete="new-password"
             placeholder="Repite la contraseña"
-            onKeyUp={() => classReview._inputConfirmPassKeyUp()}
-            onFocus={() => classReview._inputConfirmPassFocusIn()}
-            onBlur={() => classReview._inputConfirmPassBlur()}
+            onFocus={() => cl._inputConfirmPassFocusIn()}
+            onBlur={() => cl._inputConfirmPassBlur()}
+            onKeyUp={() => cl._inputConfirmPassKeyUp()}
           />
-          <button onClick={() => classReview._showConfirmRegister()} className="btn-showPassConfirm" type="button" title="button show">
+          <button onClick={() => cl._showConfirmRegister()} className="btn-showPassConfirm" type="button" title="button show">
             <IconShowConfirm />
             <IconHideConfirm />
           </button>

@@ -44,7 +44,7 @@
   --borderFieldModel: #c5c5c5;
   --borderFieldPass: #c5c5c5;
   --borderFieldPassConfirm: #c5c5c5;
-  /* FormBooking-jsx */
+  /* Booking-jsx */
   /* 📆 */
   --borderInput-specialty: #c5c5c5;
   --borderInput-date: #c5c5c5;
@@ -59,6 +59,9 @@
   --borderInput-checkPassword-userData: #c5c5c5;
 
   --borderInput-garageName: #c5c5c5;
+  --borderInput-garage-number: #c5c5c5;
+  --borderInput-garage-coorLat: #c5c5c5;
+  --borderInput-garage-coorLong: #c5c5c5;
 
   /* shadows */
   --shadow-finder: 0px 20px 18px -18px rgba(0, 0, 0, 0.12);
@@ -873,37 +876,41 @@ input {
 /* ///////////////////////////////////////////////////// */
 /* AddGarage.jsx */
 .container-form-addGarage {
-  height: 100vh;
+  padding: 4rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .form-addGarage {
-  height: 32rem;
   width: 20rem;
-  padding: 22px 2.3rem;
+  padding: 1.2rem 2.3rem 2rem 2.3rem;
   border-radius: 12px;
   border: 2px dashed #c5c5c5;
   background-color: var(--ff);
 }
 
 .form-addGarage-h1 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
+  letter-spacing: -1px;
   text-align: center;
 }
 
 .form-addGarage-label {
   display: inline-block;
-  margin-top: 18px !important;
+  margin-top: 16px !important;
   font-weight: 500;
+}
+
+.form-addGarage-label-lat {
+  margin-top: 8px !important;
 }
 
 .form-addGarage-input {
   height: 48px;
   width: 100%;
-  margin: 4px 0;
+  margin: 4px 0 2px 0;
   padding: 0 10px;
   border-radius: 10px;
   font-size: 16px;
@@ -913,11 +920,34 @@ input {
   background: transparent;
 }
 
+.inputGarage-number {
+  border: 2px solid var(--borderInput-garage-number);
+}
+
+.inputGarage-coorLat {
+  border: 2px solid var(--borderInput-garage-coorLat);
+}
+
+.inputGarage-coorLong {
+  border: 2px solid var(--borderInput-garage-coorLong);
+}
+
 .form-addGarage-p {
   height: 15px;
+  padding-left: 4px;
   font-weight: 600;
   font-size: 14px;
   color: #ff3232;
+}
+
+
+.form-addGarage-help-title {
+  margin-top: 2rem;
+}
+
+.form-addGarage-help-p {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* ///////////////////////////////////////////////////// */
@@ -987,7 +1017,7 @@ input {
   background-color: var(--ff);
 }
 
-/* FormBooking.jsx */
+/* Booking.jsx */
 .container-booking {
   padding-top: 5rem;
   padding-bottom: 6rem;

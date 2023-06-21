@@ -1,8 +1,8 @@
-import { IconMoon, IconSun } from "../svg/Appearance";
-import AppearanceCl from "../../functions/Appearance";
+import { IconMoon, IconSun } from "../svg/Appearance"
+import AppearanceCl from "../../functions/cl-appearance"
 
 export function Appearance() {
-  const classAppearance = new AppearanceCl();
+  const classAppearance = new AppearanceCl()
   return (
     <>
       <button
@@ -19,5 +19,5 @@ export function Appearance() {
         <IconSun />
       </button>
     </>
-  );
+  )
 };

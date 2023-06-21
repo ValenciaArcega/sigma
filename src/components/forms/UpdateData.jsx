@@ -1,13 +1,13 @@
 import { firebaseApp } from '../../credentials'
 import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore"
-import { Review } from "../../functions/Review"
+import { ReviewUpdateData } from "../../functions/review/cl-updateData"
 import { DataUpdated } from "../messages/DataUpdated"
 import { useState } from "react"
 
-export function FormUpdateData({ userMail }) {
+export function UpdateData({ userMail }) {
   const [gotEdit, setGotEdit] = useState(false)
-  const classReview = new Review()
+  const classReview = new ReviewUpdateData()
   const firestore = getFirestore(firebaseApp)
 
   function upperCaseName(str) {
