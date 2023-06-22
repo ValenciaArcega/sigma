@@ -1,4 +1,3 @@
-import reviewRegister from "../../functions/review-userRegistration"
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { firebaseApp } from '../../credentials'
 import { IconText, IconAt, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
@@ -19,7 +18,6 @@ export function SignUp({ setIsRegistering }) {
 
   async function addUser(e) {
     e.preventDefault()
-    reviewRegister()
     const name = e.target.sufn.value
     const nameFixed = upperCaseName(name)
     const mail = e.target.inputMail.value
@@ -36,10 +34,8 @@ export function SignUp({ setIsRegistering }) {
 
     if (!query.exists()) {
       await setDoc(docRef, { data: [...dataUser] })
-      if (reviewRegister()) await createUserWithEmailAndPassword(auth, mail, password)
-    } else {
-      return
-    }
+      await createUserWithEmailAndPassword(auth, mail, password)
+    } else return
   }
 
   function resetBorders() {

@@ -1,12 +1,12 @@
-import { IconPadlocked } from "../svg/IconPadlocked";
+import { IconPadlocked } from "../svg/IconPadlocked"
 
-const BadCredentials = () => {
+const BadCredentials = ({ message }) => {
   return (
     <div className="containerMessage-wrongCredentials">
       <IconPadlocked />
-      Las credenciales no coinciden
+      {message}
     </div>
-  );
-};
+  )
+}
 
-export default BadCredentials;
+export default BadCredentials

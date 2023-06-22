@@ -23,22 +23,27 @@ export function Garage() {
 
   return (
     <section className="container-garageInfoCard">
-      <h1 className="garageInfoCard-h1"><span className="highlight-container"><span className="highlight">{data.name}</span></span></h1>
-      <p className="garageInfoCard-p">Este taller ofrece los siguientes servicios</p>
-      <section className="wrapper-garageInfoCard">
+
+      <main className="wrapper-garageInfoCard">
+
+        <header className="garageInfoCard-header">
+          <h1 className="garageInfoCard-h1">{data.name}</h1>
+          <p className="garageInfoCard-p">Este taller ofrece los siguientes servicios y su ubicación aparece marcada en el mapa</p>
+        </header>
+
         <div className="garageInfoCard-features">
           {data.features.map((item, i) => <p key={i} className="garageInfoCard-feature">◉ {item}</p>)}
         </div>
 
         <main className="mapy" id="map"></main>
-      </section>
 
-      <button
-        className="btn-booking"
-        onClick={() => navigate('/sigma/garage/booking', { state: data })}
-      >
-        Agendar Cita
-      </button>
+        <button
+          className="btn-booking btn-bubble"
+          onClick={() => navigate('/sigma/garage/booking', { state: data })}
+        >
+          Agendar Cita
+        </button>
+      </main>
     </section>
   )
 }
