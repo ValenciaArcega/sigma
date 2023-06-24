@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
 import { ReviewUserData } from "../../functions/review/cl-userData"
-import { Loader } from '../loader/Loader'
+import { Loader } from '../interface/Loader'
 
 export function UserData({ userMail }) {
   const [userData, setUserData] = useState({})

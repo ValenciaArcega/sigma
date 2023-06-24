@@ -62,14 +62,14 @@ export function UpdateData({ userMail }) {
         </label>
         <input
           id="sufn"
-          className="signUpForm-name"
+          className="signUp-name"
           placeholder="Ej. Sanchez Cabrera Ignacio"
           autoComplete="new-password"
           onFocus={() => classReview._inputNameFocusIn()}
           onBlur={() => classReview._inputNameBlur()}
           onKeyUp={() => classReview._inputNameKeyUp()}
         />
-        <p className="signUpForm-name-p"> </p>
+        <p className="signUp-name-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputMail">
           Número celular
@@ -77,7 +77,7 @@ export function UpdateData({ userMail }) {
         </label>
         <input
           id="inputPhoneNumber"
-          className="signUpForm-number"
+          className="signUp-number"
           type="number"
           pattern="[0-9]*"
           inputMode="decimal"
@@ -87,7 +87,7 @@ export function UpdateData({ userMail }) {
           onBlur={() => classReview._inputNumberBlur()}
           onKeyUp={() => classReview._inputNumberKeyUp()}
         />
-        <p className="signUpForm-number-p"> </p>
+        <p className="signUp-number-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputIDCar">
           Placa vehicular
@@ -95,13 +95,13 @@ export function UpdateData({ userMail }) {
         </label>
         <input
           id="inputIDCar"
-          className="signUpForm-IDCar"
+          className="signUp-plates"
           placeholder="EDC-3456"
           autoComplete="new-password"
           onFocus={() => classReview._inputIDCarFocusIn()}
           onBlur={() => classReview._inputIDCarBlur()}
         />
-        <p className="signUpForm-mail-p"> </p>
+        <p className="signUp-mail-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputModelCar">
           Modelo del vehiculo
@@ -109,19 +109,19 @@ export function UpdateData({ userMail }) {
         </label>
         <input
           id="inputModelCar"
-          className="signUpForm-modelCar"
+          className="signUp-modelCar"
           placeholder="Chevrolet Aveo 2018"
           autoComplete="new-password"
           onFocus={() => classReview._inputModelCarFocusIn()}
           onBlur={() => classReview._inputModelCarBlur()}
         />
-        <p className="signUpForm-mail-p"> </p>
+        <p className="signUp-mail-p"> </p>
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="inputPassword">Nueva contraseña</label>
         <section className="wrapper-password">
           <input
             id="inputPassword"
-            className="signUpForm-pass"
+            className="signUp-pass"
             type="password"
             autoComplete="new-password"
             placeholder="Ingresa una contraseña"
@@ -134,14 +134,14 @@ export function UpdateData({ userMail }) {
             <IconHide />
           </button>
         </section>
-        <p className="signUpForm-pass-p"></p>
+        <p className="signUp-pass-p"></p>
 
         {/* ///////////////////////////////////////////////////// */}
         <label className="signUpForm-label" htmlFor="sufcp">Confirmar nueva contraseña</label>
         <div className="wrapper-password">
           <input
             id="sufcp"
-            className="signUpForm-passConfirm"
+            className="signUp-passConfirm"
             type="password"
             autoComplete="new-password"
             placeholder="Repite la contraseña"
@@ -154,7 +154,7 @@ export function UpdateData({ userMail }) {
             <IconHideConfirm />
           </button>
         </div>
-        <p className="signUpForm-passConfirm-p"></p>
+        <p className="signUp-passConfirm-p"></p>
         {/* ///////////////////////////////////////////////////// */}
         <button
           type="submit"

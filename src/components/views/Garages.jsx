@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { dataGarages } from '../../data/dt-garages'
-import { Finder } from '../finder/Finder'
+import { Finder } from '../interface/Finder'
 import { useNavigate } from 'react-router-dom'
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"

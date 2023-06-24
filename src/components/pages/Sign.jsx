@@ -1,6 +1,6 @@
 import { SignIn } from "../forms/SignIn"
 import { SignUp } from "../forms/SignUp"
-import { Loader } from '../loader/Loader'
+import { Loader } from '../interface/Loader'
 import { useEffect, useState } from "react"
 
 export function Sign() {

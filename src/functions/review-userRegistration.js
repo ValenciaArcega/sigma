@@ -1,48 +1,48 @@
 const reviewRegister = () => {
-  let root = document.querySelector(':root');
-  let reviewed = false;
-  let resultName = false;
-  let resultID = false;
-  let resultPass = false;
+  let root = document.querySelector(':root')
+  let reviewed = false
+  let resultName = false
+  let resultID = false
+  let resultPass = false
   // inputs
-  const inputName = document.querySelector('.signUpForm-name');
-  const inputID = document.querySelector('.signUpForm-mail');
-  const inputPass = document.querySelector('.signUpForm-pass');
-  const inputPassConfirm = document.querySelector('.signUpForm-passConfirm');
+  const inputName = document.querySelector('.signUp-name')
+  const inputID = document.querySelector('.signUp-mail')
+  const inputPass = document.querySelector('.signUp-pass')
+  const inputPassConfirm = document.querySelector('.signUp-passConfirm')
   // error
-  const textErrorName = document.querySelector('.signUpForm-name-p');
-  const textErrorID = document.querySelector('.signUpForm-mail-p');
-  const textErrorPassConfirm = document.querySelector('.signUpForm-passConfirm-p');
+  const textErrorName = document.querySelector('.signUp-name-p')
+  const textErrorID = document.querySelector('.signUp-mail-p')
+  const textErrorPassConfirm = document.querySelector('.signUp-passConfirm-p')
 
   /////////////////////////////////////////////////////////
   if (inputName.value === '') {
-    root.style.setProperty('--borderFieldName', '#f63737');
-    textErrorName.textContent = 'El campo es obligatorio';
+    root.style.setProperty('--borderInput-name', '#f63737')
+    textErrorName.textContent = 'El campo es obligatorio'
   } else if (inputName.value.match(/[0-9]/)) {
-    root.style.setProperty('--borderFieldName', '#f63737');
-    textErrorName.textContent = 'Solo caracteres tipo texto';
+    root.style.setProperty('--borderInput-name', '#f63737')
+    textErrorName.textContent = 'Solo caracteres tipo texto'
   } else {
-    resultName = true;
+    resultName = true
   }
   /////////////////////////////////////////////////////////
   if (inputID.value === '') {
-    root.style.setProperty('--borderFieldID', '#f63737');
-    textErrorID.textContent = 'El campo es obligatorio';
+    root.style.setProperty('--borderInput-mail', '#f63737')
+    textErrorID.textContent = 'El campo es obligatorio'
   } else {
-    resultID = true;
+    resultID = true
   }
   /////////////////////////////////////////////////////////
   if (inputPassConfirm.value === inputPass.value) {
-    resultPass = true;
+    resultPass = true
   } else {
-    root.style.setProperty('--borderFieldPassConfirm', '#f63737');
-    textErrorPassConfirm.textContent = 'Las contraseñas no coinciden';
+    root.style.setProperty('--borderInput-passConfirm', '#f63737')
+    textErrorPassConfirm.textContent = 'Las contraseñas no coinciden'
   }
   /////////////////////////////////////////////////////////
   if (resultName && resultID && resultPass) {
-    return reviewed = true;
+    return reviewed = true
   }
-  return reviewed;
-};
+  return reviewed
+}
 
-export default reviewRegister;
+export default reviewRegister

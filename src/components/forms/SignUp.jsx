@@ -2,12 +2,12 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { firebaseApp } from '../../credentials'
 import { IconText, IconAt, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
 import { getFirestore, getDoc, setDoc, doc } from "firebase/firestore"
-import { ReviewSignUp } from "../../functions/review/cl-signUp"
+import { ClReviewSignUp } from "../../classes/cl-signUp"
 
 export function SignUp({ setIsRegistering }) {
   const auth = getAuth(firebaseApp)
   const firestore = getFirestore(firebaseApp)
-  const cl = new ReviewSignUp()
+  const test = new ClReviewSignUp()
 
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
@@ -38,21 +38,16 @@ export function SignUp({ setIsRegistering }) {
     } else return
   }
 
-  function resetBorders() {
-    const root = document.querySelector(':root')
-    root.style.setProperty('--borderFieldName', '#c5c5c5')
-    root.style.setProperty('--borderFieldID', '#c5c5c5')
-    root.style.setProperty('--borderFieldPassConfirm', '#c5c5c5')
-  };
-
   function goSignIn() {
-    resetBorders()
+    test._resetBorders()
     setIsRegistering(false)
   };
 
   return (
     <section className="container-signUp">
-      <form className="signUpForm" onSubmit={(e) => { if (cl._reviewFormSignUp(e)) addUser(e) }}>
+      <form className="signUpForm" onSubmit={(e) => {
+        if (test._reviewFormSignUp(e)) addUser(e)
+      }}>
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
         <label className="signUpForm-label" htmlFor="sufn">
@@ -61,14 +56,14 @@ export function SignUp({ setIsRegistering }) {
         </label>
         <input
           id="sufn"
-          className="signUpForm-name"
+          className="signUp-name"
           placeholder="Ingresa tu nombre y apellidos"
           autoComplete="new-password"
-          onFocus={() => cl._inputNameFocusIn()}
-          onBlur={() => cl._inputNameBlur()}
-          onKeyUp={() => cl._inputNameKeyUp()}
+          onFocus={() => test._inputFocusIn('name')}
+          onBlur={() => test._inputBlur('name')}
+          onKeyUp={() => test._inputNameKeyUp()}
         />
-        <p className="signUpForm-name-p"> </p>
+        <p className="signUp-name-p"> </p>
 
         <label className="signUpForm-label" htmlFor="inputMail">
           Correo electrónico
@@ -76,51 +71,61 @@ export function SignUp({ setIsRegistering }) {
         </label>
         <input
           id="inputMail"
-          className="signUpForm-mail"
+          className="signUp-mail"
           placeholder="usuario@dominio.com"
           autoComplete="new-password"
-          onFocus={() => cl._inputMailFocusIn()}
-          onBlur={() => cl._inputMailBlur()}
+          onFocus={() => test._inputFocusIn('mail')}
+          onBlur={() => test._inputBlur('mail')}
         />
-        <p className="signUpForm-mail-p"></p>
+        <p className="signUp-mail-p"></p>
 
         <label className="signUpForm-label" htmlFor="inputPassword">Contraseña</label>
         <section className="wrapper-password">
           <input
             id="inputPassword"
-            className="signUpForm-pass"
+            className="signUp-pass"
             type="password"
             autoComplete="new-password"
             placeholder="Crea una contraseña"
-            onBlur={() => cl._inputPassBlur()}
-            onFocus={() => cl._inputPassFocusIn()}
-            onChangeCapture={() => cl._emptyConfirmPass()}
+            onFocus={() => test._inputFocusIn('pass')}
+            onBlur={() => test._inputBlur('pass')}
+            onChangeCapture={() => test._emptyConfirmPass()}
           />
-          <button onClick={() => cl._showPassRegister()} className="btn-showPass" type="button" title="button show">
+          <button
+            className="btn-showPass"
+            type="button"
+            title="button show"
+            onClick={() => test._showPass('signUp-pass', 'btn-showPass-svg', 'btn-hidePass-svg')}
+          >
             <IconShow />
             <IconHide />
           </button>
         </section>
-        <p className="signUpForm-pass-p"></p>
+        <p className="signUp-pass-p"></p>
 
         <label className="signUpForm-label" htmlFor="sufcp">Confirmar contraseña</label>
         <div className="wrapper-password">
           <input
             id="sufcp"
-            className="signUpForm-passConfirm"
+            className="signUp-passConfirm"
             type="password"
             autoComplete="new-password"
             placeholder="Repite la contraseña"
-            onFocus={() => cl._inputConfirmPassFocusIn()}
-            onBlur={() => cl._inputConfirmPassBlur()}
-            onKeyUp={() => cl._inputConfirmPassKeyUp()}
+            onFocus={() => test._inputFocusIn('passConfirm')}
+            onBlur={() => test._inputBlur('passConfirm')}
+            onKeyUp={() => test._inputConfirmPassKeyUp()}
           />
-          <button onClick={() => cl._showConfirmRegister()} className="btn-showPassConfirm" type="button" title="button show">
+          <button
+            className="btn-showPassConfirm"
+            title="button show"
+            type="button"
+            onClick={() => test._showPass('signUp-passConfirm', 'btn-showPassConfirm-svg', 'btn-hidePassConfirm-svg')}
+          >
             <IconShowConfirm />
             <IconHideConfirm />
           </button>
         </div>
-        <p className="signUpForm-passConfirm-p"></p>
+        <p className="signUp-passConfirm-p"></p>
 
         <button
           type="submit"
@@ -128,7 +133,12 @@ export function SignUp({ setIsRegistering }) {
           name="button to Register">Registrarme Ahora</button>
 
         <label className="signUpForm-labelGoSignIn" htmlFor="sufbsi">¿Ya tienes una cuenta?
-          <button id="sufbsi" className="signUpForm-btnGoSignIn" onClick={goSignIn}> Inicia Sesión</button>
+          <button
+            id="sufbsi"
+            className="signUpForm-btnGoSignIn"
+            onClick={goSignIn}
+          > Inicia Sesión
+          </button>
         </label>
 
       </form>

@@ -12,8 +12,7 @@
 
   /* tertiary colors */
   --border-input-green: #5fc81f;
-  --border-input-red: #ff3737;
-
+  --border-input-red: #DF0000;
   --bg-input-green: #acffa5;
   --bg-input-red: #ffc5c5;
 
@@ -22,6 +21,8 @@
   --bg-blur-navBar: rgba(255, 255, 255, 0.4);
   --bg-garage: #fff;
   --bg-finder: #fff;
+
+  /* Booking-jsx */
   /* 📆 */
   --bg-input-specialty: #fff;
   --bg-input-date: #fff;
@@ -37,13 +38,18 @@
 
   /* borders */
   --border-garage: #c8c8c8;
-  --borderFieldID: #c5c5c5;
-  --borderFieldName: #c5c5c5;
-  --borderFieldNumber: #c5c5c5;
-  --borderFieldIDCar: #c5c5c5;
-  --borderFieldModel: #c5c5c5;
-  --borderFieldPass: #c5c5c5;
-  --borderFieldPassConfirm: #c5c5c5;
+
+  /* SignUp.jsx */
+  --borderInput-name: #c5c5c5;
+  --borderInput-mail: #c5c5c5;
+  --borderInput-pass: #c5c5c5;
+  --borderInput-passConfirm: #c5c5c5;
+
+  /* UpdateData.jsx */
+  --borderInput-number: #c5c5c5;
+  --borderInput-modelCar: #c5c5c5;
+  --borderInput-plates: #c5c5c5;
+
   /* Booking-jsx */
   /* 📆 */
   --borderInput-specialty: #c5c5c5;
@@ -302,13 +308,13 @@ input {
   color: var(--mainColor);
 }
 
-.signUpForm-name,
-.signUpForm-mail,
-.signUpForm-IDCar,
-.signUpForm-number,
-.signUpForm-modelCar,
-.signUpForm-pass,
-.signUpForm-passConfirm {
+.signUp-name,
+.signUp-mail,
+.signUp-plates,
+.signUp-number,
+.signUp-modelCar,
+.signUp-pass,
+.signUp-passConfirm {
   min-height: 36px;
   width: 78%;
   margin-top: 4px;
@@ -316,51 +322,50 @@ input {
   border-radius: 10px;
   font-size: 16px;
   font-weight: 400;
-  border: 2px solid var(--borderFieldName);
+  border: 2px solid var(--borderInput-name);
   background: none;
   outline: none;
   background-color: white;
 }
 
-.signUpForm-mail {
-  border: 2px solid var(--borderFieldID);
+.signUp-mail {
+  border: 2px solid var(--borderInput-mail);
 }
 
-.signUpForm-number {
-  border: 2px solid var(--borderFieldNumber);
+.signUp-number {
+  border: 2px solid var(--borderInput-number);
 }
 
-.signUpForm-IDCar {
-  border: 2px solid var(--borderFieldIDCar);
+.signUp-plates {
+  border: 2px solid var(--borderInput-plates);
 }
 
-.signUpForm-modelCar {
-  border: 2px solid var(--borderFieldModel);
+.signUp-modelCar {
+  border: 2px solid var(--borderInput-modelCar);
 }
 
-.signUpForm-pass {
+.signUp-pass {
   width: 100%;
-  border: 2px solid var(--borderFieldPass);
+  border: 2px solid var(--borderInput-pass);
 }
 
-.signUpForm-passConfirm {
+.signUp-passConfirm {
   width: 100%;
-  border: 2px solid var(--borderFieldPassConfirm);
+  border: 2px solid var(--borderInput-passConfirm);
 }
 
-.signUpForm-name-p,
-.signUpForm-number-p,
-.signUpForm-mail-p,
-.signUpForm-pass-p,
-.signUpForm-passConfirm-p {
+.signUp-name-p,
+.signUp-number-p,
+.signUp-mail-p,
+.signUp-pass-p,
+.signUp-passConfirm-p {
   height: 12px;
   width: 78%;
   margin-top: 2px;
   font-size: 12px;
   font-weight: 600;
-  color: #f63737;
+  color: var(--border-input-red);
 }
-
 
 .wrapper-password {
   width: 78%;
@@ -376,7 +381,7 @@ input {
   height: 42px;
   width: 46px;
   margin-top: 4px;
-  border: 2px solid var(--borderFieldPass);
+  border: 2px solid var(--borderInput-pass);
   background-color: #fff;
   border-radius: 10px;
   display: flex;
@@ -385,7 +390,7 @@ input {
 }
 
 .btn-showPassConfirm {
-  border: 2px solid var(--borderFieldPassConfirm);
+  border: 2px solid var(--borderInput-passConfirm);
 }
 
 .btn-showPass-svg,
