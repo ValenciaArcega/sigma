@@ -24,7 +24,6 @@
 
   /* Booking-jsx */
   /* 📆 */
-  --bg-input-specialty: #fff;
   --bg-input-date: #fff;
   --bg-input-schedule: #fff;
   --bg-input-bookingNumber: #fff;
@@ -54,15 +53,14 @@
 
   /* Booking-jsx */
   /* 📆 */
-  --borderInput-specialty: #c5c5c5;
-  --borderInput-date: #c5c5c5;
-  --borderInput-schedule: #c5c5c5;
-  --borderInput-bookingNumber: #c5c5c5;
-  --borderInput-checkPassword: #c5c5c5;
+  --borderBKInput-date: #c5c5c5;
+  --borderBKInput-schedule: #c5c5c5;
+  --borderBKInput-number: #c5c5c5;
+  --borderBKInput-checkPassword: #c5c5c5;
   /* 💳 */
-  --borderInput-cardDigits: #c5c5c5;
-  --borderInput-expirationDate: #c5c5c5;
-  --borderInput-cvv: #c5c5c5;
+  --borderBKInput-cardDigits: #c5c5c5;
+  --borderBKInput-expirationDate: #c5c5c5;
+  --borderBKInput-cvv: #c5c5c5;
 
   --borderInput-checkPassword-userData: #c5c5c5;
 
@@ -727,78 +725,6 @@ input {
 }
 
 /* ///////////////////////////////////////////////////// */
-/* FormDates.jsx */
-.container-formDates {
-  display: flex;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-  justify-content: center;
-}
-
-.formDates {
-  width: 21rem;
-  margin-top: 2rem;
-  padding: 2rem 6px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-}
-
-
-.wrapperInputDates {
-  width: 86%;
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-}
-
-.formDates-label {
-  font-size: 17px;
-  font-weight: 600;
-  align-self: flex-start;
-}
-
-.formDates-input {
-  height: 48px;
-  width: 100%;
-  margin-top: 6px;
-  border-radius: 10px;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  text-align: center;
-  color: #0965c8;
-  background-color: #e1e7f7;
-}
-
-.formDates-input:hover {
-  cursor: pointer;
-}
-
-.formDates-btn {
-  min-height: 48px;
-  width: 86%;
-  margin-top: 1.3rem;
-  border-radius: 10px;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  color: var(--ff);
-  background-color: var(--mainColor);
-}
-
-
-.formDates-btn {
-  cursor: pointer;
-}
-
-/* ///////////////////////////////////////////////////// */
 /* Garages.jsx */
 .container-garages {
   padding-bottom: 5rem;
@@ -1152,6 +1078,40 @@ input {
   gap: 1rem 6px;
 }
 
+.wrapperInputDates {
+  width: 86%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+/* 📆 */
+.formDates-label {
+  font-size: 17px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.formDates-input {
+  height: 48px;
+  width: 100%;
+  margin-top: 6px;
+  border-radius: 10px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  text-align: center;
+  color: #0965c8;
+  background-color: #e1e7f7;
+}
+
+.formDates-input:hover {
+  cursor: pointer;
+}
+
 .form-booking-data,
 .form-booking-payment {
   width: 20rem;
@@ -1208,44 +1168,39 @@ input {
 }
 
 /* 📆 */
-.data-input-specialty {
-  border: 2px solid var(--borderInput-specialty);
-  background-color: var(--bg-input-specialty);
-}
-
 .data-input-date {
-  border: 2px solid var(--borderInput-date);
+  border: 2px solid var(--borderBKInput-date);
   background-color: var(--bg-input-date);
 }
 
 .data-input-schedule {
-  border: 2px solid var(--borderInput-schedule);
+  border: 2px solid var(--borderBKInput-schedule);
   background-color: var(--bg-input-schedule);
 }
 
 .data-input-bookingNumber {
-  border: 2px solid var(--borderInput-bookingNumber);
+  border: 2px solid var(--borderBKInput-number);
   background-color: var(--bg-input-bookingNumber);
 }
 
 .data-input-checkPassword {
-  border: 2px solid var(--borderInput-checkPassword);
+  border: 2px solid var(--borderBKInput-checkPassword);
   background-color: var(--bg-input-checkPassword);
 }
 
 /* 💳 */
 .payment-input-cardDigits {
-  border: 2px solid var(--borderInput-cardDigits);
+  border: 2px solid var(--borderBKInput-cardDigits);
   background-color: var(--bg-input-cardDigits);
 }
 
 .payment-input-expirationDate {
-  border: 2px solid var(--borderInput-expirationDate);
+  border: 2px solid var(--borderBKInput-expirationDate);
   background-color: var(--bg-input-expirationDate);
 }
 
 .payment-input-cvv {
-  border: 2px solid var(--borderInput-cvv);
+  border: 2px solid var(--borderBKInput-cvv);
   background-color: var(--bg-input-cvv);
 }
 
@@ -1287,7 +1242,6 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   background-color: #F4FFC9;
 }
 
@@ -1299,12 +1253,12 @@ input {
   border-bottom: 2px dotted #FFCA7C;
 }
 
-.ticket-h3 {
+.ticket h3 {
   width: 80%;
   margin-top: 1.4rem;
 }
 
-.ticket-p {
+.ticket p {
   width: 80%;
   margin-top: 4px;
   font-weight: 500;

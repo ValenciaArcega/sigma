@@ -1,81 +1,54 @@
-import { ReviewBooking } from "../../functions/review/cl-booking"
-import { getFirestore, doc, getDoc } from "firebase/firestore"
-import { firebaseApp } from "../../credentials"
+import { ClReviewBooking } from "../../classes/cl-booking"
 import { useEffect, useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
 
-export function Booking({ userMail }) {
-  let dataForTicket
-  const [firebasePass, setFirebasePass] = useState(null)
-  const firestore = getFirestore(firebaseApp)
-  const classReview = new ReviewBooking()
+export function Booking() {
+  let a
+  const cl = new ClReviewBooking()
   const navigate = useNavigate()
   const location = useLocation()
   const garageData = location.state
+  const [date, setDate] = useState({ day: null })
 
-  async function getPass() {
-    const docRef = doc(firestore, `users/${userMail}`)
-    const query = await getDoc(docRef)
-    if (query.exists()) {
-      const infoDoc = query.data()
-      setFirebasePass(infoDoc.data[0].pass)
-    }
+  function changeDate(value) {
+    return setDate({ day: value })
   }
 
   function generateTicket(e) {
     e.preventDefault()
-    if (classReview._reviewFormBooking()) {
-      if (inputCheckPassword.value === firebasePass) {
-        dataForTicket = {
-          specialty: inputSpeciality.value,
-          date: inputDate.value,
-          schedule: inputSchedule.value,
-          cardDigits: inputCardDigits.value,
-        }
-        const finalData = [garageData, dataForTicket]
-        classReview._setGoodPass()
-        navigate('/sigma/garage/booking/ticket/', { state: finalData })
-      } else classReview._setWrongPass()
+    if (cl._reviewFormBooking()) {
+      a = [{
+        garageName: garageData.name,
+        service: garageData.service,
+        date: date.day,
+        schedule: inputSchedule.value,
+        phone: inputBookingNumber.value,
+        cardDigits: inputCardDigits.value,
+      }]
+      navigate('/sigma/garage/booking/ticket/', { state: a })
     }
   }
-
-  useEffect(() => {
-    getPass()
-  }, [])
 
   return (
     <section className="container-booking">
       <form className="form-booking" onSubmit={generateTicket}>
         {/* Booking */}
         <div className="form-booking-data">
-          <h1 className="form-booking-data-h1"><span className="gradient">Agendar cita</span></h1>
+          <h1 className="form-booking-data-h1"><span className="gradient">{garageData.service}</span></h1>
 
-          <label className="form-booking-data-label" htmlFor="inputSpeciality">Especialidad</label>
-          <input
-            id="inputSpeciality"
-            className="form-booking-data-input data-input-specialty"
-            type="text"
-            placeholder="Servicio a contratar"
-            autoComplete="new-password"
-            onFocus={() => classReview._inputSpecialtyFocusIn()}
-            onBlur={() => classReview._inputSpecialtyBlur()}
-            onKeyUp={() => classReview._inputSpecialtyKeyUp()}
-          />
-          <p className="form-booking-data-p data-p-specialty"> </p>
-
-
-          <label className="form-booking-data-label" htmlFor="inputDate">Fecha de la reservación</label>
-          <input
-            id="inputDate"
-            className="form-booking-data-input data-input-date"
-            type="text"
-            placeholder="Ej. 16 de abril de 2023"
-            autoComplete="new-password"
-            onFocus={() => classReview._inputDateFocusIn()}
-            onBlur={() => classReview._inputDateBlur()}
-            onKeyUp={() => classReview._inputDateKeyUp()}
-          />
-          <p className="form-booking-data-p data-p-date"> </p>
+          <div className="wrapperInputDates">
+            <p className="formDates-label">Fecha de reservación</p>
+            <DatePicker
+              dateFormat="dd/MM/yyyy"
+              // showWeekNumbers
+              className="formDates-input"
+              placeholderText="Selecciona una fecha"
+              onChange={d => changeDate(d)}
+              selected={date.day}
+            />
+          </div>
 
           <label className="form-booking-data-label" htmlFor="inputSchedule">Horario de la reservación</label>
           <input
@@ -84,29 +57,29 @@ export function Booking({ userMail }) {
             type="text"
             placeholder="Ej. 8:30 ó 21:15"
             autoComplete="new-password"
-            onFocus={() => classReview._inputScheduleFocusIn()}
-            onBlur={() => classReview._inputScheduleBlur()}
-            onKeyUp={() => classReview._inputScheduleKeyUp()}
+            onFocus={() => cl._inputFocusIn('schedule')}
+            onBlur={() => cl._inputBlur('schedule')}
+            onKeyUp={() => cl._inputScheduleKeyUp()}
           />
           <p className="form-booking-data-p data-p-schedule"> </p>
 
-          <label className="form-booking-data-label" htmlFor="input-bookingNumber">Número de contacto</label>
+          <label className="form-booking-data-label">Número de contacto</label>
           <input
-            id="input-bookingNumber"
+            id="inputBookingNumber"
             className="form-booking-data-input data-input-bookingNumber"
             type="number"
             pattern="[0-9]*"
             inputMode="numeric"
             placeholder="Ej. 5540905687"
             autoComplete="new-password"
-            onFocus={() => classReview._inputBookingNumberFocusIn()}
-            onBlur={() => classReview._inputBookingNumberBlur()}
-            onKeyUp={() => classReview._inputBookingNumberKeyUp()}
+            onFocus={() => cl._inputFocusIn('number')}
+            onBlur={() => cl._inputBlur('number')}
+            onKeyUp={() => cl._inputBookingNumberKeyUp()}
           />
           <p className="form-booking-data-p data-p-bookingNumber"> </p>
 
-          <h3 className="form-booking-data-h3">Verfica tu identidad</h3>
-          {/* Password */}
+          {/*<h3 className="form-booking-data-h3">Verfica tu identidad</h3>
+           Password
           <label className="form-booking-data-label" htmlFor="inputCheckPassword">Confirma tu contraseña</label>
           <input
             id="inputCheckPassword"
@@ -114,12 +87,13 @@ export function Booking({ userMail }) {
             type="password"
             placeholder="La que usaste para registrarte"
             autoComplete="new-password"
-            onFocus={() => classReview._inputCheckPasswordFocusIn()}
-            onBlur={() => classReview._inputCheckPasswordBlur()}
+            onFocus={() => cl._inputFocusIn('checkPassword')}
+            onBlur={() => cl._inputBlur('checkPassword')}
           />
-          <p className="form-booking-data-p data-p-checkPassword"> </p>
+          <p className="form-booking-data-p data-p-checkPassword"> </p> */}
 
         </div>
+
         {/* Payment */}
         <div className="form-booking-payment">
           <h1 className="form-booking-payment-h1"><span className="gradient">Método de pago</span></h1>
@@ -133,9 +107,9 @@ export function Booking({ userMail }) {
             inputMode="numeric"
             placeholder="Los 16 dígitos de la tarjeta"
             autoComplete="new-password"
-            onFocus={() => classReview._inputCardDigitsFocusIn()}
-            onBlur={() => classReview._inputCardDigitsBlur()}
-            onKeyUp={() => classReview._inputCardDigitsKeyUp()}
+            onFocus={() => cl._inputFocusIn('cardDigits')}
+            onBlur={() => cl._inputBlur('cardDigits')}
+            onKeyUp={() => cl._inputCardDigitsKeyUp()}
           />
           <p className="form-booking-payment-p payment-p-cardDigits"> </p>
           {/* expirationDate */}
@@ -145,9 +119,9 @@ export function Booking({ userMail }) {
             className="form-booking-payment-input payment-input-expirationDate"
             placeholder="Ej. 03/2024"
             autoComplete="new-password"
-            onFocus={() => classReview._inputExpirationDateFocusIn()}
-            onBlur={() => classReview._inputExpirationDateBlur()}
-            onKeyUp={() => classReview._inputExpirationDateKeyUp()}
+            onFocus={() => cl._inputFocusIn('expirationDate')}
+            onBlur={() => cl._inputBlur('expirationDate')}
+            onKeyUp={() => cl._reviewInputExpirationDate()}
           />
           <p className="form-booking-payment-p payment-p-expirationDate"> </p>
           {/* cvv */}
@@ -160,17 +134,15 @@ export function Booking({ userMail }) {
             type="number"
             pattern="[0-9]*"
             inputMode="numeric"
-            onFocus={() => classReview._inputCVVFocusIn()}
-            onBlur={() => classReview._inputCVVBlur()}
-            onKeyUp={() => classReview._inputCVVKeyUp()}
+            onFocus={() => cl._inputFocusIn('cvv')}
+            onBlur={() => cl._inputBlur('cvv')}
+            onKeyUp={() => cl._inputCVVKeyUp()}
           />
           <p className="form-booking-payment-p payment-p-cvv"> </p>
 
           <button
             className="btn-bubble form-booking-payment-btn"
-            type="submit"
-          >Pagar y Generar Ticket
-          </button>
+            type="submit">Pagar y Generar Ticket</button>
         </div>
       </form>
     </section>

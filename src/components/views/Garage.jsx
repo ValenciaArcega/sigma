@@ -1,13 +1,23 @@
-import { useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 export function Garage() {
-  const location = useLocation()
-  const data = location.state
+  let a
   const navigate = useNavigate()
+  const location = useLocation()
+  const garageData = location.state
+
+  function sendService(service) {
+    a = {
+      name: garageData.name,
+      price: garageData.price,
+      service: service
+    }
+    navigate('/sigma/garage/booking/', { state: a })
+  }
 
   function loadMap() {
-    const coords = [data.latitude, data.longitude]
+    const coords = [garageData.latitude, garageData.longitude]
     const map = L.map('map').setView(coords, 10)
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -15,7 +25,7 @@ export function Garage() {
     }).addTo(map)
 
     L.marker(coords).addTo(map)
-      .bindPopup(`Taller: ${data.name}`)
+      .bindPopup(`Taller: ${garageData.name}`)
       .openPopup()
   }
 
@@ -27,22 +37,31 @@ export function Garage() {
       <main className="wrapper-garageInfoCard">
 
         <header className="garageInfoCard-header">
-          <h1 className="garageInfoCard-h1">{data.name}</h1>
+          <h1 className="garageInfoCard-h1">{garageData.name}</h1>
           <p className="garageInfoCard-p">Este taller ofrece los siguientes servicios y su ubicación aparece marcada en el mapa</p>
         </header>
 
-        <div className="garageInfoCard-features">
-          {data.features.map((item, i) => <p key={i} className="garageInfoCard-feature">◉ {item}</p>)}
-        </div>
+        <article className="garageInfoCard-features">
+          {garageData.features.map((item, i, arr) => {
+            return (
+              <button
+                key={i}
+                className="garageInfoCard-feature"
+                onClick={() => sendService(item)}
+              >{item}
+              </button>
+            )
+          })}
+        </article>
 
         <main className="mapy" id="map"></main>
 
-        <button
+        {/* <button
           className="btn-booking btn-bubble"
           onClick={() => navigate('/sigma/garage/booking', { state: data })}
         >
           Agendar Cita
-        </button>
+        </button> */}
       </main>
     </section>
   )

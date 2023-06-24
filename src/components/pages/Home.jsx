@@ -30,7 +30,7 @@ export function Home({ userMail }) {
         </Route>
         <Route
           path="/sigma/garage/booking/"
-          element={<Booking userMail={userMail} />}>
+          element={<Booking />}>
         </Route>
         <Route
           path="/sigma/garage/booking/ticket/"
