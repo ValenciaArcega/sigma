@@ -64,7 +64,7 @@
 
   --borderInput-checkPassword-userData: #c5c5c5;
 
-  --borderInput-garageName: #c5c5c5;
+  --borderInput-garage-name: #c5c5c5;
   --borderInput-garage-number: #c5c5c5;
   --borderInput-garage-coorLat: #c5c5c5;
   --borderInput-garage-coorLong: #c5c5c5;
@@ -905,15 +905,12 @@ input {
   text-align: center;
 }
 
-.form-addGarage-label {
+.form-addGarage label {
   display: inline-block;
-  margin-top: 14px !important;
+  margin-top: 12px !important;
   font-weight: 500;
 }
 
-.form-addGarage-label-lat {
-  margin-top: 8px !important;
-}
 
 .form-addGarage-input {
   height: 48px;
@@ -923,7 +920,7 @@ input {
   border-radius: 10px;
   font-size: 16px;
   outline: none;
-  border: 2px solid var(--borderInput-garageName);
+  border: 2px solid var(--borderInput-garage-name);
   color: var(--black18);
   background: transparent;
 }
