@@ -1,5 +1,5 @@
 import { IconMoon, IconSun } from "../svg/Appearance"
-import AppearanceCl from "../../functions/cl-appearance"
+import AppearanceCl from "../../classes/cl-appearance"
 
 export function Appearance() {
   const classAppearance = new AppearanceCl()

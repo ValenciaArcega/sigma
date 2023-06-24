@@ -1,7 +1,7 @@
 import { getAuth, signOut } from 'firebase/auth'
 import { firebaseApp } from "../../credentials"
 import { Link } from "react-router-dom"
-import AppearanceCl from "../../functions/cl-appearance"
+import AppearanceCl from "../../classes/cl-appearance"
 
 export function Profile() {
   const auth = getAuth(firebaseApp)
