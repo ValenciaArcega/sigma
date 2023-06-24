@@ -1,14 +1,13 @@
-import { firebaseApp } from '../../credentials'
-import { IconText, IconHashtag, IconPhone, IconHide, IconShow, IconHideConfirm, IconShowConfirm } from '../svg/IconsSignUp'
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore"
-import { ReviewUpdateData } from "../../functions/review/cl-updateData"
+import { ClReviewUpdateData } from "../../classes/cl-updateData"
 import { DataUpdated } from "../messages/DataUpdated"
+import { firebaseApp } from '../../credentials'
 import { useState } from "react"
 
 export function UpdateData({ userMail }) {
-  const [gotEdit, setGotEdit] = useState(false)
-  const classReview = new ReviewUpdateData()
   const firestore = getFirestore(firebaseApp)
+  const cl = new ClReviewUpdateData()
+  const [gotEdit, setGotEdit] = useState(false)
 
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
@@ -22,17 +21,15 @@ export function UpdateData({ userMail }) {
     const name = e.target.sufn.value
     const nameFixed = upperCaseName(name)
     const phone = e.target.inputPhoneNumber.value
-    const idCar = e.target.inputIDCar.value
+    const plates = e.target.inputIDCar.value
     const modelCar = e.target.inputModelCar.value
-    const password = e.target.inputPassword.value
     const dataUser = [
       {
         name: nameFixed,
         mail: userMail,
-        idCar: idCar,
+        idCar: plates,
         modelCar: modelCar,
         phone: phone,
-        pass: password,
       },
     ]
     const docRef = doc(firestore, `users/${userMail}`)
@@ -42,120 +39,67 @@ export function UpdateData({ userMail }) {
       await updateDoc(docRef, { data: [...dataUser] })
       setGotEdit(true)
       setTimeout(() => setGotEdit(false), 3000)
-    } else {
-      return
-    }
+    } else return
   }
 
   return (
-    <section className="container-signUp">
+    <section className="container-updateData">
 
       {gotEdit ? <DataUpdated /> : null}
 
-      <form className="signUpForm" onSubmit={(e) => { if (classReview._reviewFormUpdateData(e)) addUser(e) }}>
+      <form className="updateData" onSubmit={(e) => { if (cl._reviewFormUpdateData(e)) addUser(e) }}>
 
-        <h1 className="signUpForm-title">Actualiza tus <span className="gradient">datos</span></h1>
+        <h1 className="updateData-title">Actualiza tus <span className="gradient">datos</span></h1>
 
-        <label className="signUpForm-label" htmlFor="sufn">
-          Nombre
-          <IconText />
-        </label>
+        <label>Nombre</label>
         <input
           id="sufn"
-          className="signUp-name"
+          className="updateData-name"
           placeholder="Ej. Sanchez Cabrera Ignacio"
           autoComplete="new-password"
-          onFocus={() => classReview._inputNameFocusIn()}
-          onBlur={() => classReview._inputNameBlur()}
-          onKeyUp={() => classReview._inputNameKeyUp()}
+          onFocus={() => cl._inputFocusIn('name')}
+          onBlur={() => cl._inputBlur('name')}
+          onKeyUp={() => cl._inputNameKeyUp()}
         />
-        <p className="signUp-name-p"> </p>
-        {/* ///////////////////////////////////////////////////// */}
-        <label className="signUpForm-label" htmlFor="inputMail">
-          Número celular
-          <IconPhone />
-        </label>
+        <p className="updateData-name-p"> </p>
+
+        <label>Número celular</label>
         <input
           id="inputPhoneNumber"
-          className="signUp-number"
-          type="number"
-          pattern="[0-9]*"
-          inputMode="decimal"
+          className="updateData-number"
+          // type="number"
+          // pattern="[0-9]*"
+          // inputMode="numeric"
           placeholder="5540678934"
           autoComplete="new-password"
-          onFocus={() => classReview._inputNumberFocusIn()}
-          onBlur={() => classReview._inputNumberBlur()}
-          onKeyUp={() => classReview._inputNumberKeyUp()}
+          onFocus={() => cl._inputFocusIn('number')}
+          onBlur={() => cl._inputBlur('number')}
+          onKeyUp={() => cl._inputNumberKeyUp()}
         />
-        <p className="signUp-number-p"> </p>
-        {/* ///////////////////////////////////////////////////// */}
-        <label className="signUpForm-label" htmlFor="inputIDCar">
-          Placa vehicular
-          <IconHashtag />
-        </label>
+        <p className="updateData-number-p"> </p>
+
+        <label>Placa vehicular</label>
         <input
           id="inputIDCar"
-          className="signUp-plates"
+          className="updateData-plates"
           placeholder="EDC-3456"
           autoComplete="new-password"
-          onFocus={() => classReview._inputIDCarFocusIn()}
-          onBlur={() => classReview._inputIDCarBlur()}
+          onFocus={() => cl._inputFocusIn('plates')}
+          onBlur={() => cl._inputBlur('plates')}
         />
-        <p className="signUp-mail-p"> </p>
-        {/* ///////////////////////////////////////////////////// */}
-        <label className="signUpForm-label" htmlFor="inputModelCar">
-          Modelo del vehiculo
-          <IconText />
-        </label>
+        <p className="updateData-plates-p"> </p>
+
+        <label>Modelo del vehiculo</label>
         <input
           id="inputModelCar"
-          className="signUp-modelCar"
+          className="updateData-modelCar"
           placeholder="Chevrolet Aveo 2018"
           autoComplete="new-password"
-          onFocus={() => classReview._inputModelCarFocusIn()}
-          onBlur={() => classReview._inputModelCarBlur()}
+          onFocus={() => cl._inputFocusIn('modelCar')}
+          onBlur={() => cl._inputBlur('modelCar')}
         />
-        <p className="signUp-mail-p"> </p>
-        {/* ///////////////////////////////////////////////////// */}
-        <label className="signUpForm-label" htmlFor="inputPassword">Nueva contraseña</label>
-        <section className="wrapper-password">
-          <input
-            id="inputPassword"
-            className="signUp-pass"
-            type="password"
-            autoComplete="new-password"
-            placeholder="Ingresa una contraseña"
-            onChangeCapture={() => classReview._emptyConfirmPass()}
-            onBlur={() => classReview._inputPassBlur()}
-            onFocus={() => classReview._inputPassFocusIn()}
-          />
-          <button onClick={() => classReview._showPassRegister()} className="btn-showPass" type="button" title="button show">
-            <IconShow />
-            <IconHide />
-          </button>
-        </section>
-        <p className="signUp-pass-p"></p>
+        <p className="updateData-modelCar-p"> </p>
 
-        {/* ///////////////////////////////////////////////////// */}
-        <label className="signUpForm-label" htmlFor="sufcp">Confirmar nueva contraseña</label>
-        <div className="wrapper-password">
-          <input
-            id="sufcp"
-            className="signUp-passConfirm"
-            type="password"
-            autoComplete="new-password"
-            placeholder="Repite la contraseña"
-            onKeyUp={() => classReview._inputConfirmPassKeyUp()}
-            onFocus={() => classReview._inputConfirmPassFocusIn()}
-            onBlur={() => classReview._inputConfirmPassBlur()}
-          />
-          <button onClick={() => classReview._showConfirmRegister()} className="btn-showPassConfirm" type="button" title="button show">
-            <IconShowConfirm />
-            <IconHideConfirm />
-          </button>
-        </div>
-        <p className="signUp-passConfirm-p"></p>
-        {/* ///////////////////////////////////////////////////// */}
         <button
           type="submit"
           className="signUpForm-btnRegister"

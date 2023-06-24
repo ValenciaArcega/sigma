@@ -16,6 +16,7 @@ export function SignIn({ setIsRegistering }) {
       const m = e.target.inputMail.value
       const p = e.target.inputPassword.value
       await signInWithEmailAndPassword(auth, m, p)
+
     } catch (e) {
       // ⛔ error handlers ⛔
       if (e.message === 'Firebase: Error (auth/wrong-password).') {

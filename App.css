@@ -38,6 +38,7 @@
 
   /* borders */
   --border-garage: #c8c8c8;
+  --border-forms: 2px dashed #aeaeae;
 
   /* SignUp.jsx */
   --borderInput-name: #c5c5c5;
@@ -46,9 +47,10 @@
   --borderInput-passConfirm: #c5c5c5;
 
   /* UpdateData.jsx */
-  --borderInput-number: #c5c5c5;
-  --borderInput-modelCar: #c5c5c5;
-  --borderInput-plates: #c5c5c5;
+  --borderUDInput-name: #c5c5c5;
+  --borderUDInput-number: #c5c5c5;
+  --borderUDInput-plates: #c5c5c5;
+  --borderUDInput-modelCar: #c5c5c5;
 
   /* Booking-jsx */
   /* 📆 */
@@ -97,7 +99,7 @@ input {
 }
 
 /* ///////////////////////////////////////////////////// */
-/* Sign.jsx */
+/* SignIn.jsx */
 .container-login {
   height: 100vh;
   display: flex;
@@ -115,7 +117,8 @@ input {
   align-items: center;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: 0px 10px 10px -6px rgba(100, 75, 229, 0.35);
+  border: var(--border-forms);
+  /* box-shadow: 0px 10px 10px -6px rgba(100, 75, 229, 0.35); */
 }
 
 .login-img {
@@ -262,17 +265,16 @@ input {
 
 /* ///////////////////////////////////////////////////// */
 /* SignUp.jsx */
-.container-signUp {
+.container-signUp,
+.container-updateData {
   margin-top: 3rem;
   padding-bottom: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f2f2f7;
 }
 
 .signUpForm {
-  /* height: 38rem; */
   width: 20rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -281,7 +283,8 @@ input {
   flex-direction: column;
   place-items: center;
   background-color: #fff;
-  box-shadow: 0px 8px 16px -6px rgba(0, 0, 0, 0.2);
+  border: var(--border-forms);
+  /* box-shadow: 0px 8px 16px -6px rgba(0, 0, 0, 0.2); */
 }
 
 .signUpForm-title {
@@ -310,9 +313,7 @@ input {
 
 .signUp-name,
 .signUp-mail,
-.signUp-plates,
 .signUp-number,
-.signUp-modelCar,
 .signUp-pass,
 .signUp-passConfirm {
   min-height: 36px;
@@ -330,18 +331,6 @@ input {
 
 .signUp-mail {
   border: 2px solid var(--borderInput-mail);
-}
-
-.signUp-number {
-  border: 2px solid var(--borderInput-number);
-}
-
-.signUp-plates {
-  border: 2px solid var(--borderInput-plates);
-}
-
-.signUp-modelCar {
-  border: 2px solid var(--borderInput-modelCar);
 }
 
 .signUp-pass {
@@ -371,7 +360,7 @@ input {
   width: 78%;
   gap: 4px;
   display: grid;
-  overflow-y: hidden;
+  overflow: hidden;
   grid-template-columns: 80% 1fr;
   background-color: transparent;
 }
@@ -381,17 +370,18 @@ input {
   height: 42px;
   width: 46px;
   margin-top: 4px;
-  border: 2px solid var(--borderInput-pass);
+  border: none;
   background-color: #fff;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* border: 2px solid var(--borderInput-pass); */
+  /* border-radius: 10px; */
 }
 
-.btn-showPassConfirm {
+/* .btn-showPassConfirm {
   border: 2px solid var(--borderInput-passConfirm);
-}
+} */
 
 .btn-showPass-svg,
 .btn-hidePass-svg,
@@ -436,6 +426,83 @@ input {
 
 .signUpForm-btnGoSignIn:hover {
   cursor: pointer;
+}
+
+/* ///////////////////////////////////////////////////// */
+/* UpdateData.jsx */
+.container-updateData {
+  padding-top: 4rem;
+}
+
+.updateData {
+  width: 20rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 12px;
+  border: var(--border-forms);
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  background-color: #fff;
+}
+
+.updateData-title {
+  margin-bottom: 6px;
+  font-size: 26px;
+  letter-spacing: -.8px;
+  color: #181818;
+}
+
+.updateData label {
+  width: 78%;
+  margin-top: 10px;
+  letter-spacing: -.4px;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 85% 1fr;
+  color: #181818;
+}
+
+
+.updateData-name,
+.updateData-number,
+.updateData-plates,
+.updateData-modelCar {
+  min-height: 36px;
+  width: 78%;
+  margin-top: 4px;
+  padding: 10px 6px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  background: none;
+  outline: none;
+  background-color: white;
+  border: 2px solid var(--borderUDInput-name);
+}
+
+.updateData-number {
+  border: 2px solid var(--borderUDInput-number);
+}
+
+.updateData-plates {
+  border: 2px solid var(--borderUDInput-plates);
+}
+
+.updateData-modelCar {
+  border: 2px solid var(--borderUDInput-modelCar);
+}
+
+.updateData-name-p,
+.updateData-number-p,
+.updateData-plates-p,
+.updateData-modelCar-p {
+  height: 12px;
+  width: 78%;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--border-input-red);
 }
 
 /* ///////////////////////////////////////////////////// */
@@ -902,6 +969,7 @@ input {
   border-radius: 12px;
   border: 2px dashed #c5c5c5;
   padding: 1.2rem 2.3rem 2rem 2.3rem;
+  background-color: white;
 }
 
 .form-addGarage-h1 {
