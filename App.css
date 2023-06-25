@@ -996,6 +996,7 @@ input {
   font-weight: 500;
   border: none;
   outline: none;
+  background: none;
 }
 
 .garageInfoCard-feature:hover {

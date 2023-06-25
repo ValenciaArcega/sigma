@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { dataGarages } from '../../data/dt-garages'
 import { Finder } from '../interface/Finder'
+import { Loader } from '../interface/Loader'
 import { useNavigate } from 'react-router-dom'
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
@@ -78,6 +79,6 @@ export function Garages({ userMail }) {
           Registrar mi Taller
         </Link>
       </section >
-      : null
+      : <Loader />
   )
 };
