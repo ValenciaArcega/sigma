@@ -21,7 +21,9 @@ export function Booking() {
     if (cl._reviewFormBooking()) {
       a = [{
         garageName: garageData.name,
+        garageNumber: garageData.number,
         service: garageData.service,
+        price: garageData.price,
         date: date.day,
         schedule: inputSchedule.value,
         phone: inputBookingNumber.value,
@@ -39,7 +41,7 @@ export function Booking() {
           <h1 className="form-booking-data-h1"><span className="gradient">{garageData.service}</span></h1>
 
           <div className="wrapperInputDates">
-            <p className="formDates-label">Fecha de reservación</p>
+            <p className="form-booking-data-label">Fecha de reservación</p>
             <DatePicker
               dateFormat="dd/MM/yyyy"
               // showWeekNumbers
@@ -142,7 +144,7 @@ export function Booking() {
 
           <button
             className="btn-bubble form-booking-payment-btn"
-            type="submit">Pagar y Generar Ticket</button>
+            type="submit">Pagar {garageData.price}</button>
         </div>
       </form>
     </section>

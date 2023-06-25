@@ -25,8 +25,11 @@ export function Ticket() {
         <h3>Cobro a la tarjeta</h3>
         <p>{data[0].cardDigits}</p>
 
+        <h3>Monto pagado</h3>
+        <p>{data[0].price}</p>
+
         <h3>Número para aclaraciones</h3>
-        <p>{data[0].phone}</p>
+        <p>{data[0].garageNumber}</p>
       </main>
     </section>
   )

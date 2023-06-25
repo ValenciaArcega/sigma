@@ -981,43 +981,38 @@ input {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   justify-items: center;
+  align-items: center;
 }
 
 .garageInfoCard-features {
   width: 18rem;
   padding: 10px 0;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 2.3;
+}
+
+.garageInfoCard-feature {
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.garageInfoCard-feature:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .garageInfoCard-feature::first-letter {
-  padding-right: 4px;
   color: var(--mainColor);
 }
 
 .mapy {
   height: 19rem;
   width: 20rem;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0px 32px 12px -20px rgba(0, 0, 0, 0.2);
   z-index: 0;
-}
-
-.btn-booking {
-  height: 48px;
-  max-width: 17rem;
-  margin-top: 3rem;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border: none;
-  border-bottom: 2px solid var(--mainColor);
-  outline: none;
-  cursor: pointer;
-  color: var(--black18);
-  font-size: 17px;
-  font-weight: 500;
-  background-color: var(--ff);
-  grid-column: 1/-1;
 }
 
 /* Booking.jsx */
@@ -1049,7 +1044,9 @@ input {
 
 /* 📆 */
 .formDates-label {
-  font-size: 17px;
+  width: 80%;
+  margin-top: 10px;
+  font-size: 18px;
   font-weight: 600;
   align-self: flex-start;
 }
@@ -1074,6 +1071,7 @@ input {
 .form-booking-data,
 .form-booking-payment {
   width: 20rem;
+  height: 26rem;
   padding: 2rem 0;
   border: 2px dotted #9f9f9f;
   display: flex;
@@ -1090,7 +1088,8 @@ input {
 .form-booking-data-h1,
 .form-booking-payment-h1 {
   margin-bottom: 14px;
-  font-size: 32px;
+  padding: 0 18px;
+  font-size: 24px;
   letter-spacing: -1px;
   font-weight: 800;
   text-align: center;
@@ -1109,6 +1108,10 @@ input {
   margin-top: 10px;
   font-size: 18px;
   font-weight: 600;
+}
+
+.form-booking-data-label:first-child {
+  width: 96%;
 }
 
 .form-booking-data-input,
@@ -1176,7 +1179,7 @@ input {
 .form-booking-payment-btn {
   height: 48px;
   max-width: 72%;
-  margin-top: 16px;
+  margin-top: 32px;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -1193,7 +1196,7 @@ input {
 }
 
 .ticket {
-  height: 35rem;
+  /* height: 35rem; */
   width: 20rem;
   padding: 2rem 0;
   border-radius: 10px;

@@ -3,17 +3,20 @@ export const dataGarages = [
     name: 'Don Ale Tultitlan',
     phone: 5540280976,
     features: [
-      'Cambio de aceite',
-      'Tramites de verificación',
-      'Pago de tenencia',
-      'Cambio de amortuguadores',
-      'Ajuste de frenos',
+      ['Cambio de aceite', '$45'],
+      ['Tramites de verificación', '$125'],
+      ['Pago de tenencia', '$250'],
+      ['Amortiguadores', '$250'],
+      ['Ajuste de frenos', '$250'],
+      ['Manteniemiento general', '$250'],
+      ['Afinación', '$250'],
+      ['Renovación de licencia', '$250'],
     ],
     price: '$120',
     latitude: 19.6222333,
     longitude: -99.2347213,
   },
-  {
+  /*{
     name: 'MONSA Ecatepec',
     phone: 5540280976,
     features: [
@@ -54,5 +57,5 @@ export const dataGarages = [
     price: '$79',
     latitude: 19.6351237,
     longitude: -99.0848751,
-  },
+  },*/
 ]

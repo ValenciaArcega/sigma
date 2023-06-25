@@ -7,11 +7,12 @@ export function Garage() {
   const location = useLocation()
   const garageData = location.state
 
-  function sendService(service) {
+  function sendService(service, price) {
     a = {
       name: garageData.name,
-      price: garageData.price,
-      service: service
+      number: garageData.phone,
+      service: service,
+      price: price,
     }
     navigate('/sigma/garage/booking/', { state: a })
   }
@@ -42,26 +43,20 @@ export function Garage() {
         </header>
 
         <article className="garageInfoCard-features">
-          {garageData.features.map((item, i, arr) => {
+          {garageData.features.map((item, i) => {
             return (
               <button
                 key={i}
                 className="garageInfoCard-feature"
-                onClick={() => sendService(item)}
-              >{item}
+                onClick={() => sendService(item[0], item[1])}
+              >◉ {item[0]}
               </button>
             )
           })}
         </article>
 
-        <main className="mapy" id="map"></main>
+        <article className="mapy" id="map"></article>
 
-        {/* <button
-          className="btn-booking btn-bubble"
-          onClick={() => navigate('/sigma/garage/booking', { state: data })}
-        >
-          Agendar Cita
-        </button> */}
       </main>
     </section>
   )
