@@ -30,7 +30,17 @@ export function Garage() {
       .openPopup()
   }
 
-  useEffect(() => loadMap(), [])
+  useEffect(() => {
+    loadMap()
+    /*
+    console.log(messageFail, fail, "Promesa retorna null al cargar el componente  map en Garage.jsx")
+    console.log(messageFail, fail, "FirebaseError: Fetch rejected")
+    console.log(messageFail, fail, "Error al cargar el mapa")
+    console.log(messagePass, pass, "Promesa retorna {mapy} al cargar el componente  map en Garage.jsx")
+    console.log(messagePass, pass, "FirebasePromise: Fetch fullfill")
+    console.log(messagePass, pass, "Renderizar mapa")
+    */
+  }, [])
 
   return (
     <section className="container-garageInfoCard">

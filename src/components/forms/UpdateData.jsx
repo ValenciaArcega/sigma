@@ -9,6 +9,7 @@ export function UpdateData({ userMail }) {
   const cl = new ClReviewUpdateData()
   const [gotEdit, setGotEdit] = useState(false)
 
+
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
     // Pablo Mario Gonzalez Camarena 
@@ -40,6 +41,12 @@ export function UpdateData({ userMail }) {
       setGotEdit(true)
       setTimeout(() => setGotEdit(false), 3000)
     } else return
+    /*
+    console.log(messagePass, pass, "La promesa retorna [{..dataUser}] en UpdateData.jsx")
+    cl._reviewFormUpdateData(e)
+    console.log(messagePass, pass, "FirebasePromise: User data modified")
+    console.log(messagePass, pass, "Datos actualizados en UpdateData.jsx")
+    */
   }
 
   return (
@@ -47,7 +54,9 @@ export function UpdateData({ userMail }) {
 
       {gotEdit ? <DataUpdated /> : null}
 
-      <form className="updateData" onSubmit={(e) => { if (cl._reviewFormUpdateData(e)) addUser(e) }}>
+      <form className="updateData" onSubmit={(e) => {
+        if (cl._reviewFormUpdateData(e)) addUser(e)
+      }}>
 
         <h1 className="updateData-title">Actualiza tus <span className="gradient">datos</span></h1>
 

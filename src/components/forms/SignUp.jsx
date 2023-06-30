@@ -7,7 +7,7 @@ import { ClReviewSignUp } from "../../classes/cl-signUp"
 export function SignUp({ setIsRegistering }) {
   const auth = getAuth(firebaseApp)
   const firestore = getFirestore(firebaseApp)
-  const test = new ClReviewSignUp()
+  const cl = new ClReviewSignUp()
 
   function upperCaseName(str) {
     // pablo  mario   gonzaleZ CAMARENA  
@@ -36,17 +36,22 @@ export function SignUp({ setIsRegistering }) {
       await setDoc(docRef, { data: [...dataUser] })
       await createUserWithEmailAndPassword(auth, mail, password)
     } else return
+    /* ⛔ testing
+    console.log(messagePass, pass, "La promesa retorna {} en SignUp.jsx")
+    console.log(messagePass, pass, "FirebasePromise: User added")
+    console.log(messagePass, pass, "Cargando pantalla de inicio")
+    */
   }
 
   function goSignIn() {
-    test._resetBorders()
+    cl._resetBorders()
     setIsRegistering(false)
   };
 
   return (
     <section className="container-signUp">
       <form className="signUpForm" onSubmit={(e) => {
-        if (test._reviewFormSignUp(e)) addUser(e)
+        if (cl._reviewFormSignUp(e)) addUser(e)
       }}>
         <h1 className="signUpForm-title">Crea una cuenta <span className="gradient">gratis</span></h1>
 
@@ -59,9 +64,9 @@ export function SignUp({ setIsRegistering }) {
           className="signUp-name"
           placeholder="Ingresa tu nombre y apellidos"
           autoComplete="new-password"
-          onFocus={() => test._inputFocusIn('name')}
-          onBlur={() => test._inputBlur('name')}
-          onKeyUp={() => test._inputNameKeyUp()}
+          onFocus={() => cl._inputFocusIn('name')}
+          onBlur={() => cl._inputBlur('name')}
+          onKeyUp={() => cl._inputNameKeyUp()}
         />
         <p className="signUp-name-p"> </p>
 
@@ -74,8 +79,9 @@ export function SignUp({ setIsRegistering }) {
           className="signUp-mail"
           placeholder="usuario@dominio.com"
           autoComplete="new-password"
-          onFocus={() => test._inputFocusIn('mail')}
-          onBlur={() => test._inputBlur('mail')}
+          onFocus={() => cl._inputFocusIn('mail')}
+          onBlur={() => cl._inputBlur('mail')}
+          onKeyUp={() => cl._inputMailKeyUp()}
         />
         <p className="signUp-mail-p"></p>
 
@@ -87,15 +93,15 @@ export function SignUp({ setIsRegistering }) {
             type="password"
             autoComplete="new-password"
             placeholder="Crea una contraseña"
-            onFocus={() => test._inputFocusIn('pass')}
-            onBlur={() => test._inputBlur('pass')}
-            onChangeCapture={() => test._emptyConfirmPass()}
+            onFocus={() => cl._inputFocusIn('pass')}
+            onBlur={() => cl._inputBlur('pass')}
+            onChangeCapture={() => cl._emptyConfirmPass()}
           />
           <button
             className="btn-showPass"
             type="button"
             title="button show"
-            onClick={() => test._showPass('signUp-pass', 'btn-showPass-svg', 'btn-hidePass-svg')}
+            onClick={() => cl._showPass('signUp-pass', 'btn-showPass-svg', 'btn-hidePass-svg')}
           >
             <IconShow />
             <IconHide />
@@ -111,15 +117,15 @@ export function SignUp({ setIsRegistering }) {
             type="password"
             autoComplete="new-password"
             placeholder="Repite la contraseña"
-            onFocus={() => test._inputFocusIn('passConfirm')}
-            onBlur={() => test._inputBlur('passConfirm')}
-            onKeyUp={() => test._inputConfirmPassKeyUp()}
+            onFocus={() => cl._inputFocusIn('passConfirm')}
+            onBlur={() => cl._inputBlur('passConfirm')}
+            onKeyUp={() => cl._inputConfirmPassKeyUp()}
           />
           <button
             className="btn-showPassConfirm"
             title="button show"
             type="button"
-            onClick={() => test._showPass('signUp-passConfirm', 'btn-showPassConfirm-svg', 'btn-hidePassConfirm-svg')}
+            onClick={() => cl._showPass('signUp-passConfirm', 'btn-showPassConfirm-svg', 'btn-hidePassConfirm-svg')}
           >
             <IconShowConfirm />
             <IconHideConfirm />

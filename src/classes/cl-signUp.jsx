@@ -32,6 +32,19 @@ export class ClReviewSignUp {
     }
   }
 
+  _inputMailKeyUp() {
+    const input = document.querySelector('.signUp-mail')
+    const textError = document.querySelector('.signUp-mail-p')
+
+    this.root.setProperty('--borderInput-name', '#4263eb')
+    textError.textContent = ''
+
+    if (input.value === '') {
+      this.root.setProperty('--borderInput-name', '#4263eb')
+      textError.textContent = ''
+    }
+  }
+
   _inputConfirmPassKeyUp() {
     const input = document.querySelector('.signUp-pass')
     const inputConfirm = document.querySelector('.signUp-passConfirm')

@@ -1,9 +1,15 @@
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
 export function Ticket() {
   const location = useLocation()
   const data = location.state
+
+  /*useEffect(() => {
+    console.log(messagePass, pass, "La promesa retorna [{}] en Ticket.jsx")
+    console.log(messagePass, pass, "FirebasePromise: fullfill")
+    console.log(messagePass, pass, "Renderizar ticket con datos")
+  }, [])*/
 
   return (
     <section className="container-ticket">

@@ -12,11 +12,16 @@ export function SignIn({ setIsRegistering }) {
 
   async function submitHandler(e) {
     e.preventDefault()
+
     try {
       const m = e.target.inputMail.value
       const p = e.target.inputPassword.value
       await signInWithEmailAndPassword(auth, m, p)
-
+      /* ⛔ testing
+            console.log(messageFail, fail, "El usuario y la contraseña no coinciden con auth y infoFirestore en SignIn.jsx")
+            console.log(messageFail, fail, "Error de autenticación")
+            console.log(messageFail, fail, "Credenciales incorrectas")
+      */
     } catch (e) {
       // ⛔ error handlers ⛔
       if (e.message === 'Firebase: Error (auth/wrong-password).') {

@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { getFirestore, doc, getDoc } from "firebase/firestore"
 import { firebaseApp } from "../../credentials"
 import { Link } from "react-router-dom"
+import { pass, fail, messageFail, messagePass } from "../../test/log"
 
 export function Garages({ userMail }) {
   const navigate = useNavigate()
@@ -26,6 +27,9 @@ export function Garages({ userMail }) {
   function lookFor(e) {
     setIsSearching(true)
     setFilteredItems(dataGarages.filter(item => item.name.toLowerCase().includes(e.target.value.toLowerCase())))
+
+    console.log(messagePass, pass, "El indexado encontro resultados en el objeto filteredItems por lo que retorna Array() en Garages.jsx")
+    console.log(messagePass, pass, "Componentes renderizados")
   }
 
   useEffect(() => {

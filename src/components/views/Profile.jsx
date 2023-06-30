@@ -31,7 +31,12 @@ export function Profile() {
         Cerrar Sesión
       </Link>
 
-      <button className="profile-btn profile-btnRed">Borrar mi cuenta</button>
+      <button className="profile-btn profile-btnRed"
+      /*
+      console.log(messagePass, pass, "FirebasePromise: User data and sign auth has been deleted")
+      console.log(messagePass, pass, "Cuenta eliminada")
+      */
+      >Borrar mi cuenta</button>
     </section>
   )
 };

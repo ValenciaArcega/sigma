@@ -5,7 +5,7 @@ import { Loader } from '../interface/Loader'
 
 export function UserData({ userMail }) {
   const [userData, setUserData] = useState({})
-  const [dataLoaded, setDataLoaded] = useState(false)
+  const [dataLoaded, setDataLoaded] = useState(true)
   const firestore = getFirestore(firebaseApp)
 
   async function getUserName() {
@@ -17,6 +17,11 @@ export function UserData({ userMail }) {
       setUserData(data)
       setDataLoaded(true)
     }
+    /*
+   console.log(messageFail, fail, "La promesa retorna null en UserData.jsx")
+   console.log(messageFail, fail, "FirebaseError: Fetching data failed")
+   console.log(messageFail, fail, "Error al cargar los datos")
+   */
   }
 
   useEffect(() => {
