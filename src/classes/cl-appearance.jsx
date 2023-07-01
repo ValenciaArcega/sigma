@@ -10,7 +10,7 @@ export default class AppearanceCl {
     this.root.setProperty('--bg', '#f2f2f7')
     this.root.setProperty('--ff', '#fff')
     this.root.setProperty('--black18', '#181818')
-    // backgrounds
+    // background & foreground
     this.root.setProperty('--bg-garage', '#fff')
     this.root.setProperty('--bg-finder', '#fff')
     this.root.setProperty('--bg-input-specialty', '#fff')
@@ -21,6 +21,10 @@ export default class AppearanceCl {
     this.root.setProperty('--bg-input-cardDigits', '#fff')
     this.root.setProperty('--bg-input-expirationDate', '#fff')
     this.root.setProperty('--bg-input-cvv', '#fff')
+    this.root.setProperty('--bg-btn-profile', '#e1e7f7')
+    this.root.setProperty('--fr-btn-profile', '#0965c8')
+    this.root.setProperty('--bg-btnRed-profile', '#fff')
+    this.root.setProperty('--fr-btnRed-profile', '#de3333')
     // borders
     this.root.setProperty('--border-garage', '#c8c8c8')
     this.root.setProperty('--borderBKInput-date', '#c5c5c5')
@@ -56,6 +60,10 @@ export default class AppearanceCl {
     this.root.setProperty('--bg-input-cardDigits', '#181818')
     this.root.setProperty('--bg-input-expirationDate', '#181818')
     this.root.setProperty('--bg-input-cvv', '#181818')
+    this.root.setProperty('--bg-btn-profile', '#00154e')
+    this.root.setProperty('--fr-btn-profile', '#5facff')
+    this.root.setProperty('--bg-btnRed-profile', '#2e2e2e')
+    this.root.setProperty('--fr-btnRed-profile', '#ff6b6b')
     // borders
     this.root.setProperty('--border-garage', 'transparent')
     this.root.setProperty('--borderBKInput-date', '#2a2a2a')

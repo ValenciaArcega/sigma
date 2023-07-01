@@ -16,11 +16,16 @@
   --bg-input-green: #acffa5;
   --bg-input-red: #ffc5c5;
 
-  /* backgrounds */
+  /* background and foreground */
   --bg: #f2f2f7;
   --bg-blur-navBar: rgba(255, 255, 255, 0.4);
   --bg-garage: #fff;
   --bg-finder: #fff;
+
+  --fr-btn-profile: #0965c8;
+  --fr-btnRed-profile: #de3333;
+  --bg-btn-profile: #e1e7f7;
+  --bg-btnRed-profile: #fff;
 
   /* Booking-jsx */
   /* 📆 */
@@ -121,7 +126,7 @@ input {
 
 .login-img {
   height: 5.3rem;
-  user-select: none;
+  /* width: 5.3rem; */
   pointer-events: none;
 }
 
@@ -265,7 +270,7 @@ input {
 /* SignUp.jsx */
 .container-signUp,
 .container-updateData {
-  margin-top: 3rem;
+  margin-top: 6rem;
   padding-bottom: 5rem;
   display: flex;
   align-items: center;
@@ -638,8 +643,8 @@ input {
   text-decoration: none;
   border: none;
   outline: none;
-  color: #0965c8;
-  background-color: #e1e7f7;
+  color: var(--fr-btn-profile);
+  background-color: var(--bg-btn-profile);
 }
 
 .profile-btn:hover {
@@ -647,8 +652,8 @@ input {
 }
 
 .profile-btnRed {
-  color: #de3333;
-  background-color: #fff;
+  color: var(--fr-btnRed-profile);
+  background-color: var(--bg-btnRed-profile);
 }
 
 /* ///////////////////////////////////////////////////// */
@@ -997,6 +1002,7 @@ input {
   border: none;
   outline: none;
   background: none;
+  color: var(--black18);
 }
 
 .garageInfoCard-feature:hover {
@@ -1201,11 +1207,11 @@ input {
   width: 20rem;
   padding: 2rem 0;
   border-radius: 10px;
-  border: 2px dotted #FFCA7C;
+  border: 2px dotted #ffd28f;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F4FFC9;
+  background-color: #f9fcec;
 }
 
 .ticket-title {

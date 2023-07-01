@@ -53,7 +53,7 @@ export function SignIn({ setIsRegistering }) {
       {isWrong ? <BadCredentials message={error} /> : null}
 
       <form className="login" onSubmit={submitHandler}>
-        <img className="login-img" src="login.svg" alt="" />
+        <img className="login-img" src="/login.svg" alt="" />
         <h1 className="login-title">Inicia Sesión</h1>
 
         <label className="login-label" htmlFor="inputMail">Correo electrónico</label>
