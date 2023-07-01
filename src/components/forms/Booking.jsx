@@ -81,7 +81,11 @@ export function Booking() {
             autoComplete="new-password"
             onFocus={() => cl._inputFocusIn('number')}
             onBlur={() => cl._inputBlur('number')}
-            onKeyUp={() => cl._inputBookingNumberKeyUp()}
+            onKeyUp={() => {
+              cl._inputBookingNumberKeyUp()
+              cl._inputNumberKeyUp('data-p-bookingNumber')
+            }
+            }
           />
           <p className="form-booking-data-p data-p-bookingNumber"> </p>
 
@@ -116,7 +120,10 @@ export function Booking() {
             autoComplete="new-password"
             onFocus={() => cl._inputFocusIn('cardDigits')}
             onBlur={() => cl._inputBlur('cardDigits')}
-            onKeyUp={() => cl._inputCardDigitsKeyUp()}
+            onKeyUp={() => {
+              cl._inputCardDigitsKeyUp()
+              cl._inputNumberKeyUp('payment-p-cardDigits')
+            }}
           />
           <p className="form-booking-payment-p payment-p-cardDigits"> </p>
           {/* expirationDate */}
@@ -128,7 +135,10 @@ export function Booking() {
             autoComplete="new-password"
             onFocus={() => cl._inputFocusIn('expirationDate')}
             onBlur={() => cl._inputBlur('expirationDate')}
-            onKeyUp={() => cl._reviewInputExpirationDate()}
+            onKeyUp={() => {
+              cl._inputExpirationDateKeyUp()
+              cl._inputNumberKeyUp('payment-p-expirationDate')
+            }}
           />
           <p className="form-booking-payment-p payment-p-expirationDate"> </p>
           {/* cvv */}
@@ -143,7 +153,10 @@ export function Booking() {
             inputMode="numeric"
             onFocus={() => cl._inputFocusIn('cvv')}
             onBlur={() => cl._inputBlur('cvv')}
-            onKeyUp={() => cl._inputCVVKeyUp()}
+            onKeyUp={() => {
+              cl._inputCVVKeyUp()
+              cl._inputNumberKeyUp('payment-p-cvv')
+            }}
           />
           <p className="form-booking-payment-p payment-p-cvv"> </p>
 

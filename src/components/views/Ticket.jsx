@@ -1,15 +1,18 @@
-// import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 
 export function Ticket() {
   const location = useLocation()
   const data = location.state
-  const day = data[0].date.getDate()
-  const weekDay = data[0].date.toLocaleDateString("es-MX", { weekday: 'long' })
-  const weekDayStr = weekDay.slice(0, 1).toUpperCase() + weekDay.slice(1).toLowerCase()
 
   function fixNumberCard(num) {
     return '**** **** **** ' + num.slice(-4)
+  }
+
+  function setDate() {
+    const day = data[0].date.getDate()
+    const weekDay = data[0].date.toLocaleDateString("es-MX", { weekday: 'long' })
+    const weekDayStr = weekDay.slice(0, 1).toUpperCase() + weekDay.slice(1).toLowerCase()
+    return weekDayStr + ' ' + day
   }
 
   /*useEffect(() => {
@@ -30,7 +33,7 @@ export function Ticket() {
         <p>{data[0].service}</p>
 
         <h3>Fecha de la cita</h3>
-        <p>{weekDayStr + ' ' + day}</p>
+        <p>{setDate()}</p>
 
         <h3>Horario de la cita</h3>
         <p>{data[0].schedule}</p>

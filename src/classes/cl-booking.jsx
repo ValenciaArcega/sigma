@@ -50,7 +50,7 @@ export class ClReviewBooking {
 
     this.root.setProperty('--borderBKInput-expirationDate', '#4263eb')
 
-    if (input.value[a].match(/[´¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\¿?]/) || input.value[a].match(this._regExpLetters)) {
+    if (input.value.match(/[´¡°!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\¿?]/) || input.value.match(this._regExpLetters)) {
       this.root.setProperty('--borderBKInput-expirationDate', '#DF0000')
       textError.textContent = 'Sin caracteres especiales'
     } else textError.textContent = ''
@@ -65,6 +65,12 @@ export class ClReviewBooking {
     const input = document.querySelector('.payment-input-cvv')
 
     if (input.value.length > 3) input.value = input.value.slice(0, 3)
+  }
+
+  _inputNumberKeyUp(p) {
+    const textError = document.querySelector(`.${p}`)
+
+    textError.textContent = ''
   }
 
   _reviewInputSchedule() {
