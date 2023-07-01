@@ -32,6 +32,11 @@ export function Profile() {
       </Link>
 
       <button className="profile-btn profile-btnRed"
+        onClick={() => {
+          classAppearance._makeLight()
+          console.log('Account deleted ⛔!')
+          signOut(auth)
+        }}
       /*
       console.log(messagePass, pass, "FirebasePromise: User data and sign auth has been deleted")
       console.log(messagePass, pass, "Cuenta eliminada")

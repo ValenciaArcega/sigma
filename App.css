@@ -135,8 +135,6 @@ input {
   font-size: 2rem;
   letter-spacing: -1px;
   font-weight: 800;
-  user-select: none;
-  pointer-events: none;
   background: linear-gradient(to right bottom, #8fa0e7, var(--mainColor-shade));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -146,8 +144,6 @@ input {
   width: 80%;
   margin-top: 1rem;
   font-weight: 600;
-  user-select: none;
-  pointer-events: none;
 }
 
 .login-inputMail,
@@ -228,8 +224,6 @@ input {
   top: 36px;
   left: 50%;
   transform: translateX(-50%);
-  user-select: none;
-  pointer-events: none;
   position: fixed;
   font-weight: 600;
   display: flex;
@@ -270,7 +264,7 @@ input {
 /* SignUp.jsx */
 .container-signUp,
 .container-updateData {
-  margin-top: 6rem;
+  margin-top: 3rem;
   padding-bottom: 5rem;
   display: flex;
   align-items: center;
@@ -798,6 +792,7 @@ input {
   width: 45px;
   height: 45px;
   background: #ffffff15;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 50px;
 }
@@ -1203,7 +1198,6 @@ input {
 }
 
 .ticket {
-  /* height: 35rem; */
   width: 20rem;
   padding: 2rem 0;
   border-radius: 10px;
@@ -1424,6 +1418,7 @@ input:not(:placeholder-shown)~.finder-btnClose {
   width: 45px;
   height: 45px;
   background: #ffffff15;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 50px;
 }

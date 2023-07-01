@@ -5,7 +5,7 @@ import { Loader } from '../interface/Loader'
 
 export function UserData({ userMail }) {
   const [userData, setUserData] = useState({})
-  const [dataLoaded, setDataLoaded] = useState(true)
+  const [dataLoaded, setDataLoaded] = useState(false)
   const firestore = getFirestore(firebaseApp)
 
   async function getUserName() {

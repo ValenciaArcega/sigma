@@ -1,12 +1,14 @@
 import { getFirestore, getDoc, updateDoc, doc } from "firebase/firestore"
 import { ClReviewUpdateData } from "../../classes/cl-updateData"
+import { ClReviewSignUp } from "../../classes/cl-signUp"
 import { DataUpdated } from "../messages/DataUpdated"
 import { firebaseApp } from '../../credentials'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function UpdateData({ userMail }) {
   const firestore = getFirestore(firebaseApp)
   const cl = new ClReviewUpdateData()
+
   const [gotEdit, setGotEdit] = useState(false)
 
 
@@ -48,6 +50,10 @@ export function UpdateData({ userMail }) {
     console.log(messagePass, pass, "Datos actualizados en UpdateData.jsx")
     */
   }
+
+  useEffect(() => {
+    new ClReviewSignUp()._resetBorders()
+  }, [])
 
   return (
     <section className="container-updateData">

@@ -122,13 +122,6 @@ export class ClReviewSignUp {
     if (this._reviewInputName() && this._reviewInputMail() && this._reviewInputPassConfirm() && this._reviewInputPass()) return true
   }
 
-  _resetBorders() {
-    this.root.setProperty('--borderInput-name', '#c5c5c5')
-    this.root.setProperty('--borderInput-mail', '#c5c5c5')
-    this.root.setProperty('--borderInput-pass', '#c5c5c5')
-    this.root.setProperty('--borderInput-passConfirm', '#c5c5c5')
-  }
-
   // 🔑
 
   _emptyConfirmPass() {
@@ -149,6 +142,36 @@ export class ClReviewSignUp {
       iconShow.classList.remove('hidden')
       iconHide.classList.add('hidden')
     }
+  }
+
+  // for all forms
+  _resetBorders() {
+    this.root.setProperty('--borderInput-name', '#c5c5c5')
+    this.root.setProperty('--borderInput-mail', '#c5c5c5')
+    this.root.setProperty('--borderInput-pass', '#c5c5c5')
+    this.root.setProperty('--borderInput-passConfirm', '#c5c5c5')
+    // UpdateData.jsx
+    this.root.setProperty('--borderUDInput-name', '#c5c5c5')
+    this.root.setProperty('--borderUDInput-number', '#c5c5c5')
+    this.root.setProperty('--borderUDInput-plates', '#c5c5c5')
+    this.root.setProperty('--borderUDInput-modelCar', '#c5c5c5')
+    // Booking.jsx
+    this.root.setProperty('--borderBKInput-date', '#c5c5c5')
+    this.root.setProperty('--borderBKInput-schedule', '#c5c5c5')
+    this.root.setProperty('--borderBKInput-number', '#c5c5c5')
+    this.root.setProperty('--borderBKInput-checkPassword', '#c5c5c5')
+
+    this.root.setProperty('--borderBKInput-cardDigits', '#c5c5c5')
+    this.root.setProperty('--borderBKInput-expirationDate', '#c5c5c5')
+    this.root.setProperty('--borderBKInput-cvv', '#c5c5c5')
+
+    this.root.setProperty('--borderInput-garage-name', '#c5c5c5')
+    this.root.setProperty('--borderInput-garage-number', '#c5c5c5')
+    this.root.setProperty('--borderInput-garage-coorLat', '#c5c5c5')
+    this.root.setProperty('--borderInput-garage-coorLong', '#c5c5c5')
+    this.root.setProperty('--borderInput-garage-serv1', '#c5c5c5')
+    this.root.setProperty('--borderInput-garage-serv2', '#c5c5c5')
+    this.root.setProperty('--borderInput-garage-serv3', '#c5c5c5')
   }
 
 } // class

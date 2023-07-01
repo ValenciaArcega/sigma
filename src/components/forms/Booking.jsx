@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
+import { ClReviewSignUp } from "../../classes/cl-signUp"
 
 export function Booking() {
   let a
@@ -32,6 +33,10 @@ export function Booking() {
       navigate('/sigma/garage/booking/ticket/', { state: a })
     }
   }
+
+  useEffect(() => {
+    new ClReviewSignUp()._resetBorders()
+  }, [])
 
   return (
     <section className="container-booking">

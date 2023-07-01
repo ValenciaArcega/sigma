@@ -1,11 +1,23 @@
+import { useEffect } from "react"
 import { ClReviewAddGarage } from "../../classes/cl-addGarage"
+import { ClReviewSignUp } from "../../classes/cl-signUp"
 
 export function AddGarage() {
   const cl = new ClReviewAddGarage()
 
+  function requestAdd(e) {
+    e.preventDefault()
+    const garageName_requested = e.target.inputGarageName.value
+    console.log(`Well ${garageName_requested}. Request data sent ✅!`)
+  }
+
+  useEffect(() => {
+    new ClReviewSignUp()._resetBorders()
+  }, [])
+
   return (
     <section className="container-form-addGarage">
-      <form className="form-addGarage">
+      <form className="form-addGarage" onSubmit={requestAdd}>
         <section className="form-addGarage-section-1">
           <h1 className="form-addGarage-h1"><span className="gradient">Registrar mi taller</span></h1>
 
@@ -105,7 +117,7 @@ export function AddGarage() {
           />
           <p className="form-addGarage-p addGarage-p-serv3"></p>
 
-          <button className="form-addGarage-btn">Enviar Solicitud</button>
+          <button className="form-addGarage-btn" type="submit">Enviar Solicitud</button>
         </section>
       </form>
     </section>

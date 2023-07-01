@@ -87,9 +87,9 @@ export class ClReviewBooking {
     if (input.value === '') {
       this.root.setProperty('--borderBKInput-number', '#DF0000')
       textError.textContent = 'El campo es obligatorio'
-      // } else if (input.value.length < 10) {
-      //   this.root.setProperty('--borderBKInput-number', '#DF0000')
-      //   textError.textContent = 'Se esperan 10 dígitos'
+    } else if (input.value.length < 10) {
+      this.root.setProperty('--borderBKInput-number', '#DF0000')
+      textError.textContent = 'Se esperan 10 dígitos'
     } else return true
   }
 
@@ -100,9 +100,9 @@ export class ClReviewBooking {
     if (input.value === '') {
       this.root.setProperty('--borderBKInput-cardDigits', '#DF0000')
       textError.textContent = 'El campo es obligatorio'
-      // } else if (input.value.length < 16) {
-      //   this.root.setProperty('--borderBKInput-cardDigits', '#DF0000')
-      //   textError.textContent = 'Se esperan 16 dígitos'
+    } else if (input.value.length < 16) {
+      this.root.setProperty('--borderBKInput-cardDigits', '#DF0000')
+      textError.textContent = 'Se esperan 16 dígitos'
     } else return true
   }
 
